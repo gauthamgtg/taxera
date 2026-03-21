@@ -5,12 +5,12 @@ import { BRAND } from '../../config';
 import { SERVICES_DATA } from '../../data/servicesData';
 
 const POPULAR_SERVICE_LINKS = [
-  ['reg', 'private-limited-company-registration'],
-  ['reg', 'gst-registration'],
-  ['tax', 'business-itr-filing-simple'],
-  ['mca', 'annual-roc-filing-small-private-limited'],
-  ['payroll', 'payroll-processing-pf-esi-small-company'],
-  ['accounting', 'bookkeeping-small-business'],
+  ['websites', 'website-design-development'],
+  ['growth', 'seo-optimization-retainer'],
+  ['decks', 'pitch-deck-creation'],
+  ['analytics', 'executive-dashboard-creation'],
+  ['automation', 'ai-automation-implementation'],
+  ['automation', 'chatbot-integration-website-whatsapp'],
 ].map(([categoryId, serviceSlug]) => {
   const category = SERVICES_DATA.find((item) => item.id === categoryId);
   const service = category?.services.find((item) => item.slug === serviceSlug);
@@ -83,7 +83,7 @@ export function Navbar() {
           </span>
           <span>
             {BRAND.name}
-            <span className="ml-2 text-xs font-medium uppercase tracking-[0.22em] text-blue-600">India Desk</span>
+            <span className="ml-2 text-xs font-medium uppercase tracking-[0.22em] text-blue-600">Business OS</span>
           </span>
         </Link>
 

@@ -4,36 +4,41 @@ import { SERVICES_DATA } from '../../data/servicesData';
 
 export const HOME_FAQS = [
   {
-    question: 'What services does Taxera provide across India?',
+    question: 'What does Taxera mean by a Business OS?',
     answer:
-      'Taxera supports business registration, GST registration and filing, income tax filing, ROC compliance, payroll processing, bookkeeping, notice replies, and virtual CFO support for businesses operating in India.',
+      'It means Taxera helps build the operating layer behind growth: websites, SEO systems, presentation assets, analytics, dashboards, chatbot integrations, and AI automations that make the business run more cleanly, while keeping finance and compliance under the same desk.',
   },
   {
-    question: 'Can one team handle registration, GST, tax, ROC, payroll, and bookkeeping together?',
+    question: 'Did Taxera stop offering registration, GST, tax, ROC, payroll, and bookkeeping?',
     answer:
-      'Yes. Taxera is designed as a single coordinated desk so businesses can manage company setup, tax filing, compliance, payroll, and books without switching between multiple firms or freelancers.',
+      'No. Those financial and compliance services are still part of the core offer. Taxera now presents both the Business OS layer and the finance/compliance layer together because many businesses need both under one execution desk.',
   },
   {
-    question: 'Does Taxera help with overdue filings, notices, and compliance cleanup?',
+    question: 'Can one team handle website making, SEO optimization, decks, dashboards, automations, and finance/compliance work together?',
     answer:
-      'Yes. Taxera handles GST notices, income tax notices, ROC delays, return backlogs, and other cleanup work where documentation, response drafting, and filing follow-through need to stay coordinated.',
+      'Yes. That is the point of the model. Taxera is structured as one coordinated desk so businesses do not need separate freelancers for the site, deck, analytics, chatbot, tax, GST, bookkeeping, or compliance work.',
   },
   {
-    question: 'How do I start if I need company registration, GST filing, or ongoing compliance support?',
+    question: 'Do you also handle audits and optimization work after the first build?',
     answer:
-      'Start with a consultation or WhatsApp message describing the business stage and immediate requirement. Taxera will confirm the right service path, required documents, and the next execution steps.',
+      'Yes. Website audits, conversion audits, SEO optimization, speed fixes, dashboard refinement, automation improvements, notice handling, and finance cleanup work are all part of the stack.',
+  },
+  {
+    question: 'How do I start if I need a website, pitch deck, GST filing, payroll setup, or AI automation support?',
+    answer:
+      'Start with a consultation or WhatsApp message describing the business stage, current bottleneck, and goal. Taxera will recommend the right service path and the next execution steps across both growth systems and financial operations.',
   },
 ];
 
 const PRIORITY_SERVICE_LINKS = [
-  ['reg', 'private-limited-company-registration'],
-  ['reg', 'gst-registration'],
-  ['gst', 'gst-return-filing-monthly-quarterly'],
-  ['tax', 'business-itr-filing-simple'],
-  ['mca', 'annual-roc-filing-small-private-limited'],
-  ['payroll', 'payroll-processing-pf-esi-small-company'],
-  ['accounting', 'bookkeeping-small-business'],
-  ['notices', 'gst-notice-reply'],
+  ['websites', 'website-design-development'],
+  ['websites', 'website-audit'],
+  ['growth', 'seo-optimization-retainer'],
+  ['decks', 'ppt-making'],
+  ['decks', 'pitch-deck-creation'],
+  ['analytics', 'executive-dashboard-creation'],
+  ['automation', 'ai-automation-implementation'],
+  ['automation', 'chatbot-integration-website-whatsapp'],
 ].map(([categoryId, serviceSlug]) => {
   const category = SERVICES_DATA.find((item) => item.id === categoryId);
   const service = category?.services.find((item) => item.slug === serviceSlug);
@@ -57,10 +62,10 @@ export function HomeFaq() {
           <div>
             <span className="section-label mb-3 block text-xs font-semibold uppercase">FAQs</span>
             <h2 className="max-w-xl text-3xl font-bold tracking-tight text-blue-950 md:text-5xl">
-              Answers for buyers comparing registration, tax, and compliance support in India.
+              Answers for buyers comparing Business OS partners and finance/compliance desks.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-blue-900/65">
-              These are the common questions founders and operators ask before choosing a long-term desk for company registration, GST filing, ROC compliance, payroll, bookkeeping, and notice handling.
+              These are the common questions founders and operators ask before choosing one partner to handle both front-end growth systems and back-end financial operations.
             </p>
 
             <div className="ink-panel mt-8 rounded-[1.9rem] p-5 text-white">

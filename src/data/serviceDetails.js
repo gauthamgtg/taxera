@@ -471,81 +471,63 @@ const SERVICE_CONTENT = {
 };
 
 const CATEGORY_CONTEXT = {
-  reg: {
-    label: 'business registration and legal setup',
-    defaultDocuments: ['Identity proof of proprietor, director, or signatory', 'Business address proof and utility record', 'Entity-specific supporting documents or declarations', 'Working contact details for OTP and portal verification'],
-    whoNeeds: ['New founders starting business operations in India', 'Growing companies adding statutory registrations in sequence', 'Businesses regularising pending setup items before launch or expansion'],
-    keywords: ['business registration india', 'company setup services', 'legal registration consultant'],
+  strategy: {
+    label: 'business operating system strategy',
+    defaultDocuments: ['Current offer or service list', 'Notes on sales process, delivery workflow, and existing tools', 'Reference materials such as website, deck, or internal docs', 'Business goals, bottlenecks, and constraints for the engagement'],
+    whoNeeds: ['Founder-led businesses moving from ad hoc operations to repeatable systems', 'Agencies and consultants that need cleaner offers, SOPs, and CRM logic', 'Teams redesigning internal workflows before they scale'],
+    keywords: ['business os consulting', 'operations workflow design', 'crm and sop setup'],
   },
-  gst: {
-    label: 'GST filing and indirect tax compliance',
-    defaultDocuments: ['GST login access or filing data export', 'Sales and purchase summary with invoice records', 'Reconciliation notes for mismatches or pending action items', 'Previous filing acknowledgements and notice references if any'],
-    whoNeeds: ['GST-registered businesses with regular monthly filing obligations', 'Exporters and B2B suppliers needing cleaner GST workflow', 'Founders who want GST deadlines and reconciliations handled correctly'],
-    keywords: ['gst filing services india', 'gst compliance consultant', 'gstr return filing support'],
+  websites: {
+    label: 'website and funnel delivery',
+    defaultDocuments: ['Current website URL or design references', 'Brand assets, copy notes, and service positioning inputs', 'Desired pages, CTAs, and funnel goals', 'Access details or stack information if an existing site is being updated'],
+    whoNeeds: ['Businesses launching a new site or landing page', 'Teams redesigning an outdated website', 'Founders that need website audit and optimization support'],
+    keywords: ['website design and development', 'website audit service', 'website optimization service'],
   },
-  tax: {
-    label: 'income tax and TDS compliance',
-    defaultDocuments: ['PAN, login access, and profile details of taxpayer or entity', 'Bank statements, books, or capital gains summaries as applicable', 'Form 16, Form 26AS, AIS, TIS, or TDS records', 'Previous year return copy and tax notice references where relevant'],
-    whoNeeds: ['Individuals with income tax filing obligations', 'Businesses managing TDS and annual income tax timelines', 'Teams handling complex tax positions, remittances, or notices'],
-    keywords: ['income tax filing india', 'tds return filing service', 'tax notice response support'],
+  growth: {
+    label: 'SEO and growth optimization',
+    defaultDocuments: ['Search Console and analytics access where available', 'Target pages, service offers, and keyword themes', 'Current content inventory or sitemap', 'Baseline traffic or conversion notes if tracking exists'],
+    whoNeeds: ['Businesses trying to improve organic traffic quality', 'Teams fixing weak page discoverability or conversion flow', 'Operators that need structured SEO execution instead of one-off tips'],
+    keywords: ['seo optimization services', 'technical seo setup', 'conversion audit service'],
   },
-  mca: {
-    label: 'MCA and ROC compliance',
-    defaultDocuments: ['MCA login details and entity master data', 'Financial statements, board resolutions, or member approvals', 'DSC availability of authorised signatories', 'Supporting annexures for annual or event-based filings'],
-    whoNeeds: ['Private limited companies managing annual ROC obligations', 'LLPs filing yearly MCA forms and partner compliance', 'Founders updating company records with the Registrar of Companies'],
-    keywords: ['roc filing india', 'mca compliance service', 'annual roc filing consultant'],
+  decks: {
+    label: 'presentation design and business storytelling',
+    defaultDocuments: ['Raw content, talking points, or rough draft deck', 'Brand guidelines or design references', 'Context for the audience, meeting, or use case', 'Data points, proof, screenshots, or visuals to include'],
+    whoNeeds: ['Founders preparing investor or sales meetings', 'Consultants packaging offers into PPTs and slide decks', 'Teams that need pitch deck or company profile support'],
+    keywords: ['ppt making service', 'slide deck design', 'pitch deck creation'],
   },
-  dsc: {
-    label: 'digital signature issuance and renewal support',
-    defaultDocuments: ['PAN and Aadhaar of applicant', 'Live mobile number and email for verification', 'Photo, KYC, and video verification inputs', 'Existing DSC details if this is a renewal case'],
-    whoNeeds: ['Directors and partners signing statutory filings', 'Business owners renewing signature credentials before deadlines', 'Teams that need active DSCs for tax, MCA, GST, or tender submissions'],
-    keywords: ['digital signature certificate india', 'class 3 dsc service', 'dsc renewal support'],
+  analytics: {
+    label: 'analytics and dashboard systems',
+    defaultDocuments: ['Existing analytics or ad platform access', 'Data sources such as CRM, sheets, or reporting tools', 'The KPIs leadership actually wants to track', 'Current reporting pain points or decision gaps'],
+    whoNeeds: ['Businesses that need dashboard creating and KPI visibility', 'Growth teams setting up GA4, GTM, or attribution tracking', 'Leadership teams replacing manual spreadsheet reporting'],
+    keywords: ['dashboard creation service', 'analytics setup service', 'executive dashboard creation'],
   },
-  payroll: {
-    label: 'payroll processing and employee compliance',
-    defaultDocuments: ['Employee master, salary structure, and attendance inputs', 'PF, ESI, and payroll registration details', 'Previous payroll records or opening balances', 'Monthly joining, exit, and reimbursement updates'],
-    whoNeeds: ['Small companies formalising monthly payroll operations', 'Growing businesses managing PF and ESI along with payroll', 'Founders that want payroll accuracy without building an internal team'],
-    keywords: ['payroll processing service india', 'pf esi filing support', 'payroll compliance consultant'],
-  },
-  accounting: {
-    label: 'bookkeeping and accounting support',
-    defaultDocuments: ['Bank statements, invoice data, and expense records', 'Accounting software export or ledger backup', 'GST and tax mapping references', 'Pending reconciliation notes or cleanup requirements'],
-    whoNeeds: ['Businesses that need monthly books updated consistently', 'Teams with backlog cleanup or reconciliation-heavy workload', 'Founders who need cleaner accounting before tax or funding reviews'],
-    keywords: ['bookkeeping service india', 'monthly accounting support', 'accounting cleanup consultant'],
-  },
-  advisory: {
-    label: 'finance reporting and strategic advisory',
-    defaultDocuments: ['Historical financials and operating assumptions', 'Revenue, expense, and working capital inputs', 'Bank or investor-specific format requirements', 'Management questions, targets, and reporting expectations'],
-    whoNeeds: ['SMEs that need structured reporting for decision-making', 'Founders preparing bank loan proposals or lender discussions', 'Leadership teams needing CFO-style review and finance planning support'],
-    keywords: ['virtual cfo services india', 'mis reporting support', 'cma data preparation'],
-  },
-  notices: {
-    label: 'notices, refunds, and audit response support',
-    defaultDocuments: ['Department notice, order, or refund communication copy', 'Relevant filings, returns, and working papers', 'Evidence set, reconciliations, and response history', 'Authorisation and timelines linked to the matter'],
-    whoNeeds: ['Businesses facing GST or income tax notice pressure', 'Taxpayers tracking delayed refunds or rectification issues', 'Teams needing stronger drafting and evidence support for audits or escalations'],
-    keywords: ['gst refund support', 'income tax refund rectification', 'audit notice reply service'],
+  automation: {
+    label: 'AI automations and chatbot integrations',
+    defaultDocuments: ['List of repetitive workflows or response bottlenecks', 'Current tools such as CRM, forms, sheets, inboxes, or chat platforms', 'Desired automation outcome and approval logic', 'Knowledge base, FAQs, or source material for any chatbot or AI assistant'],
+    whoNeeds: ['Teams that want faster lead routing and follow-up', 'Businesses integrating chatbots into website or WhatsApp flows', 'Operators trying to remove manual reporting or repetitive ops work'],
+    keywords: ['ai automations', 'chatbot integrations', 'workflow integrations zapier make'],
   },
 };
 
 const COMMON_REASONS = [
-  'You avoid filing errors that usually delay approvals, acknowledgements, or departmental closure.',
-  'You get a clear document checklist before time is spent on a filing that is not submission-ready.',
-  'You can plan timelines realistically instead of guessing based on portal status or incomplete advice.',
-  'You get direct support if authority queries, mismatches, or clarification notices appear during the process.',
+  'You get a clearer scope before time is spent on the wrong deliverable or channel.',
+  'You know what inputs, assets, and dependencies are required before production starts.',
+  'You can plan timelines realistically instead of guessing based on partial context or scattered advice.',
+  'You get direct support as the work moves from strategy into production and post-launch refinement.',
 ];
 
 const COMMON_WHY_CHOOSE = [
-  'One team handles review, drafting, filing, and follow-through instead of splitting work across vendors.',
-  'Updates are shared clearly, without vague status messages or portal jargon.',
-  'Inputs are reviewed before submission so avoidable rework is reduced.',
-  'Support continues after filing with practical next-step guidance where the workflow requires it.',
+  'One team handles review, design, execution, and follow-through instead of splitting work across vendors.',
+  'Updates are shared clearly, without vague status messages or delivery ambiguity.',
+  'Inputs are reviewed before production so avoidable rework is reduced.',
+  'Support continues after launch with practical next-step guidance where the workflow requires it.',
 ];
 
 const COMMON_PROCESS = [
-  { title: 'Requirement check', desc: 'We confirm the exact filing route, current status, and dependencies before document collection starts.' },
-  { title: 'Document preparation', desc: 'Inputs are reviewed, corrected if required, and arranged in the format accepted by the relevant authority or workflow.' },
-  { title: 'Filing and follow-up', desc: 'Submission is completed with coordinated follow-up on acknowledgements, clarifications, or portal status movement.' },
-  { title: 'Closure and next steps', desc: 'You receive the final status, record set, and immediate compliance actions that matter after completion.' },
+  { title: 'Requirement check', desc: 'We confirm the exact objective, current status, and dependencies before execution starts.' },
+  { title: 'Input preparation', desc: 'Inputs are reviewed, corrected if required, and arranged in the format needed for the workflow.' },
+  { title: 'Build and follow-through', desc: 'Production is completed with coordinated follow-up on reviews, revisions, and launch-readiness.' },
+  { title: 'Closure and next steps', desc: 'You receive the final output, status clarity, and immediate actions that matter after completion.' },
 ];
 
 function buildFaq(serviceName, categoryId, details) {
@@ -745,22 +727,22 @@ function buildFaq(serviceName, categoryId, details) {
         {
           question: `How long does ${lowerName} usually take?`,
           answer:
-            'Turnaround depends on document readiness, portal workload, and whether any authority clarification is triggered. We share a practical timeline after reviewing your case.',
+            'Turnaround depends on scope, input readiness, review cycles, and how much new build or refinement is involved. We share a practical timeline after reviewing your case.',
         },
         {
           question: `Can Taxera help if my ${lowerName} work is already delayed or rejected?`,
           answer:
-            'Yes. We first review the existing status, identify the gap in documents or filing approach, and then rebuild the next submission or response route around that issue.',
+            'Yes. We first review the current status, identify the gap in strategy, assets, or execution flow, and then rebuild the next route around that issue.',
         },
         {
           question: 'What do I need to keep ready before we start?',
           answer:
-            'We usually need identity and login details, entity records, financial or filing data, and any authority communication already received. The exact checklist is shared once scope is confirmed.',
+            'We usually need the current assets, goals, access details, reference materials, and any relevant data tied to the engagement. The exact checklist is shared once scope is confirmed.',
         },
         {
-          question: 'Do I get support after the filing or submission is done?',
+          question: 'Do I get support after the first delivery is done?',
           answer:
-            'Yes. We close the loop with practical next actions so you know what needs to be tracked, renewed, replied to, or filed next.',
+            'Yes. We close the loop with practical next actions so you know what to track, improve, automate, or launch next.',
         },
       ];
   }
@@ -814,8 +796,8 @@ function buildOverview(service, category, context, details) {
       ];
     default:
       return [
-        `${service.name} is part of the ${category.name.toLowerCase()} workflow and usually needs more than a single form submission. Document readiness, sequencing, and follow-up quality are what keep the process moving without unnecessary delay.`,
-        `Taxera handles ${service.name.toLowerCase()} with a practical execution approach: scope review, checklist validation, submission support, and next-step clarity once the filing or response is complete.`,
+        `${service.name} sits inside the ${category.name.toLowerCase()} layer and usually works best when it is connected to the larger operating system around it, not treated as a disconnected one-off task.`,
+        `Taxera handles ${service.name.toLowerCase()} with a practical execution approach: scope review, input validation, build support, and next-step clarity once the first delivery is complete.`,
       ];
   }
 }
@@ -868,8 +850,8 @@ function buildDetailedInformation(service, category, context, details) {
       ];
     default:
       return [
-        `${service.name} is usually time-sensitive because the underlying workflow sits inside ${context.label}. When inputs are incomplete or records do not match the authority profile, rework can slow the case down quickly.`,
-        `A strong ${service.name.toLowerCase()} process starts with accurate records, correctly sequenced action points, and clean review before submission. That is especially important when the work affects future compliance, tax positions, or operational continuity.`,
+        `${service.name} is usually sensitive to input quality because the underlying workflow sits inside ${context.label}. When strategy, assets, or access details are incomplete, rework slows the outcome quickly.`,
+        `A strong ${service.name.toLowerCase()} process starts with accurate inputs, correctly sequenced action points, and clean review before launch. That matters most when the work affects future growth, reporting clarity, or operational continuity.`,
       ];
   }
 }
@@ -928,9 +910,9 @@ function buildJourney(service, categoryId) {
     default:
       return [
         { title: 'Scope review', desc: `We review your exact requirement and confirm whether ${service.name.toLowerCase()} is the right route for the current case.` },
-        { title: 'Input validation', desc: 'Documents, records, and portal data are checked before drafting or filing begins.' },
-        { title: 'Submission support', desc: 'The filing, response, or working paper set is prepared and submitted with active follow-up.' },
-        { title: 'Final handover', desc: 'You receive acknowledgement, status clarity, and practical next actions after closure.' },
+        { title: 'Input validation', desc: 'Assets, records, access details, and source material are checked before production begins.' },
+        { title: 'Build support', desc: 'The deliverable, workflow, or working system is produced with active follow-up on feedback and implementation details.' },
+        { title: 'Final handover', desc: 'You receive output, status clarity, and practical next actions after closure.' },
       ];
   }
 }
@@ -978,10 +960,10 @@ function buildExecution(service, category, details) {
       ];
     default:
       return [
-        `Eligibility and route check for ${service.name.toLowerCase()}.`,
+        `Scope and route check for ${service.name.toLowerCase()}.`,
         `Document review and preparation aligned to ${category.name.toLowerCase()}.`,
-        'Submission, follow-up, and authority query handling support.',
-        'Final record handover with next-step compliance guidance.',
+        'Production, implementation, and review support.',
+        'Final handover with next-step operating guidance.',
       ];
   }
 }
@@ -999,7 +981,7 @@ function buildMetaKeywords(service, category, context, details) {
 
 function buildServicePage(category, service, index) {
   const details = SERVICE_CONTENT[service.slug] || {};
-  const context = CATEGORY_CONTEXT[category.id] || CATEGORY_CONTEXT.reg;
+  const context = CATEGORY_CONTEXT[category.id] || CATEGORY_CONTEXT.strategy;
   const heading = `${service.name} Services in India`;
 
   return {
@@ -1010,7 +992,7 @@ function buildServicePage(category, service, index) {
     heading,
     intro:
       details.intro ||
-      `${service.name} with end-to-end support for review, documentation, filing, follow-up, and the immediate next compliance actions that matter after completion.`,
+      `${service.name} with end-to-end support for review, inputs, execution, follow-through, and the immediate next operating actions that matter after completion.`,
     overview: buildOverview(service, category, context, details),
     detailedInformation: buildDetailedInformation(service, category, context, details),
     documents: details.documents || context.defaultDocuments,
@@ -1024,7 +1006,7 @@ function buildServicePage(category, service, index) {
     metaTitle: details.metaTitle || `${service.name} in India | ${category.name} | Taxera`,
     metaDescription:
       details.metaDescription ||
-      `${service.name} with practical support on documents, timelines, filing flow, and post-submission next steps. Explore Taxera's ${category.name.toLowerCase()} support in India.`,
+      `${service.name} with practical support on inputs, timelines, execution flow, and post-delivery next steps. Explore Taxera's ${category.name.toLowerCase()} support in India.`,
     metaKeywords: details.metaKeywords || buildMetaKeywords(service, category, context, details),
   };
 }

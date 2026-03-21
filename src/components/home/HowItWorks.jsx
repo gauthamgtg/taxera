@@ -4,18 +4,18 @@ export function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: 'Share the requirement',
-      desc: 'Start with a WhatsApp message or the relevant service page so the right category is captured from the start.',
+      title: 'Diagnose the real bottleneck',
+      desc: 'Start with the business goal or the current blocker so we can identify whether the first fix should be your website, SEO, deck, analytics, or automation stack.',
     },
     {
       num: '02',
-      title: 'Confirm scope and documents',
-      desc: 'We align the service path, document checklist, and timing before any execution begins.',
+      title: 'Define the right system',
+      desc: 'We scope the exact deliverables, workflow, and dependencies before execution starts so the work fits together cleanly.',
     },
     {
       num: '03',
-      title: 'Execute and follow through',
-      desc: 'The team handles filing, coordination, and updates with one clear point of contact.',
+      title: 'Build, launch, and refine',
+      desc: 'The team executes the assets and systems, then closes with what to monitor, optimize, or automate next.',
     },
   ];
 
@@ -26,10 +26,10 @@ export function HowItWorks() {
           <div className="max-w-3xl">
             <span className="section-label mb-3 block text-xs font-semibold uppercase">How It Works</span>
             <h2 className="text-3xl font-bold tracking-tight text-blue-950 md:text-5xl">
-              A clear process for registration, tax, and compliance delivery.
+              A clean process for installing business systems without losing the finance and compliance backbone.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-blue-900/65">
-              Taxera keeps the workflow organized from the first conversation to final filing so founders and business teams do not have to coordinate multiple vendors.
+              Taxera keeps the work connected from diagnosis to delivery so you do not have to coordinate one vendor for websites, another for SEO, another for decks, and a separate firm for GST, tax, payroll, or bookkeeping.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export function HowItWorks() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-700/55">Execution model</p>
-                <p className="mt-2 text-lg font-semibold text-blue-950">Single desk. Clear routing. Direct updates.</p>
+                <p className="mt-2 text-lg font-semibold text-blue-950">Single operator. Clear system logic. Direct updates.</p>
               </div>
               <div className="animate-pulse-glow flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 text-white">
                 <Sparkles className="h-5 w-5" />
@@ -45,7 +45,7 @@ export function HowItWorks() {
             </div>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {['Consultation-led', 'Document-first', 'WhatsApp support'].map((item) => (
+              {['Audit-led', 'System-first', 'Finance-aware'].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-blue-100 bg-white/85 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-700/70"
@@ -75,7 +75,7 @@ export function HowItWorks() {
               </div>
               <div className="mt-6 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700/70">
                 <CheckCircle2 className="h-4 w-4 text-blue-500" />
-                Structured handoff
+                Structured delivery
               </div>
               {i < steps.length - 1 && <ArrowRight className="absolute -right-5 top-1/2 z-10 hidden h-4 w-4 -translate-y-1/2 text-blue-300 lg:block" />}
             </div>

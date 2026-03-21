@@ -1,31 +1,31 @@
-import { ArrowRight, Building2, Globe, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, Bot, Globe, LineChart, ShieldCheck, Sparkles } from 'lucide-react';
 import { BRAND } from '../../config';
 
 export function StatsBar() {
   const stats = [
     {
-      icon: Building2,
+      icon: Sparkles,
       value: BRAND.stats.services,
-      label: 'Service pages',
-      copy: 'Detailed service-level content',
+      label: 'Core services',
+      copy: 'Across Business OS, finance, tax, and compliance',
     },
     {
-      icon: Sparkles,
+      icon: Bot,
       value: BRAND.stats.categories,
-      label: 'Specialist categories',
-      copy: 'Registration, tax, and compliance',
+      label: 'Operating layers',
+      copy: 'Business systems plus financial operations',
     },
     {
       icon: Globe,
       value: BRAND.stats.clients,
       label: 'Businesses served',
-      copy: 'Across India, with direct support',
+      copy: 'Founders, operators, and growing teams',
     },
     {
-      icon: MessageCircle,
-      value: 'WhatsApp',
-      label: 'Live coordination',
-      copy: 'Fast follow-up and next steps',
+      icon: LineChart,
+      value: 'GA4+',
+      label: 'Execution-ready',
+      copy: 'Dashboards, filings, and reporting systems',
     },
   ];
 
@@ -40,14 +40,14 @@ export function StatsBar() {
             <div className="relative">
               <p className="text-[11px] uppercase tracking-[0.24em] text-blue-100/60">Trusted starting point</p>
               <h2 className="mt-3 max-w-md text-2xl font-bold leading-tight md:text-3xl">
-                A premium support desk for registration, tax, and compliance work in India.
+                A sharper operating layer for teams that need growth infrastructure and dependable finance/compliance execution.
               </h2>
               <p className="mt-3 max-w-lg text-sm leading-relaxed text-blue-100/75">
-                Built for founders and growing teams that want a clear, coordinated way to move from enquiry to execution without switching between vendors.
+                Built for founders and lean operators who want one partner to align the website, offer narrative, analytics, automation stack, and the finance/compliance layer behind revenue.
               </p>
 
               <div className="mt-5 flex flex-wrap gap-2">
-                {['Single accountable desk', 'India-focused filing support', 'Direct WhatsApp follow-up'].map((item) => (
+                {['Business-first execution', 'Finance and compliance continuity', 'Direct WhatsApp follow-up'].map((item) => (
                   <span
                     key={item}
                     className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] text-blue-100/75"
@@ -90,11 +90,11 @@ export function StatsBar() {
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-blue-100/80 px-6 py-4 md:px-8 lg:px-10">
           <p className="text-sm text-blue-900/65">
-            Premium support for business registration, GST, income tax, ROC compliance, payroll, bookkeeping, and advisory.
+            Business OS support for websites, SEO, decks, dashboards, analytics, chatbot integrations, AI automation systems, plus GST, tax, ROC, payroll, bookkeeping, and advisory.
           </p>
           <div className="flex items-center gap-2 text-sm font-semibold text-blue-700">
             <ShieldCheck className="h-4 w-4" />
-            India-focused service delivery
+            Execution with operating logic
           </div>
         </div>
       </div>

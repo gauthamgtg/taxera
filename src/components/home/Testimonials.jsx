@@ -12,7 +12,7 @@ export function Testimonials() {
               Trusted by teams that need coordinated execution, not hand-offs.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-blue-900/65">
-              Taxera is built for founders and operators who want one accountable desk across registration, GST, income tax, ROC compliance, payroll, bookkeeping, and advisory work.
+              Taxera is built for founders and operators who want one accountable partner across website delivery, growth systems, deck creation, reporting, automation, and the finance/compliance layer under it.
             </p>
           </div>
 
@@ -21,7 +21,7 @@ export function Testimonials() {
               <div>
                 <p className="text-xs uppercase tracking-[0.22em] text-blue-700/50">What clients value</p>
                 <p className="mt-2 text-sm leading-relaxed text-blue-900/70">
-                  Consistent communication, structured follow-through, and a single team that keeps the work moving from intake to filing.
+                  Consistent communication, structured follow-through, and one team that keeps the website, story, data, automation, and compliance layers moving together.
                 </p>
               </div>
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 text-white shadow-lg shadow-blue-700/15">
@@ -30,7 +30,7 @@ export function Testimonials() {
             </div>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {[`${BRAND.stats.clients}+ businesses served`, 'Direct WhatsApp coordination', 'India-focused compliance support'].map((item) => (
+              {[`${BRAND.stats.clients}+ teams supported`, 'Direct WhatsApp coordination', 'Growth plus compliance support'].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-blue-100 bg-white/85 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-700/70"

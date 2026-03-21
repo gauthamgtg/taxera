@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = "918667399376";
+export const WHATSAPP_NUMBER = "919626973297";
 export const CALENDLY_LINK = "https://calendly.com/taxerafiling/30min";
 
 const SEO_IMAGE_SVG = `
@@ -6,55 +6,62 @@ const SEO_IMAGE_SVG = `
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f8fbff"/>
-      <stop offset="55%" stop-color="#eaf2ff"/>
-      <stop offset="100%" stop-color="#dbe9ff"/>
+      <stop offset="55%" stop-color="#edf5ff"/>
+      <stop offset="100%" stop-color="#dff0ff"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#1d4ed8"/>
-      <stop offset="100%" stop-color="#0891b2"/>
+      <stop offset="55%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1040" cy="110" r="180" fill="#93c5fd" fill-opacity="0.28"/>
-  <circle cx="120" cy="540" r="170" fill="#67e8f9" fill-opacity="0.22"/>
+  <circle cx="1020" cy="120" r="180" fill="#60a5fa" fill-opacity="0.22"/>
+  <circle cx="120" cy="520" r="170" fill="#22d3ee" fill-opacity="0.14"/>
   <rect x="78" y="88" width="122" height="122" rx="30" fill="#ffffff" fill-opacity="0.9"/>
   <text x="139" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="700" fill="url(#accent)">T</text>
   <text x="232" y="133" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#0f172a">Taxera</text>
-  <text x="232" y="170" font-family="Arial, sans-serif" font-size="18" fill="#334155">Registration, Tax & Compliance Services</text>
-  <text x="78" y="330" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#0f172a">Business registration, GST, income tax,</text>
-  <text x="78" y="392" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#0f172a">ROC compliance, payroll, and bookkeeping.</text>
-  <text x="78" y="458" font-family="Arial, sans-serif" font-size="24" fill="#334155">Practical support for founders and growing businesses across India.</text>
+  <text x="232" y="170" font-family="Arial, sans-serif" font-size="18" fill="#334155">Business OS, finance, tax, and compliance services</text>
+  <text x="78" y="330" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#0f172a">Websites, decks, dashboards, AI automations,</text>
+  <text x="78" y="392" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#0f172a">GST, tax, ROC, payroll, bookkeeping, and CFO support.</text>
+  <text x="78" y="458" font-family="Arial, sans-serif" font-size="24" fill="#334155">One execution desk for growth systems and financial operations.</text>
 </svg>`;
 
 export const SEO_IMAGE = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(SEO_IMAGE_SVG.trim())}`;
 
 export const BRAND = {
   name: "Taxera",
-  tagline: "Registration, Tax & Compliance Services",
-  description: "Practical support across registration, tax, MCA, payroll, accounting, and finance workflows for founders and growing businesses in India.",
+  tagline: "Business OS, Finance, Tax & Compliance",
+  description: "Taxera combines Business OS execution with finance and compliance support across websites, SEO, decks, dashboards, AI automations, GST, tax, ROC, payroll, bookkeeping, and advisory.",
   stats: {
-    services: "47+",
-    categories: "9",
+    services: "74+",
+    categories: "15",
     clients: "500+",
     years: "5+",
   },
   whatsappLink: (message = "") =>
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
   consultationLink: (topic = "your business requirements") =>
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Taxera, I'd like to book a consultation for ${topic}. Please share the available slots and next steps.`)}`,
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi Taxera, I'd like to discuss ${topic}. Please share the best next steps and available consultation slots.`)}`,
 };
 
 export const HERO_SERVICES = [
-  "Private Limited Company Registration",
-  "GST Annual Return (GSTR-9)",
-  "Business ITR Filing",
-  "Annual ROC Filing",
-  "Payroll Processing with PF / ESI",
-  "Virtual CFO Services",
-  "GST Refund Application",
+  "Website design and development",
+  "SEO optimization and website audits",
+  "PPT making, slide decks, and pitch decks",
+  "Analytics, dashboards, and reporting systems",
+  "AI automations and chatbot integrations",
+  "Business registration and GST filing",
+  "Income tax, ROC, payroll, bookkeeping, and CFO support",
 ];
 
 export const CATEGORY_ICONS = {
+  strategy: "Lightbulb",
+  websites: "Code",
+  growth: "Megaphone",
+  decks: "Presentation",
+  analytics: "LineChart",
+  automation: "Bot",
   reg: "Building2",
   gst: "Receipt",
   tax: "Landmark",
@@ -62,57 +69,24 @@ export const CATEGORY_ICONS = {
   dsc: "Shield",
   payroll: "Users",
   accounting: "Briefcase",
-  advisory: "Lightbulb",
-  notices: "Zap",
+  advisory: "TrendingUp",
+  notices: "ShieldAlert",
 };
-
-export const VALUE_PROPS = [
-  {
-    icon: "Scale",
-    title: "Business Registration & Legal",
-    desc: "Pvt Ltd, LLP, OPC, proprietorship, GST, IEC, and licensing support handled end-to-end with clear document sequencing.",
-    highlight: "Registration Support",
-  },
-  {
-    icon: "Receipt",
-    title: "Tax Filing & Compliance",
-    desc: "Income tax, GST returns, TDS, ROC filings, notices, and audit support for individuals and businesses in India.",
-    highlight: "India Focused",
-  },
-  {
-    icon: "Shield",
-    title: "GST, ROC & Notice Handling",
-    desc: "GST filing, LUT, annual returns, ROC compliance, refund support, and notice replies with practical follow-through.",
-    highlight: "Compliance Desk",
-  },
-  {
-    icon: "Users",
-    title: "Payroll & Employee Compliance",
-    desc: "Payroll setup, PF, ESI, and monthly employee compliance support for lean teams and growing businesses.",
-    highlight: "Payroll Support",
-  },
-  {
-    icon: "TrendingUp",
-    title: "Bookkeeping & CFO Advisory",
-    desc: "Bookkeeping, MIS reporting, projections, and virtual CFO support for businesses that need better financial visibility.",
-    highlight: "Finance Operations",
-  },
-];
 
 export const TESTIMONIALS = [
   {
     name: "Rajesh K.",
-    role: "Founder, TechStart Solutions",
-    text: "Taxera handled our Pvt Ltd registration and GST setup with clear communication and no last-minute surprises.",
+    role: "Founder, Services Firm",
+    text: "Taxera helped us tighten both sides of the business. The website, deck, and reporting got sharper, and the GST and compliance work stayed on one accountable track.",
   },
   {
     name: "Priya M.",
-    role: "CEO, GreenLeaf Exports",
-    text: "Their GST, filing, and follow-up process saved us time during a busy compliance cycle.",
+    role: "Director, Export Business",
+    text: "We use them for SEO and dashboard work now, but what kept us was the fact that they also understand GST, filings, and the finance layer behind operations.",
   },
   {
     name: "Arun S.",
-    role: "Director, BuildRight Infra",
-    text: "From compliance cleanup to monthly reporting, Taxera feels like a real operations partner.",
+    role: "Operator, Growth Stage Team",
+    text: "From pitch deck polish to process setup, bookkeeping visibility, and automation, the work feels connected instead of scattered across vendors.",
   },
 ];

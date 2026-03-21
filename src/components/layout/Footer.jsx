@@ -4,10 +4,10 @@ import { BRAND } from '../../config';
 import { SERVICES_DATA } from '../../data/servicesData';
 
 const POPULAR_SERVICE_LINKS = [
-  ['reg', 'private-limited-company-registration'],
-  ['reg', 'gst-registration'],
-  ['tax', 'business-itr-filing-simple'],
-  ['mca', 'annual-roc-filing-small-private-limited'],
+  ['websites', 'website-design-development'],
+  ['growth', 'seo-optimization-retainer'],
+  ['decks', 'pitch-deck-creation'],
+  ['automation', 'chatbot-integration-website-whatsapp'],
 ].map(([categoryId, serviceSlug]) => {
   const category = SERVICES_DATA.find((item) => item.id === categoryId);
   const service = category?.services.find((item) => item.slug === serviceSlug);
@@ -33,13 +33,13 @@ export function Footer() {
             <div>
               <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100/20 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100">
                 <Sparkles className="h-3.5 w-3.5" />
-                Private client desk
+                Business OS operator
               </span>
               <h2 className="max-w-2xl text-3xl font-bold tracking-tight md:text-5xl">
-                Tax, compliance, and finance support under one premium operations desk.
+                Websites, decks, growth systems, dashboards, and automation under one premium operating desk.
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-relaxed text-blue-100/75">
-                Work with one team that can scope, advise, and execute across registration, GST, income tax, ROC, payroll, and bookkeeping without handing you off between vendors.
+                Work with one team that can scope, advise, and execute across the website, narrative, reporting, and automation stack without handing you off between vendors.
               </p>
             </div>
 

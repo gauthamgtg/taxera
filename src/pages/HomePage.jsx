@@ -13,16 +13,16 @@ const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Taxera",
-  "description": "Premium registration, tax, MCA, payroll, bookkeeping, and virtual CFO support across India.",
+  "description": "Business OS consulting plus finance, tax, GST, ROC, payroll, bookkeeping, dashboard, deck, and automation services.",
   "url": "https://taxera.in",
-  "telephone": "+918667399376",
+  "telephone": "+919626973297",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Chennai",
     "addressCountry": "IN"
   },
   "areaServed": ["India"],
-  "serviceType": ["Business Registration Services", "GST Filing Services", "Income Tax Filing Services", "ROC Compliance Services", "Payroll Processing", "Bookkeeping Services", "Virtual CFO Services"]
+  "serviceType": ["Website Design Services", "SEO Optimization Services", "Pitch Deck Design", "Dashboard Creation", "AI Automation Services", "Chatbot Integration Services", "Business Registration Services", "GST Filing Services", "Income Tax Filing Services", "ROC Compliance Services", "Payroll Processing", "Bookkeeping Services", "Virtual CFO Services"]
 };
 
 const faqJsonLd = {
@@ -69,9 +69,9 @@ export function HomePage() {
   return (
     <>
       <SEOHead
-        title="Taxera | Business Registration, GST, ROC, Tax & Payroll Services in India"
-        description="Taxera provides premium support for company registration, GST registration and filing, income tax, ROC compliance, payroll processing, bookkeeping, notice replies, and virtual CFO services across India."
-        keywords={["company registration services india", "business registration india", "gst registration india", "gst filing services india", "income tax filing india", "roc compliance services", "tds return filing services", "notice reply services india", "payroll processing india", "bookkeeping services india", "virtual cfo services india", "taxera services"]}
+        title="Taxera | Business OS, Finance, Tax, GST, ROC, Payroll, Decks & AI Automations"
+        description="Taxera helps growth-focused teams build a complete Business OS while also handling business registration, GST, income tax, ROC, payroll, bookkeeping, and advisory support."
+        keywords={["business os services", "website design and development", "seo optimization services", "website audit service", "website optimization service", "ppt making service", "slide deck design", "pitch deck creation", "dashboard creation service", "analytics setup service", "ai automations", "chatbot integrations", "business registration services india", "gst filing services india", "income tax filing india", "roc compliance services", "payroll processing india", "bookkeeping services india", "virtual cfo services india"]}
         canonical="https://taxera.in/"
         jsonLd={[orgJsonLd, faqJsonLd]}
       />
@@ -84,10 +84,10 @@ export function HomePage() {
             <div>
               <span className="section-label mb-3 block text-xs font-semibold uppercase">Free tools</span>
               <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-blue-950 md:text-5xl">
-                Practical calculators designed to bring in organic search traffic and convert it into consultative leads.
+                Conversion-friendly resource pages that attract demand before prospects book higher-value Business OS or finance/compliance work.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-blue-900/65">
-                Use these resource pages to answer common money questions quickly, then route high-intent visitors into Taxera&apos;s service pages when they need expert help.
+                The current tool stack still acts as an acquisition layer: practical, searchable utilities that build trust and move visitors toward strategy, website, automation, analytics, tax, and finance engagements.
               </p>
             </div>
 
