@@ -1,19 +1,5 @@
 export const SERVICES_DATA = [
   {
-    id: 'strategy',
-    num: '01',
-    name: 'Business OS Strategy',
-    desc: 'Operating system design, offer positioning, process mapping, SOPs, CRM setup, and system architecture for founders and lean teams.',
-    services: [
-      { slug: 'business-os-consulting', name: 'Business OS Consulting', desc: 'Audit the business model, workflows, and delivery stack to design a cleaner operating system for growth.', type: 'Strategy Sprint' },
-      { slug: 'offer-positioning-brand-messaging', name: 'Offer Positioning & Brand Messaging', desc: 'Clarify what you sell, who it is for, and how the value should be communicated across your site and decks.', type: 'Project' },
-      { slug: 'go-to-market-system-design', name: 'Go-To-Market System Design', desc: 'Map the lead journey, offer structure, funnel logic, and content assets needed to acquire better clients.', type: 'Project' },
-      { slug: 'operations-workflow-design', name: 'Operations Workflow Design', desc: 'Build clearer internal workflows for enquiries, delivery, approvals, reporting, and handoffs.', type: 'Project' },
-      { slug: 'crm-sales-pipeline-setup', name: 'CRM & Sales Pipeline Setup', desc: 'Configure lead stages, forms, contact structure, and sales handover logic inside your CRM.', type: 'Project' },
-      { slug: 'process-documentation-sops', name: 'Process Documentation & SOPs', desc: 'Turn founder-led workflows into SOPs, templates, and repeatable operating guides.', type: 'Retainer' },
-    ],
-  },
-  {
     id: 'websites',
     num: '02',
     name: 'Websites & Funnels',

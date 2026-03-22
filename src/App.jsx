@@ -17,6 +17,9 @@ const ToolsHubPage = lazy(() =>
 const ToolDetailPage = lazy(() =>
   import('./pages/ToolDetailPage').then((module) => ({ default: module.ToolDetailPage }))
 );
+const NotFoundPage = lazy(() =>
+  import('./pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage }))
+);
 
 function RouteFallback() {
   return (
@@ -71,6 +74,14 @@ export default function App() {
           element={
             <Suspense fallback={<RouteFallback />}>
               <ToolDetailPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<RouteFallback />}>
+              <NotFoundPage />
             </Suspense>
           }
         />

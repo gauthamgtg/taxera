@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -17,6 +17,8 @@ import {
   ShieldAlert,
   TrendingUp,
   Users,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import { CATEGORY_ICONS } from '../../config';
 import { SERVICES_DATA } from '../../data/servicesData';
@@ -39,27 +41,24 @@ const ICONS = {
   Users,
 };
 
-const BUSINESS_IDS = ['strategy', 'websites', 'growth', 'decks', 'analytics', 'automation'];
+const BUSINESS_IDS = ['websites', 'growth', 'decks', 'analytics', 'automation'];
 const FINANCE_IDS = ['reg', 'gst', 'tax', 'mca', 'dsc', 'payroll', 'accounting', 'advisory', 'notices'];
 
 const TRACKS = {
   business: {
     label: 'Business OS',
-    title: 'Growth systems and client-facing execution',
-    description: 'Websites, SEO, decks, analytics, dashboards, automation, and chatbot integrations under one operating layer.',
+    summaryLine: 'Websites, SEO, analytics, and automation',
     ids: BUSINESS_IDS,
   },
   finance: {
     label: 'Finance & Compliance',
-    title: 'The financial and regulatory engine behind operations',
-    description: 'Registration, GST, income tax, ROC, payroll, bookkeeping, notices, and advisory work under the same desk.',
+    summaryLine: 'Finance, GST, tax, ROC, payroll, and bookkeeping',
     ids: FINANCE_IDS,
   },
 };
 
 function getCategoryCopy(categoryId) {
   const copy = {
-    strategy: 'Offer strategy, CRM logic, workflow design, and SOP structure.',
     websites: 'Website making, landing pages, audits, redesigns, and optimization.',
     growth: 'SEO optimization, technical SEO, content systems, and CRO.',
     decks: 'PPT making, slide decks, pitch decks, and visual storytelling.',
@@ -80,8 +79,10 @@ function getCategoryCopy(categoryId) {
 }
 
 export function CategoryGrid() {
+  const SERVICES_PER_PAGE = 4;
   const [activeTrack, setActiveTrack] = useState('business');
-  const [activeCategoryId, setActiveCategoryId] = useState('strategy');
+  const [activeCategoryId, setActiveCategoryId] = useState('websites');
+  const [servicesPage, setServicesPage] = useState(0);
 
   const trackCategories = useMemo(
     () => SERVICES_DATA.filter((category) => TRACKS[activeTrack].ids.includes(category.id)),
@@ -91,27 +92,33 @@ export function CategoryGrid() {
   const activeCategory =
     trackCategories.find((category) => category.id === activeCategoryId) ?? trackCategories[0];
 
-  const featuredServices = activeCategory?.services.slice(0, 3) ?? [];
-  const trailingServices = activeCategory?.services.slice(3, 8) ?? [];
+  const categoryServices = activeCategory?.services ?? [];
+  const totalServicePages = Math.max(1, Math.ceil(categoryServices.length / SERVICES_PER_PAGE));
+  const serviceStartIndex = servicesPage * SERVICES_PER_PAGE;
+  const visibleServices = categoryServices.slice(serviceStartIndex, serviceStartIndex + SERVICES_PER_PAGE);
   const ActiveIcon = ICONS[CATEGORY_ICONS[activeCategory?.id]] || Building2;
 
+  useEffect(() => {
+    setServicesPage(0);
+  }, [activeCategoryId, activeTrack]);
+
   return (
-    <section id="categories" className="relative overflow-hidden px-4 py-24 md:px-8 lg:px-16">
+    <section id="categories" className="relative overflow-hidden scroll-mt-28 px-4 py-14 md:scroll-mt-32 md:px-8 lg:min-h-[100svh] lg:px-16 lg:py-6">
       <div className="absolute inset-x-0 top-10 mx-auto h-80 max-w-6xl rounded-full bg-blue-200/22 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-10 max-w-4xl">
+        <div className="mb-7">
           <span className="section-label mb-3 block text-xs font-semibold uppercase">Explore Services</span>
-          <h2 className="text-3xl font-bold tracking-tight text-blue-950 md:text-5xl">
+          <h2 className="max-w-none text-3xl font-bold tracking-tight text-blue-950 md:text-[3.2rem]">
             One front-end for Business OS execution, one back-end for finance and compliance.
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-blue-900/66">
+          <p className="mt-3 max-w-none text-base leading-relaxed text-blue-900/66">
             Taxera is not only Business OS work. The website, growth, decks, dashboards, and automation layer sits on top of the same desk that also handles registration, GST, tax, ROC, payroll, bookkeeping, and advisory.
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[0.58fr_1.42fr]">
-          <div className="space-y-4">
+        <div className="space-y-4">
+          <div className="grid gap-3 md:grid-cols-2">
             {Object.entries(TRACKS).map(([key, track]) => {
               const isActive = key === activeTrack;
               return (
@@ -122,45 +129,28 @@ export function CategoryGrid() {
                     setActiveTrack(key);
                     setActiveCategoryId(TRACKS[key].ids[0]);
                   }}
-                  className={`w-full rounded-[2rem] border p-6 text-left transition-all ${
+                  className={`w-full rounded-[1.4rem] border p-4 text-left transition-all ${
                     isActive
-                      ? 'ink-panel text-white shadow-[0_24px_70px_rgba(7,28,72,0.24)]'
+                      ? 'ink-panel text-white shadow-[0_16px_44px_rgba(7,28,72,0.2)]'
                       : 'glass-panel text-blue-950 hover:-translate-y-0.5'
                   }`}
                 >
-                  <p className={`text-xs font-semibold uppercase tracking-[0.22em] ${isActive ? 'text-blue-100/58' : 'text-blue-700/55'}`}>
+                  <p className={`text-xs font-semibold uppercase tracking-[0.2em] ${isActive ? 'text-blue-100/58' : 'text-blue-700/55'}`}>
                     {track.label}
                   </p>
-                  <h3 className={`mt-3 text-2xl font-bold tracking-tight ${isActive ? 'text-white' : 'text-blue-950'}`}>
-                    {track.title}
-                  </h3>
-                  <p className={`mt-3 text-sm leading-relaxed ${isActive ? 'text-blue-100/72' : 'text-blue-900/62'}`}>
-                    {track.description}
+                  <p
+                    className={`mt-2 overflow-hidden text-ellipsis whitespace-nowrap text-lg font-semibold leading-tight tracking-tight ${
+                      isActive ? 'text-white' : 'text-blue-950'
+                    }`}
+                  >
+                    {track.summaryLine}
                   </p>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {track.ids.slice(0, key === 'business' ? 4 : 5).map((id) => {
-                      const category = SERVICES_DATA.find((item) => item.id === id);
-                      return (
-                        <span
-                          key={id}
-                          className={`rounded-full border px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] ${
-                            isActive
-                              ? 'border-blue-200/18 bg-white/8 text-blue-100/78'
-                              : 'border-blue-100 bg-white/90 text-blue-700'
-                          }`}
-                        >
-                          {category?.name}
-                        </span>
-                      );
-                    })}
-                  </div>
                 </button>
               );
             })}
           </div>
 
-          <div className="ink-panel overflow-hidden rounded-[2.4rem] p-5 text-white md:p-6">
+          <div className="ink-panel overflow-hidden rounded-[2rem] p-4 text-white md:p-5">
             <div className="flex flex-wrap gap-2.5">
               {trackCategories.map((category) => {
                 const isActive = category.id === activeCategory?.id;
@@ -186,8 +176,8 @@ export function CategoryGrid() {
             </div>
 
             {activeCategory && (
-              <div className="mt-6 grid gap-5 xl:grid-cols-[0.78fr_1.22fr]">
-                <div className="rounded-[1.9rem] border border-blue-200/16 bg-white/8 p-5">
+              <div className="mt-4 grid gap-3 xl:grid-cols-[0.76fr_1.24fr] xl:items-start">
+                <div className="rounded-[1.45rem] border border-blue-200/16 bg-white/8 p-4">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-cyan-100">
                       <ActiveIcon className="h-5 w-5" />
@@ -197,78 +187,85 @@ export function CategoryGrid() {
                     </span>
                   </div>
 
-                  <p className="mt-5 text-[10px] uppercase tracking-[0.22em] text-blue-100/54">{TRACKS[activeTrack].label}</p>
-                  <h3 className="mt-2 text-[1.95rem] font-semibold leading-tight text-white">{activeCategory.name}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-blue-100/74">{getCategoryCopy(activeCategory.id)}</p>
-
-                  <div className="mt-6 rounded-[1.45rem] border border-blue-200/16 bg-white/6 p-4">
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-blue-100/54">Category focus</p>
-                    <p className="mt-2 text-sm leading-relaxed text-blue-100/80">{activeCategory.desc}</p>
-                  </div>
+                  <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-blue-100/54">{TRACKS[activeTrack].label}</p>
+                  <h3 className="mt-2 text-[1.55rem] font-semibold leading-tight text-white">{activeCategory.name}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-blue-100/74">{getCategoryCopy(activeCategory.id)}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-blue-100/72">{activeCategory.desc}</p>
 
                   <Link
                     to={`/services/${activeCategory.id}`}
-                    className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-blue-950 transition-transform duration-300 hover:-translate-y-0.5"
+                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-blue-950 transition-transform duration-300 hover:-translate-y-0.5"
                   >
                     Explore {activeCategory.name}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
 
-                <div className="grid gap-4">
-                  <div className="editorial-panel rounded-[1.9rem] p-5 text-blue-950">
+                <div className="grid gap-3">
+                  <div className="editorial-panel rounded-[1.45rem] p-4 text-blue-950">
                     <div className="mb-4 flex items-end justify-between gap-4">
                       <div>
                         <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-700/50">Priority routes</p>
-                        <h3 className="mt-2 text-2xl font-semibold tracking-tight text-blue-950">
+                        <h3 className="mt-2 text-[1.6rem] font-semibold leading-tight tracking-tight text-blue-950">
                           Start with the highest-leverage services in {activeCategory.name}.
                         </h3>
                       </div>
-                      <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold text-blue-700">
-                        {activeCategory.services.length} total services
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold text-blue-700">
+                          {activeCategory.services.length} total services
+                        </span>
+                        {totalServicePages > 1 && (
+                          <div className="flex items-center gap-1">
+                            <button
+                              type="button"
+                              onClick={() => setServicesPage((prev) => Math.max(0, prev - 1))}
+                              disabled={servicesPage === 0}
+                              className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-200 bg-white text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-45"
+                              aria-label="Previous services page"
+                            >
+                              <ChevronLeft className="h-4 w-4" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setServicesPage((prev) => Math.min(totalServicePages - 1, prev + 1))}
+                              disabled={servicesPage >= totalServicePages - 1}
+                              className="flex h-8 w-8 items-center justify-center rounded-full border border-blue-200 bg-white text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-45"
+                              aria-label="Next services page"
+                            >
+                              <ChevronRight className="h-4 w-4" />
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </div>
 
-                    <div className="grid gap-3">
-                      {featuredServices.map((service, index) => (
+                    <div className="grid gap-2.5 sm:grid-cols-2">
+                      {visibleServices.map((service, index) => (
                         <Link
                           key={service.slug}
                           to={`/services/${activeCategory.id}/${service.slug}`}
-                          className="group rounded-[1.5rem] border border-blue-100 bg-white/88 px-4 py-4 transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-100/70"
+                          className="group rounded-[1.15rem] border border-blue-100 bg-white/88 p-4 transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-100/70"
                         >
-                          <div className="flex items-start gap-4">
+                          <div className="flex items-center justify-between gap-3">
                             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-blue-700 text-xs font-semibold text-white shadow-lg shadow-blue-700/15">
-                              0{index + 1}
+                              {String(serviceStartIndex + index + 1).padStart(2, '0')}
                             </div>
-                            <div className="min-w-0">
-                              <div className="flex flex-wrap items-center gap-2">
-                                <p className="text-base font-semibold leading-snug text-blue-950">{service.name}</p>
-                                <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-blue-700">
-                                  {service.type}
-                                </span>
-                              </div>
-                              <p className="mt-2 text-sm leading-relaxed text-blue-900/64">{service.desc}</p>
-                              <span className="mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700 transition-all group-hover:gap-3">
-                                View service
-                                <ArrowRight className="h-3.5 w-3.5" />
-                              </span>
-                            </div>
+                            <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-blue-700">
+                              {service.type}
+                            </span>
+                          </div>
+
+                          <div className="mt-3 min-w-0">
+                            <p className="text-base font-semibold leading-snug text-blue-950">{service.name}</p>
+                            <p className="mt-1.5 text-sm leading-relaxed text-blue-900/64">{service.desc}</p>
+                            <span className="mt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700 transition-all group-hover:gap-3">
+                              View service
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </span>
                           </div>
                         </Link>
                       ))}
                     </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2.5 rounded-[1.8rem] border border-blue-200/16 bg-white/6 p-4">
-                    {trailingServices.map((service) => (
-                      <Link
-                        key={service.slug}
-                        to={`/services/${activeCategory.id}/${service.slug}`}
-                        className="rounded-full border border-blue-200/16 bg-white/8 px-3.5 py-2 text-xs font-semibold text-blue-100/82 transition-colors hover:border-blue-200/26 hover:bg-white/12"
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
                   </div>
                 </div>
               </div>

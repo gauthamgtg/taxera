@@ -981,7 +981,7 @@ function buildMetaKeywords(service, category, context, details) {
 
 function buildServicePage(category, service, index) {
   const details = SERVICE_CONTENT[service.slug] || {};
-  const context = CATEGORY_CONTEXT[category.id] || CATEGORY_CONTEXT.strategy;
+  const context = CATEGORY_CONTEXT[category.id] || CATEGORY_CONTEXT.websites;
   const heading = `${service.name} Services in India`;
 
   return {

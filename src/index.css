@@ -195,21 +195,65 @@
   box-shadow: 0 36px 90px rgba(6, 25, 70, 0.44);
 }
 
-.earth-sphere {
+.hero-overview-panel {
   background:
-    radial-gradient(circle at 36% 34%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.18) 16%, transparent 24%),
-    radial-gradient(circle at 62% 40%, rgba(10, 187, 255, 0.45), transparent 52%),
-    radial-gradient(circle at 48% 52%, rgba(18, 104, 255, 0.92), rgba(7, 23, 72, 1) 66%);
-  box-shadow:
-    0 0 0 6px rgba(137, 194, 255, 0.08),
-    0 0 52px rgba(68, 136, 255, 0.3),
-    inset -26px -30px 50px rgba(4, 11, 35, 0.62),
-    inset 18px 18px 34px rgba(255, 255, 255, 0.08);
+    linear-gradient(135deg, rgba(7, 18, 48, 0.92), rgba(12, 44, 108, 0.82)),
+    radial-gradient(circle at 22% 16%, rgba(67, 140, 255, 0.22), transparent 28%);
+  border: 1px solid rgba(142, 184, 255, 0.18);
+  box-shadow: 0 34px 84px rgba(8, 28, 74, 0.26);
+  backdrop-filter: blur(16px);
 }
 
-.earth-ring {
+.hero-sphere-halo {
+  background:
+    radial-gradient(circle, rgba(57, 129, 255, 0.2) 0%, rgba(57, 129, 255, 0.08) 38%, transparent 72%);
+  filter: blur(24px);
+}
+
+.hero-sphere-back {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(163, 214, 255, 0.22), transparent 42%),
+    radial-gradient(circle at 50% 65%, rgba(38, 99, 255, 0.18), transparent 58%),
+    linear-gradient(180deg, rgba(7, 20, 58, 0.74), rgba(6, 16, 44, 0.92));
+  transform: translateZ(-40px) scale(0.96);
+  filter: blur(8px);
+}
+
+.earth-sphere {
+  background:
+    radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.26) 14%, transparent 26%),
+    radial-gradient(circle at 58% 34%, rgba(18, 131, 255, 0.36), transparent 34%),
+    radial-gradient(circle at 56% 58%, rgba(35, 119, 255, 0.9), rgba(8, 27, 86, 1) 68%);
+  box-shadow:
+    0 24px 60px rgba(7, 22, 68, 0.28),
+    0 0 0 6px rgba(137, 194, 255, 0.08),
+    0 0 72px rgba(68, 136, 255, 0.24),
+    inset -34px -40px 58px rgba(4, 11, 35, 0.72),
+    inset 22px 18px 42px rgba(255, 255, 255, 0.06);
+  transform: translateZ(20px);
+}
+
+.hero-sphere-finance {
+  transform: rotateX(18deg) rotateY(-14deg);
+}
+
+.hero-sphere-growth {
+  transform: rotateX(-16deg) rotateY(18deg);
+}
+
+.hero-sphere-combined {
+  transform: rotateX(8deg) rotateY(-10deg);
+}
+
+.earth-orbit {
   border: 1px solid rgba(136, 191, 255, 0.26);
   box-shadow: 0 0 28px rgba(82, 150, 255, 0.16);
+}
+
+.earth-orbit-tilt {
+  border: 1px solid rgba(136, 191, 255, 0.18);
+  transform: rotate(28deg);
+  box-shadow: 0 0 26px rgba(82, 150, 255, 0.12);
 }
 
 .earth-grid {
@@ -219,6 +263,30 @@
   background-size: 28px 28px;
   mix-blend-mode: screen;
   opacity: 0.32;
+}
+
+.earth-shine {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(192, 232, 255, 0.12) 58%, transparent 72%);
+}
+
+.earth-continental-glow {
+  background: radial-gradient(circle, rgba(71, 153, 255, 0.22), rgba(71, 153, 255, 0.04) 66%, transparent 80%);
+  filter: blur(12px);
+}
+
+.earth-shadow-shelf {
+  background: linear-gradient(180deg, rgba(5, 14, 42, 0.06), rgba(4, 11, 33, 0.7));
+  filter: blur(8px);
+  transform: rotate(-6deg);
+}
+
+.earth-lower-mass {
+  background:
+    linear-gradient(180deg, rgba(8, 18, 52, 0.24), rgba(6, 14, 40, 0.88)),
+    radial-gradient(circle at 30% 20%, rgba(52, 117, 255, 0.18), transparent 52%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  filter: blur(2px);
+  transform: translateZ(12px) rotate(-7deg);
 }
 
 .star-field {
@@ -231,9 +299,61 @@
 }
 
 .orbital-chip {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
-  border: 1px solid rgba(171, 202, 255, 0.22);
-  box-shadow: 0 18px 50px rgba(8, 30, 78, 0.28);
+  background: linear-gradient(180deg, rgba(18, 49, 112, 0.82), rgba(10, 31, 78, 0.76));
+  border: 1px solid rgba(176, 215, 255, 0.26);
+  box-shadow:
+    0 18px 50px rgba(8, 30, 78, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.hero-float-chip {
+  animation: float 7s ease-in-out infinite;
+}
+
+.hero-sphere-rim {
+  box-shadow:
+    inset 0 0 0 1px rgba(219, 235, 255, 0.1),
+    inset 22px 0 40px rgba(255, 255, 255, 0.04),
+    inset -30px -22px 46px rgba(4, 10, 30, 0.4);
+}
+
+.hero-sphere-rim-finance {
+  background: radial-gradient(circle at 34% 18%, rgba(255, 255, 255, 0.08), transparent 38%);
+}
+
+.hero-sphere-rim-growth {
+  background: radial-gradient(circle at 64% 26%, rgba(117, 219, 255, 0.1), transparent 40%);
+}
+
+.hero-sphere-growth-mass {
+  background:
+    linear-gradient(180deg, rgba(10, 34, 92, 0.1), rgba(4, 15, 44, 0.82)),
+    radial-gradient(circle at 40% 20%, rgba(94, 198, 255, 0.16), transparent 48%);
+}
+
+.hero-hemisphere-top {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(105, 151, 255, 0.06)),
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.12), transparent 44%);
+  border-bottom: 1px solid rgba(182, 210, 255, 0.18);
+}
+
+.hero-hemisphere-bottom {
+  background:
+    linear-gradient(180deg, rgba(54, 173, 255, 0.12), rgba(7, 31, 90, 0.08)),
+    radial-gradient(circle at 50% 20%, rgba(34, 211, 238, 0.14), transparent 44%);
+}
+
+.hero-equator-glow {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(177, 220, 255, 0.34), rgba(94, 205, 255, 0.26), rgba(255, 255, 255, 0));
+  filter: blur(6px);
+}
+
+.hero-sphere-rim-combined {
+  background:
+    radial-gradient(circle at 34% 18%, rgba(255, 255, 255, 0.08), transparent 38%),
+    radial-gradient(circle at 66% 74%, rgba(117, 219, 255, 0.1), transparent 40%);
 }
 
 @media (max-width: 1024px) {
@@ -258,6 +378,10 @@
   .editorial-panel,
   .utility-panel,
   .ink-panel {
+    backdrop-filter: blur(14px);
+  }
+
+  .hero-overview-panel {
     backdrop-filter: blur(14px);
   }
 }
