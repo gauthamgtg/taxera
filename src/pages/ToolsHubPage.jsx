@@ -168,30 +168,6 @@ export function ToolsHubPage() {
       </section>
 
       <section className="px-4 py-10 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-blue-100 bg-white/82 p-6 sm:p-8">
-          <div className="max-w-3xl">
-            <span className="section-label mb-3 block text-xs font-semibold uppercase">Roadmap</span>
-            <h2 className="text-3xl font-bold tracking-tight text-blue-950 md:text-5xl">
-              High-intent calculator pages worth adding next
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-blue-900/68">
-              These are strong follow-on pages if the goal is broader organic acquisition around tax, payroll, GST, and finance workflows.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {NEXT_TOOL_IDEAS.map((item) => (
-              <div key={item.title} className="rounded-[1.5rem] border border-blue-100 bg-blue-50/60 p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600/75">Next tool</p>
-                <h3 className="mt-2 text-lg font-bold text-blue-950">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-blue-900/72">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-10 md:px-8 lg:px-16">
         <div className="mx-auto max-w-7xl">
           <span className="section-label mb-3 block text-xs font-semibold uppercase">FAQ</span>
           <h2 className="mb-5 text-3xl font-bold tracking-tight text-blue-950 md:text-5xl">Questions about the tools hub</h2>

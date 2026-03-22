@@ -1,3 +1,14 @@
+import {
+  calculateAdvanceTax,
+  calculateBreakEven,
+  calculateEmi,
+  calculateGratuity,
+  calculateGstLateFeeInterest,
+  calculateGstSchemeChecker,
+  calculateHraExemption,
+  calculateTds,
+} from './roadmapToolCalculations.js';
+
 const INDIAN_CURRENCY_FORMATTER = new Intl.NumberFormat('en-IN', {
   maximumFractionDigits: 0,
 });
@@ -456,6 +467,22 @@ export function calculateToolBySlug(slug, inputs = {}) {
     case 'income-tax-calculator':
     case 'income-tax-calculator-india':
       return calculateIncomeTax(inputs);
+    case 'gst-late-fee-interest-calculator':
+      return calculateGstLateFeeInterest(inputs);
+    case 'hra-exemption-calculator':
+      return calculateHraExemption(inputs);
+    case 'tds-calculator':
+      return calculateTds(inputs);
+    case 'advance-tax-calculator':
+      return calculateAdvanceTax(inputs);
+    case 'gratuity-calculator':
+      return calculateGratuity(inputs);
+    case 'emi-calculator':
+      return calculateEmi(inputs);
+    case 'break-even-calculator':
+      return calculateBreakEven(inputs);
+    case 'gst-composition-vs-regular-scheme-checker':
+      return calculateGstSchemeChecker(inputs);
     case 'sip-calculator':
       return calculateSipProjection(inputs);
     case 'mutual-fund-return-calculator':

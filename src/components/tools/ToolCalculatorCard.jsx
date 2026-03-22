@@ -208,8 +208,49 @@ function InflationResults({ result }) {
   );
 }
 
+function GenericResults({ result }) {
+  const cards = result.cards ?? [];
+  const sections = result.sections ?? [];
+
+  return (
+    <div className="space-y-5">
+      {cards.length > 0 ? (
+        <div className="grid gap-3 sm:grid-cols-2">
+          {cards.map((card) => (
+            <SummaryCard key={`${card.label}-${card.value}`} label={card.label} value={card.value} tone={card.tone} />
+          ))}
+        </div>
+      ) : null}
+
+      {result.callout ? (
+        <div className="rounded-[1.5rem] border border-blue-100 bg-blue-50/60 p-4 text-sm font-semibold leading-relaxed text-blue-900">
+          {result.callout}
+        </div>
+      ) : null}
+
+      {sections.map((section) => (
+        <div key={section.title} className="rounded-[1.6rem] border border-blue-100 bg-white p-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">{section.title}</p>
+          <div className="mt-4 grid gap-2 text-sm text-blue-900/75">
+            {section.rows.map((row) => (
+              <div key={`${section.title}-${row.label}`} className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3">
+                <span>{row.label}</span>
+                <span className="font-semibold text-blue-950 [overflow-wrap:anywhere]">{row.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function ResultRenderer({ tool, result }) {
   if (!result) return null;
+
+  if (result.cards) {
+    return <GenericResults result={result} />;
+  }
 
   if (tool.slug === 'income-tax-calculator') {
     return <IncomeTaxResults result={result} />;
@@ -229,6 +270,11 @@ function ResultRenderer({ tool, result }) {
 export function ToolCalculatorCard({ tool }) {
   const [values, setValues] = useState(tool.calculator.defaultValues);
   const resultColumnTitle = tool.slug === 'income-tax-calculator' ? 'Tax output and comparison' : 'Result summary and notes';
+  const supplementalNote = tool.slug === 'income-tax-calculator'
+    ? toolCalculationMetadata.notes[0]
+    : tool.category.toLowerCase().includes('tax') || tool.category.toLowerCase().includes('gst')
+      ? toolCalculationMetadata.notes[1]
+      : toolCalculationMetadata.notes[2];
 
   const result = calculateToolBySlug(tool.slug, values);
 
@@ -299,7 +345,7 @@ export function ToolCalculatorCard({ tool }) {
             {tool.calculator.note}
           </div>
           <div className="rounded-[1.5rem] border border-blue-100 bg-white/85 p-4 text-sm leading-relaxed text-blue-900/74">
-            {toolCalculationMetadata.notes[tool.slug === 'income-tax-calculator' ? 0 : 2]}
+            {supplementalNote}
           </div>
           <WarningList warnings={result?.warnings} />
         </div>

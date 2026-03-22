@@ -37,7 +37,8 @@ const faqJsonLd = {
 };
 
 const HOME_SECTION_NAV = [
-  { label: 'Hero' },
+  { label: 'Finance' },
+  { label: 'Websites' },
   { label: 'Services' },
   { label: 'Process' },
   { label: 'Proof' },
@@ -46,32 +47,32 @@ const HOME_SECTION_NAV = [
 ];
 
 export function HomePage() {
-  const homeSnapLockRef = useRef(false);
-  const homeSnapTargetRef = useRef(null);
-  const lastWheelAtRef = useRef(0);
-  const lastWheelDirectionRef = useRef(0);
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+  const trackerRailRef = useRef(null);
+  const trackerDraggingRef = useRef(false);
+  const lastDraggedIndexRef = useRef(null);
+
+  const getSnapTargets = () => {
+    const sections = Array.from(document.querySelectorAll('[data-home-snap]'));
+    if (sections.length === 0) return [];
+
+    const [heroSection, ...otherSections] = sections;
+    const heroTop = heroSection.offsetTop;
+
+    return [
+      heroTop,
+      heroTop + window.innerHeight,
+      ...otherSections.map((section) => section.offsetTop),
+    ];
+  };
 
   useEffect(() => {
-    const getSnapSections = () =>
-      Array.from(document.querySelectorAll('[data-home-snap]'));
-
-    const SNAP_LOCK_MS = 1100;
-    const MIN_SNAP_DELTA = 18;
-    const HERO_EXIT_BUFFER = 4;
-    const WHEEL_GESTURE_GAP_MS = 180;
-
-    const releaseSnapLock = () => {
-      homeSnapLockRef.current = false;
-      homeSnapTargetRef.current = null;
-    };
-
-    const getActiveSectionIndex = (sectionTargets) => {
+    const getActiveSectionIndex = (snapTargets) => {
       const scanPoint = window.scrollY + window.innerHeight * 0.4;
       let index = 0;
 
-      for (let i = 0; i < sectionTargets.length; i += 1) {
-        if (sectionTargets[i] <= scanPoint) {
+      for (let i = 0; i < snapTargets.length; i += 1) {
+        if (snapTargets[i] <= scanPoint) {
           index = i;
         } else {
           break;
@@ -82,97 +83,104 @@ export function HomePage() {
     };
 
     const onScroll = () => {
-      const sections = getSnapSections();
-      if (sections.length > 0) {
-        const sectionTargets = sections.map((section) => section.offsetTop);
-        setActiveSectionIndex(getActiveSectionIndex(sectionTargets));
-      }
-
-      const targetTop = homeSnapTargetRef.current;
-      if (targetTop === null) return;
-      if (Math.abs(window.scrollY - targetTop) <= 4) {
-        window.setTimeout(releaseSnapLock, 120);
+      const snapTargets = getSnapTargets();
+      if (snapTargets.length > 0) {
+        setActiveSectionIndex(getActiveSectionIndex(snapTargets));
       }
     };
 
-    const onWheel = (event) => {
-      const sections = getSnapSections();
-      if (sections.length < 2) return;
-      if (Math.abs(event.deltaY) < MIN_SNAP_DELTA) return;
-
-      const y = window.scrollY;
-      const heroSection = sections[0];
-      const heroTop = heroSection.offsetTop;
-      const heroBottom = heroTop + heroSection.offsetHeight;
-      const sectionTargets = sections.map((section) => section.offsetTop);
-
-      if (y >= heroTop - 2 && y < heroBottom + HERO_EXIT_BUFFER) {
-        return;
-      }
-
-      if (homeSnapLockRef.current) {
-        event.preventDefault();
-        return;
-      }
-
-      const direction = event.deltaY > 0 ? 1 : -1;
-      const now = Date.now();
-      const isNewGesture =
-        direction !== lastWheelDirectionRef.current ||
-        now - lastWheelAtRef.current > WHEEL_GESTURE_GAP_MS;
-
-      lastWheelDirectionRef.current = direction;
-      lastWheelAtRef.current = now;
-
-      if (!isNewGesture) {
-        event.preventDefault();
-        return;
-      }
-
-      let currentIndex = 0;
-      for (let index = 0; index < sectionTargets.length; index += 1) {
-        if (sectionTargets[index] <= y + HERO_EXIT_BUFFER) {
-          currentIndex = index;
-        } else {
-          break;
-        }
-      }
-
-      const targetIndex = Math.min(sections.length - 1, Math.max(0, currentIndex + direction));
-
-      if (targetIndex === currentIndex) return;
-
-      event.preventDefault();
-      homeSnapLockRef.current = true;
-      homeSnapTargetRef.current = sectionTargets[targetIndex];
-      window.scrollTo({ top: homeSnapTargetRef.current, behavior: 'smooth' });
-      window.setTimeout(releaseSnapLock, SNAP_LOCK_MS);
-    };
-
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('resize', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const navigateFromPointer = (clientY) => {
+      const rail = trackerRailRef.current;
+      if (!rail) return;
+
+      const snapTargets = getSnapTargets();
+      if (snapTargets.length === 0) return;
+
+      const rect = rail.getBoundingClientRect();
+      const offset = Math.min(Math.max(clientY - rect.top, 0), rect.height);
+      const ratio = rect.height > 0 ? offset / rect.height : 0;
+      const targetIndex = Math.min(
+        snapTargets.length - 1,
+        Math.max(0, Math.round(ratio * (snapTargets.length - 1)))
+      );
+
+      if (lastDraggedIndexRef.current === targetIndex) return;
+      lastDraggedIndexRef.current = targetIndex;
+      setActiveSectionIndex(targetIndex);
+      window.scrollTo({ top: snapTargets[targetIndex], behavior: 'smooth' });
+    };
+
+    const onPointerMove = (event) => {
+      if (!trackerDraggingRef.current) return;
+      navigateFromPointer(event.clientY);
+    };
+
+    const onPointerEnd = () => {
+      trackerDraggingRef.current = false;
+      lastDraggedIndexRef.current = null;
+    };
+
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerEnd);
+    window.addEventListener('pointercancel', onPointerEnd);
+
+    return () => {
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerEnd);
+      window.removeEventListener('pointercancel', onPointerEnd);
     };
   }, []);
 
   const handleSectionNavigate = (sectionIndex) => {
-    const sections = Array.from(document.querySelectorAll('[data-home-snap]'));
-    const targetSection = sections[sectionIndex];
-    if (!targetSection) return;
+    const snapTargets = getSnapTargets();
+    const targetTop = snapTargets[sectionIndex];
+    if (typeof targetTop !== 'number') return;
 
-    const targetTop = targetSection.offsetTop;
-    homeSnapLockRef.current = true;
-    homeSnapTargetRef.current = targetTop;
     setActiveSectionIndex(sectionIndex);
     window.scrollTo({ top: targetTop, behavior: 'smooth' });
-    window.setTimeout(() => {
-      if (Math.abs(window.scrollY - targetTop) <= 4) {
-        homeSnapLockRef.current = false;
-        homeSnapTargetRef.current = null;
+  };
+
+  const handleTrackerPointerDown = (event) => {
+    trackerDraggingRef.current = true;
+    lastDraggedIndexRef.current = null;
+
+    const rail = trackerRailRef.current;
+    if (rail && rail.setPointerCapture) {
+      try {
+        rail.setPointerCapture(event.pointerId);
+      } catch {
+        // Ignore capture issues and keep drag behavior via window listeners.
       }
-    }, 1100);
+    }
+
+    event.preventDefault();
+
+    const snapTargets = getSnapTargets();
+    if (snapTargets.length === 0) return;
+
+    const rect = rail?.getBoundingClientRect();
+    if (!rect) return;
+
+    const offset = Math.min(Math.max(event.clientY - rect.top, 0), rect.height);
+    const ratio = rect.height > 0 ? offset / rect.height : 0;
+    const targetIndex = Math.min(
+      snapTargets.length - 1,
+      Math.max(0, Math.round(ratio * (snapTargets.length - 1)))
+    );
+
+    lastDraggedIndexRef.current = targetIndex;
+    setActiveSectionIndex(targetIndex);
+    window.scrollTo({ top: snapTargets[targetIndex], behavior: 'smooth' });
   };
 
   return (
@@ -189,7 +197,11 @@ export function HomePage() {
         className="pointer-events-none fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 xl:block"
       >
         <div className="pointer-events-auto rounded-[1.8rem] border border-blue-100/80 bg-white/78 px-3 py-3 shadow-[0_24px_60px_rgba(12,44,108,0.12)] backdrop-blur-xl">
-          <div className="flex flex-col gap-2.5">
+          <div
+            ref={trackerRailRef}
+            onPointerDown={handleTrackerPointerDown}
+            className="flex touch-none flex-col gap-2.5"
+          >
             {HOME_SECTION_NAV.map((item, index) => {
               const isActive = index === activeSectionIndex;
 

@@ -1,3 +1,5 @@
+import { ROADMAP_TOOLS_DATA } from './roadmapToolsData.js';
+
 const serviceLink = (categoryId, serviceSlug, title, description) => ({
   categoryId,
   serviceSlug,
@@ -889,6 +891,7 @@ export const TOOLS_DATA = [
       topic: 'budgeting, projections, and financial planning',
     },
   },
+  ...ROADMAP_TOOLS_DATA,
 ];
 
 export const TOOLS_BY_SLUG = Object.fromEntries(TOOLS_DATA.map((tool) => [tool.slug, tool]));
