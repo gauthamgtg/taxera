@@ -30,6 +30,7 @@ export function Navbar() {
   const [servicesOpenState, setServicesOpenState] = useState(false);
   const [menuPath, setMenuPath] = useState('');
   const [scrolled, setScrolled] = useState(false);
+  const [calendlyModalOpen, setCalendlyModalOpen] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
   const isCurrentPath = menuPath === location.pathname;
@@ -53,6 +54,23 @@ export function Navbar() {
     return () => document.removeEventListener('mousedown', handleClick);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const syncCalendlyState = () => {
+      setCalendlyModalOpen(document.body.dataset.calendlyModalOpen === '1');
+    };
+
+    const onCalendlyModalToggle = (event) => {
+      setCalendlyModalOpen(Boolean(event.detail?.open));
+    };
+
+    syncCalendlyState();
+    window.addEventListener('taxera:calendly-modal', onCalendlyModalToggle);
+
+    return () => {
+      window.removeEventListener('taxera:calendly-modal', onCalendlyModalToggle);
+    };
+  }, []);
+
   const closeMenus = () => {
     setMenuPath(location.pathname);
     setMobileOpenState(false);
@@ -73,6 +91,10 @@ export function Navbar() {
   const navShell = scrolled
     ? 'border border-blue-200/80 bg-white/88 shadow-[0_16px_50px_rgba(24,68,153,0.16)] backdrop-blur-xl'
     : 'border border-blue-100/80 bg-white/72 shadow-[0_14px_42px_rgba(24,68,153,0.12)] backdrop-blur-xl';
+
+  if (calendlyModalOpen) {
+    return null;
+  }
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:px-8">

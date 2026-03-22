@@ -103,7 +103,7 @@ export function CategoryGrid() {
   }, [activeCategoryId, activeTrack]);
 
   return (
-    <section id="categories" className="relative overflow-hidden scroll-mt-28 px-4 py-14 md:scroll-mt-32 md:px-8 lg:min-h-[100svh] lg:px-16 lg:py-6">
+    <section id="categories" className="relative overflow-hidden scroll-mt-36 px-4 pb-14 pt-36 md:scroll-mt-40 md:px-8 md:pt-40 lg:min-h-[100svh] lg:px-16 lg:pb-6 lg:pt-32">
       <div className="absolute inset-x-0 top-10 mx-auto h-80 max-w-6xl rounded-full bg-blue-200/22 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
@@ -113,7 +113,7 @@ export function CategoryGrid() {
             One front-end for Business OS execution, one back-end for finance and compliance.
           </h2>
           <p className="mt-3 max-w-none text-base leading-relaxed text-blue-900/66">
-            Taxera is not only Business OS work. The website, growth, decks, dashboards, and automation layer sits on top of the same desk that also handles registration, GST, tax, ROC, payroll, bookkeeping, and advisory.
+            Taxera is more than Business OS work: your website, growth, decks, dashboards, and automation layer runs on the same desk that also handles registration, GST, tax, ROC, payroll, bookkeeping, and advisory.
           </p>
         </div>
 

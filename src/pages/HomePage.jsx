@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { SEOHead } from '../components/shared/SEOHead';
 import { Hero } from '../components/home/Hero';
 import { CategoryGrid } from '../components/home/CategoryGrid';
@@ -36,6 +37,63 @@ const faqJsonLd = {
 };
 
 export function HomePage() {
+  const homeSnapLockRef = useRef(false);
+
+  useEffect(() => {
+    const getSnapSections = () =>
+      Array.from(document.querySelectorAll('[data-home-snap]'));
+
+    const SNAP_LOCK_MS = 900;
+
+    const onWheel = (event) => {
+      const sections = getSnapSections();
+      if (sections.length < 2) return;
+      if (Math.abs(event.deltaY) < 3) return;
+
+      const y = window.scrollY;
+      const viewport = window.innerHeight;
+      const heroSection = sections[0];
+      const heroTop = heroSection.offsetTop;
+      const heroBottom = heroTop + heroSection.offsetHeight;
+      const sectionTargets = sections.map((section) => section.offsetTop);
+
+      if (y >= heroTop - 2 && y <= heroBottom - 2) {
+        return;
+      }
+
+      if (homeSnapLockRef.current) {
+        event.preventDefault();
+        return;
+      }
+
+      const direction = event.deltaY > 0 ? 1 : -1;
+      const scanPoint = y + viewport * 0.35;
+
+      let currentIndex = sectionTargets.findIndex((top, index) => {
+        const nextTop = sectionTargets[index + 1] ?? Number.POSITIVE_INFINITY;
+        return scanPoint >= top && scanPoint < nextTop;
+      });
+
+      if (currentIndex === -1) {
+        currentIndex = scanPoint < sectionTargets[0] ? 0 : sections.length - 1;
+      }
+
+      const targetIndex = Math.min(sections.length - 1, Math.max(0, currentIndex + direction));
+
+      if (targetIndex === currentIndex) return;
+
+      event.preventDefault();
+      homeSnapLockRef.current = true;
+      window.scrollTo({ top: sectionTargets[targetIndex], behavior: 'smooth' });
+      window.setTimeout(() => {
+        homeSnapLockRef.current = false;
+      }, SNAP_LOCK_MS);
+    };
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    return () => window.removeEventListener('wheel', onWheel);
+  }, []);
+
   return (
     <>
       <SEOHead
@@ -45,12 +103,24 @@ export function HomePage() {
         canonical="https://taxera.in/"
         jsonLd={[orgJsonLd, faqJsonLd]}
       />
-      <Hero />
-      <CategoryGrid />
-      <HowItWorks />
-      <Testimonials />
-      <HomeFaq />
-      <CTA />
+      <div data-home-snap>
+        <Hero />
+      </div>
+      <div data-home-snap>
+        <CategoryGrid />
+      </div>
+      <div data-home-snap>
+        <HowItWorks />
+      </div>
+      <div data-home-snap>
+        <Testimonials />
+      </div>
+      <div data-home-snap>
+        <HomeFaq />
+      </div>
+      <div data-home-snap>
+        <CTA />
+      </div>
     </>
   );
 }

@@ -9,6 +9,8 @@ export function CalendlyBookingModal({ open, onClose, calendlyUrl, topic, formDa
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.body.dataset.calendlyModalOpen = '1';
+    window.dispatchEvent(new CustomEvent('taxera:calendly-modal', { detail: { open: true } }));
 
     const onEscape = (event) => {
       if (event.key === 'Escape') {
@@ -20,6 +22,8 @@ export function CalendlyBookingModal({ open, onClose, calendlyUrl, topic, formDa
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      delete document.body.dataset.calendlyModalOpen;
+      window.dispatchEvent(new CustomEvent('taxera:calendly-modal', { detail: { open: false } }));
       document.removeEventListener('keydown', onEscape);
     };
   }, [open, onClose]);
@@ -31,7 +35,7 @@ export function CalendlyBookingModal({ open, onClose, calendlyUrl, topic, formDa
   return (
     <div className="fixed inset-0 z-[130] flex items-center justify-center bg-slate-900/45 p-3 backdrop-blur-sm sm:p-6" onClick={onClose}>
       <div
-        className="relative grid h-[min(94vh,860px)] w-full max-w-[1360px] gap-0 overflow-hidden rounded-[1.9rem] border border-blue-100 bg-white shadow-[0_30px_120px_rgba(7,34,86,0.34)] lg:grid-cols-[0.36fr_0.64fr]"
+        className="relative grid h-[min(98svh,920px)] w-full max-w-[1360px] gap-0 overflow-hidden rounded-[1.9rem] border border-blue-100 bg-white shadow-[0_30px_120px_rgba(7,34,86,0.34)] lg:grid-cols-[0.36fr_0.64fr]"
         onClick={(event) => event.stopPropagation()}
       >
         <button
@@ -78,7 +82,7 @@ export function CalendlyBookingModal({ open, onClose, calendlyUrl, topic, formDa
           </div>
         </aside>
 
-        <section className="h-full w-full bg-white pt-12">
+        <section className="h-full w-full overflow-hidden bg-white">
           <iframe
             title="Calendly Booking"
             src={calendlyUrl}

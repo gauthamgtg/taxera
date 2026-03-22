@@ -99,6 +99,8 @@ function buildCalendlyUrl(form, topic) {
     email: form.email.trim(),
     location: getPhoneForCalendly(form.phone),
     a1: topic,
+    hide_event_type_details: '1',
+    hide_gdpr_banner: '1',
   });
 
   return `${CALENDLY_LINK}?${params.toString()}`;
