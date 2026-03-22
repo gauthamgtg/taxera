@@ -110,10 +110,10 @@ export function CategoryGrid() {
         <div className="mb-7">
           <span className="section-label mb-3 block text-xs font-semibold uppercase">Explore Services</span>
           <h2 className="max-w-none text-3xl font-bold tracking-tight text-blue-950 md:text-[3.2rem]">
-            One front-end for Business OS execution, one back-end for finance and compliance.
+            One Desk. Every Layer of Your Business.
           </h2>
           <p className="mt-3 max-w-none text-base leading-relaxed text-blue-900/66">
-            Taxera is more than Business OS work: your website, growth, decks, dashboards, and automation layer runs on the same desk that also handles registration, GST, tax, ROC, payroll, bookkeeping, and advisory.
+            Front-end growth and back-end compliance — Taxera runs your business from registration to revenue, under one roof.
           </p>
         </div>
 
