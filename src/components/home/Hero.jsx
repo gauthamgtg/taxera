@@ -123,6 +123,8 @@ export function Hero() {
   const ref = useRef(null);
   const interactiveRef = useRef(null);
   const lockRef = useRef(false);
+  const lastWheelAtRef = useRef(0);
+  const lastWheelDirectionRef = useRef(0);
   const secondSectionHoldUntilRef = useRef(0);
   const [serviceIndex, setServiceIndex] = useState(0);
   const [phaseProgress, setPhaseProgress] = useState(0);
@@ -172,6 +174,7 @@ export function Hero() {
     if (!section) return undefined;
     const SNAP_LOCK_MS = 1000;
     const SECOND_SECTION_HOLD_MS = 1500;
+    const WHEEL_GESTURE_GAP_MS = 180;
 
     const snapTo = (targetTop, holdSecond = false) => {
       lockRef.current = true;
@@ -191,14 +194,28 @@ export function Hero() {
       const secondSnap = heroTop + viewport;
       const thirdSnap = heroTop + viewport * 2;
       const y = window.scrollY;
-      const nearFirst = Math.abs(y - firstSnap) < viewport * 0.48;
-      const nearSecond = Math.abs(y - secondSnap) < viewport * 0.48;
-      const nearSecondTight = Math.abs(y - secondSnap) < viewport * 0.24;
-      const nearThird = Math.abs(y - thirdSnap) < viewport * 0.48;
+      const nearFirst = Math.abs(y - firstSnap) < viewport * 0.34;
+      const nearSecond = Math.abs(y - secondSnap) < viewport * 0.34;
+      const nearSecondTight = Math.abs(y - secondSnap) < viewport * 0.2;
+      const nearThird = Math.abs(y - thirdSnap) < viewport * 0.34;
       const inHeroRange = y >= firstSnap - 4 && y <= thirdSnap + 4;
 
       if (lockRef.current) {
         if (inHeroRange) event.preventDefault();
+        return;
+      }
+
+      const direction = event.deltaY > 0 ? 1 : -1;
+      const now = Date.now();
+      const isNewGesture =
+        direction !== lastWheelDirectionRef.current ||
+        now - lastWheelAtRef.current > WHEEL_GESTURE_GAP_MS;
+
+      lastWheelDirectionRef.current = direction;
+      lastWheelAtRef.current = now;
+
+      if (!isNewGesture && inHeroRange) {
+        event.preventDefault();
         return;
       }
 
@@ -208,16 +225,16 @@ export function Hero() {
         return;
       }
 
-      if (event.deltaY > 0 && nearFirst) {
+      if (direction > 0 && nearFirst) {
         event.preventDefault();
         snapTo(secondSnap, true);
-      } else if (event.deltaY > 0 && nearSecondTight) {
+      } else if (direction > 0 && nearSecondTight) {
         event.preventDefault();
         snapTo(thirdSnap);
-      } else if (event.deltaY < 0 && nearSecond) {
+      } else if (direction < 0 && nearSecond) {
         event.preventDefault();
         snapTo(firstSnap);
-      } else if (event.deltaY < 0 && nearThird) {
+      } else if (direction < 0 && nearThird) {
         event.preventDefault();
         snapTo(secondSnap, true);
       }
