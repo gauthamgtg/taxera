@@ -160,6 +160,16 @@ export function Navbar() {
               Tools
             </NavLink>
 
+            <NavLink
+              to="/templates"
+              onClick={closeMenus}
+              className={({ isActive }) =>
+                `text-sm font-semibold transition-colors hover:text-blue-600 ${isActive ? 'text-blue-600' : 'text-blue-900/80'}`
+              }
+            >
+              Templates
+            </NavLink>
+
             <div ref={dropdownRef} className="relative">
               <button
                 type="button"
@@ -244,6 +254,10 @@ export function Navbar() {
 
               <NavLink to="/tools" onClick={closeMenus} className="rounded-2xl px-4 py-3 text-base font-semibold text-blue-950 hover:bg-blue-50">
                 Tools
+              </NavLink>
+
+              <NavLink to="/templates" onClick={closeMenus} className="rounded-2xl px-4 py-3 text-base font-semibold text-blue-950 hover:bg-blue-50">
+                Templates
               </NavLink>
 
               <div className="py-2">

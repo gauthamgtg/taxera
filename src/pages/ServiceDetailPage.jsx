@@ -10,7 +10,7 @@ import { SERVICES_DATA } from '../data/servicesData';
 function SectionShell({ label, title, children }) {
   return (
     <section className="px-4 py-10 md:px-8 lg:px-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl rounded-[1.9rem] border border-blue-100/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(243,248,255,0.88))] p-5 shadow-[0_16px_44px_rgba(15,50,124,0.08)] md:p-7">
         <span className="section-label mb-3 block text-xs font-semibold uppercase">{label}</span>
         <h2 className="mb-5 text-2xl font-bold text-blue-950 md:text-4xl">{title}</h2>
         {children}
@@ -91,8 +91,9 @@ export function ServiceDetailPage() {
         jsonLd={[breadcrumbJsonLd, serviceJsonLd, faqJsonLd]}
       />
 
-      <section className="px-4 pb-10 pt-28 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-7xl">
+      <section className="relative overflow-hidden px-4 pb-10 pt-28 md:px-8 lg:px-16">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_14%,rgba(37,117,255,0.18),transparent_32%),radial-gradient(circle_at_88%_16%,rgba(11,180,255,0.16),transparent_28%),linear-gradient(165deg,#f9fcff_0%,#edf4ff_58%,#eaf2ff_100%)]" />
+        <div className="mx-auto max-w-7xl relative">
           <Breadcrumbs
             items={[
               { label: 'Home', href: '/' },
@@ -102,34 +103,36 @@ export function ServiceDetailPage() {
           />
 
           <div className="mt-5 grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
-            <div className="glass-panel rounded-[2rem] p-6 md:p-8">
-              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
-                <ShieldCheck className="h-3.5 w-3.5" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-blue-100/65 bg-[linear-gradient(162deg,rgba(8,26,64,0.97),rgba(12,44,108,0.94)_52%,rgba(7,25,70,0.98))] p-6 text-white shadow-[0_32px_80px_rgba(9,34,92,0.36)] md:p-8">
+              <div className="absolute right-[-3rem] top-[-3rem] h-48 w-48 rounded-full bg-cyan-300/18 blur-3xl" />
+              <div className="absolute left-[-2.4rem] bottom-[-2.4rem] h-44 w-44 rounded-full bg-blue-300/16 blur-3xl" />
+              <span className="relative mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100/18 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-blue-100">
+                <ShieldCheck className="h-3.5 w-3.5 text-cyan-100" />
                 Only ISO 27001 certified platform
               </span>
 
-              <h1 className="text-[2.2rem] font-bold leading-[1.08] text-blue-950 sm:text-[3rem]">{service.heading}</h1>
-              <p className="mt-5 rounded-2xl border border-blue-100 bg-white/85 p-4 text-lg leading-relaxed text-blue-900/78">
+              <h1 className="relative text-[2.2rem] font-bold leading-[1.08] text-white sm:text-[3rem]">{service.heading}</h1>
+              <p className="relative mt-5 rounded-2xl border border-blue-100/18 bg-white/10 p-4 text-lg leading-relaxed text-blue-100/88">
                 {service.intro}
               </p>
 
-              <div className="mt-6 space-y-3">
+              <div className="relative mt-6 space-y-3">
                 {service.execution.slice(0, 3).map((item) => (
-                  <div key={item} className="flex items-start gap-2 text-lg text-blue-900/85">
-                    <CheckCircle2 className="mt-1 h-5 w-5 text-blue-700" />
+                  <div key={item} className="flex items-start gap-2 text-lg text-blue-100/86">
+                    <CheckCircle2 className="mt-1 h-5 w-5 text-cyan-100" />
                     <p>{item}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-7 rounded-2xl border border-blue-100 bg-white/85 p-4">
-                <p className="text-xl font-bold text-blue-950">Assured filing support with practical timeline clarity</p>
-                <p className="mt-2 text-base text-blue-900/72">
+              <div className="relative mt-7 rounded-2xl border border-blue-100/18 bg-white/10 p-4">
+                <p className="text-xl font-bold text-white">Assured filing support with practical timeline clarity</p>
+                <p className="mt-2 text-base text-blue-100/82">
                   We focus on correct documentation and strong first submission quality, so your filing does not get stuck in repeated query loops.
                 </p>
               </div>
 
-              <div className="mt-6 flex flex-wrap items-center gap-5 text-sm font-semibold text-blue-800">
+              <div className="relative mt-6 flex flex-wrap items-center gap-5 text-sm font-semibold text-blue-100/84">
                 <span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4" /> Know process in 60 sec</span>
                 <span className="inline-flex items-center gap-2"><FileText className="h-4 w-4" /> Review process details</span>
               </div>
@@ -270,7 +273,7 @@ export function ServiceDetailPage() {
       </SectionShell>
 
       <section className="px-4 pb-20 pt-8 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-blue-100 bg-white/85 p-8 text-center">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-blue-100/70 bg-[linear-gradient(160deg,#ffffff_0%,#f1f7ff_55%,#ebf3ff_100%)] p-8 text-center shadow-[0_22px_56px_rgba(16,50,124,0.1)]">
           <p className="text-2xl font-bold text-blue-950">Need help choosing the right service route?</p>
           <p className="mx-auto mt-3 max-w-3xl text-blue-900/74">
             Start with a focused consultation and get a clear filing roadmap based on your business stage, not a generic package.

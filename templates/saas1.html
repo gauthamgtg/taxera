@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Northstar Ops | SaaS Website Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #08111b;
+    --panel: #0e1724;
+    --text: #ecf4ff;
+    --muted: rgba(236,244,255,0.68);
+    --cyan: #4be6ff;
+    --blue: #4a7cff;
+    --lime: #c6ff55;
+    --line: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(74,124,255,0.18), transparent 26%),
+      radial-gradient(circle at right, rgba(75,230,255,0.14), transparent 24%),
+      var(--bg);
+  }
+  a { color: inherit; text-decoration: none; }
+  .shell { width: min(1200px, calc(100vw - 32px)); margin: 0 auto; }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(18px);
+    background: rgba(8,17,27,0.76);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 0;
+  }
+  .brand {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+  .brand span { color: var(--cyan); }
+  .nav {
+    display: flex;
+    gap: 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .button {
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--cyan), var(--lime));
+    color: #061019;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .hero {
+    padding: 40px 0 34px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 0.94fr 1.06fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(75,230,255,0.22);
+    background: rgba(75,230,255,0.08);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .hero-copy {
+    padding: 24px 0 12px;
+  }
+  .hero-copy h1 {
+    margin: 14px 0 16px;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(52px, 8vw, 102px);
+    line-height: 0.92;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+  }
+  .hero-copy p {
+    max-width: 520px;
+    margin: 0 0 24px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-actions a {
+    padding: 14px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .hero-actions .primary {
+    background: white;
+    color: #08111b;
+  }
+  .app-stage {
+    position: relative;
+    overflow: hidden;
+    min-height: 650px;
+    border-radius: 34px;
+    border: 1px solid var(--line);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+      linear-gradient(135deg, rgba(74,124,255,0.16), transparent 32%);
+  }
+  .mesh {
+    position: absolute;
+    inset: -20% auto auto -10%;
+    width: 420px;
+    height: 420px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(75,230,255,0.36), transparent 62%);
+    filter: blur(26px);
+  }
+  .window {
+    position: absolute;
+    inset: 24px;
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 16px;
+    padding: 18px;
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(5, 10, 18, 0.74);
+    backdrop-filter: blur(18px);
+  }
+  .sidebar {
+    padding: 14px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .sidebar strong {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .rail-item {
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .rail-item.active {
+    background: linear-gradient(90deg, rgba(75,230,255,0.18), rgba(198,255,85,0.12));
+    border: 1px solid rgba(75,230,255,0.2);
+  }
+  .workspace {
+    display: grid;
+    gap: 16px;
+  }
+  .workspace-top {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 16px;
+  }
+  .module {
+    padding: 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.03);
+  }
+  .module strong {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .module h3 {
+    margin: 0 0 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 30px;
+    line-height: 0.96;
+    font-weight: 700;
+  }
+  .module p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .bars {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    align-items: end;
+    height: 160px;
+    margin-top: 18px;
+  }
+  .bars span {
+    display: block;
+    border-radius: 999px 999px 10px 10px;
+    background: linear-gradient(180deg, var(--cyan), var(--blue));
+  }
+  .bars span:nth-child(1) { height: 22%; }
+  .bars span:nth-child(2) { height: 38%; }
+  .bars span:nth-child(3) { height: 56%; }
+  .bars span:nth-child(4) { height: 74%; }
+  .bars span:nth-child(5) { height: 92%; }
+  .bars span:nth-child(6) { height: 64%; }
+  .bars span:nth-child(7) { height: 48%; }
+  .signal-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .signal-item {
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+  }
+  .signal-item span {
+    display: block;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .timeline .module { min-height: 180px; }
+  .section {
+    padding: 28px 0 0;
+  }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 18px;
+  }
+  .section-head h2 {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: 0.94;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+  }
+  .section-head p {
+    max-width: 430px;
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .feature-card {
+    padding: 22px;
+    border-radius: 28px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03);
+  }
+  .feature-card strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lime);
+  }
+  .feature-card h3 {
+    margin: 0 0 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 30px;
+    line-height: 0.96;
+    font-weight: 700;
+  }
+  .feature-card p {
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .pricing {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 16px;
+  }
+  .pricing-main,
+  .pricing-plans {
+    border-radius: 30px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .pricing-main {
+    padding: 26px;
+    background: linear-gradient(180deg, rgba(74,124,255,0.18) 0%, rgba(255,255,255,0.03) 100%);
+  }
+  .pricing-main h3,
+  .plan h3 {
+    margin: 0 0 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 34px;
+    line-height: 0.95;
+    font-weight: 700;
+  }
+  .pricing-main p,
+  .plan p {
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .pricing-plans {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: rgba(255,255,255,0.03);
+  }
+  .plan {
+    padding: 24px;
+    border-left: 1px solid var(--line);
+  }
+  .plan:first-child { border-left: 0; }
+  .plan strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 980px) {
+    .hero-grid,
+    .feature-grid,
+    .pricing,
+    .pricing-plans,
+    .window,
+    .workspace-top,
+    .timeline {
+      grid-template-columns: 1fr;
+    }
+    .nav { display: none; }
+  }
+  @media (max-width: 640px) {
+    .shell { width: min(100vw - 24px, 1200px); }
+    .hero-copy h1 { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="#">Northstar <span>Ops</span></a>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="button" href="#pricing">Start trial</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">SaaS landing system</span>
+        <h1>Operational clarity without the dashboard-card cliche.</h1>
+        <p>This SaaS template uses one strong product window, a cleaner workspace hierarchy, and sharper typography so the brand feels modern without looking like every other software homepage.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#pricing">Start free</a>
+          <a href="#workflow">See workflow</a>
+        </div>
+      </div>
+
+      <div class="app-stage" id="workflow">
+        <div class="mesh"></div>
+        <div class="window">
+          <aside class="sidebar">
+            <strong>Workspaces</strong>
+            <div class="rail-item active">North America Ops</div>
+            <div class="rail-item">Expansion Playbooks</div>
+            <div class="rail-item">Signal Monitoring</div>
+            <div class="rail-item">Launch Control</div>
+          </aside>
+
+          <div class="workspace">
+            <div class="workspace-top">
+              <article class="module">
+                <strong>Pipeline health</strong>
+                <h3>Signals that turn into action.</h3>
+                <p>One high-contrast chart surface is enough. The page avoids a mosaic of tiny widgets and keeps the hero focused.</p>
+                <div class="bars">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </article>
+              <article class="module">
+                <strong>Priority queue</strong>
+                <div class="signal-list">
+                  <div class="signal-item"><strong style="margin:0;color:var(--cyan);">Market anomaly</strong><span>APAC traffic spike triggered campaign reroute.</span></div>
+                  <div class="signal-item"><strong style="margin:0;color:var(--lime);">Revenue pulse</strong><span>Lead velocity crossed benchmark in two teams.</span></div>
+                  <div class="signal-item"><strong style="margin:0;color:#ff9a67;">Team sync</strong><span>Ops briefing scheduled with product and growth leads.</span></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="timeline">
+              <article class="module">
+                <strong>Step 01</strong>
+                <h3>Capture</h3>
+                <p>Ingest field, product, and campaign inputs into one operating layer.</p>
+              </article>
+              <article class="module">
+                <strong>Step 02</strong>
+                <h3>Prioritize</h3>
+                <p>Rank signals by urgency, value, and downstream operational load.</p>
+              </article>
+              <article class="module">
+                <strong>Step 03</strong>
+                <h3>Ship</h3>
+                <p>Route actions across teams with clear owners and confidence levels.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell" id="features">
+    <div class="section-head">
+      <h2>Feature architecture</h2>
+      <p>Each feature gets a distinct role. The page stays legible because every section explains one product capability, not five at once.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <strong>Signal engine</strong>
+        <h3>See what moved first.</h3>
+        <p>Track spikes, dips, lag, and threshold changes across teams before they turn into reporting problems.</p>
+      </article>
+      <article class="feature-card">
+        <strong>Routing logic</strong>
+        <h3>Assign work with intent.</h3>
+        <p>Send tasks to the right owner, workspace, or team based on urgency and expected impact.</p>
+      </article>
+      <article class="feature-card">
+        <strong>Decision layer</strong>
+        <h3>Keep everyone aligned.</h3>
+        <p>Share one operational view instead of spreading updates across decks, docs, and chat threads.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section shell" id="pricing">
+    <div class="pricing">
+      <article class="pricing-main">
+        <span class="eyebrow">Pricing posture</span>
+        <h3>Sell momentum, not seat-count anxiety.</h3>
+        <p>The plan section is kept simple and direct. One anchor plan, one expansion plan, and one clear action are enough for most SaaS landing flows.</p>
+      </article>
+      <article class="pricing-plans">
+        <div class="plan">
+          <strong>Core</strong>
+          <h3>Fast teams</h3>
+          <p>Signal monitoring, workflow routing, and weekly operational summaries for teams that need one clean control layer.</p>
+        </div>
+        <div class="plan">
+          <strong>Scale</strong>
+          <h3>Multi-market orgs</h3>
+          <p>Advanced workspace orchestration, threshold logic, and cross-team action tracking for larger systems.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

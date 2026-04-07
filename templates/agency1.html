@@ -1,0 +1,692 @@
+
+<!-- Generated Screen -->
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ToyWizard - The Magic of Play</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Custom Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Quicksand:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            toyRed: '#FF5E5E',
+            toyYellow: '#FFD93D',
+            toyBlue: '#6BCBFF',
+            toyGreen: '#6BCB77',
+            toyPurple: '#9E7CF5',
+            softBeige: '#FFF9F0',
+          },
+          fontFamily: {
+            display: ['"Fredoka One"', 'cursive'],
+            body: ['Quicksand', 'sans-serif'],
+          },
+          borderRadius: {
+            '4xl': '2rem',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-animations">
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    .toy-shadow {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .bubble-button {
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .bubble-button:hover {
+      transform: scale(1.05);
+    }
+    .confetti-bg {
+      background-image: radial-gradient(#FF5E5E 10%, transparent 10%), radial-gradient(#FFD93D 10%, transparent 10%);
+      background-position: 0 0, 25px 25px;
+      background-size: 50px 50px;
+      opacity: 0.05;
+    }
+  </style>
+</head>
+<body class="bg-softBeige font-body text-slate-800">
+<!-- BEGIN: Header -->
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b-4 border-toyYellow/20">
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-2 group cursor-pointer" data-purpose="logo">
+<div class="w-10 h-10 bg-toyRed rounded-xl flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform">
+<span class="text-white text-2xl">✨</span>
+</div>
+<span class="font-display text-2xl text-toyRed tracking-wide">ToyWizard</span>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-bold text-slate-600">
+<a class="hover:text-toyRed transition-colors" href="#">The Magic</a>
+<a class="hover:text-toyRed transition-colors" href="#">Toy Box</a>
+<a class="hover:text-toyRed transition-colors" href="#">Big News</a>
+<button class="bg-toyBlue text-white px-6 py-2 rounded-full bubble-button shadow-lg shadow-toyBlue/30">Let's Play!</button>
+</nav>
+</div>
+</header>
+<!-- END: Header -->
+<main>
+<!-- BEGIN: Hero Section -->
+<section class="relative overflow-hidden pt-12 pb-20 px-6" data-purpose="hero">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+<!-- Hero Text -->
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-6">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-toyRed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-toyRed"></span>
+</span>
+<span class="text-xs font-bold uppercase tracking-widest text-slate-500">The Magic Box is Open!</span>
+</div>
+<h1 class="font-display text-5xl md:text-7xl leading-tight mb-6">
+            Is Playtime feeling <br/>
+<span class="text-toyRed underline decoration-toyYellow decoration-wavy">too boring?</span>
+</h1>
+<p class="text-xl text-slate-600 mb-10 max-w-lg leading-relaxed">
+            Don't worry, friend! I'm here to handle all the toy cleanup while you focus on making your 
+            imagination awesome. Ready for a stress-free play season?
+          </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-toyRed text-white px-8 py-4 rounded-2xl font-bold text-lg bubble-button shadow-xl shadow-toyRed/30">
+              Yes, help me! ✨
+            </button>
+<button class="bg-white border-4 border-toyYellow px-8 py-4 rounded-2xl font-bold text-lg bubble-button">
+              How much? 💰
+            </button>
+</div>
+</div>
+<!-- Hero Visual -->
+<div class="relative">
+<div class="absolute inset-0 bg-toyYellow rounded-4xl -rotate-3 scale-95 opacity-20"></div>
+<div class="relative bg-white p-6 rounded-4xl toy-shadow overflow-hidden">
+<!-- Decorative Smiley Badge -->
+<div class="absolute top-4 right-4 bg-toyYellow p-3 rounded-2xl rotate-12 flex flex-col items-center">
+<span class="text-2xl">😄</span>
+<span class="text-[10px] font-bold uppercase">Fun Stress</span>
+<span class="text-xl font-display">0%</span>
+</div>
+<!-- Main Hero Image -->
+<img alt="Magic Toy Box" class="w-full h-auto rounded-3xl animate-float" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4HrpewEwtrwsR8mixk_noR5oQrfd77vsPsMOr1WTJMuFol6B0JkstnfhEBU_CdYRveBZUNw0iEF0fFbbAfmoIAbjc5Dgg-G7gx4NU6RnVNmhbB7i6dUgbXjIlHZqYGD-Fj1eyyQYDdfquI_0wm37umebn9KkiOFCVgcKNs-jo7DUKFIEaKLajHmOWv1O65WEbIagOqaAHD8BK630bo4FbyXm5rlWzaIa8JfzYMoEZQiikSubkq2mkkEPS4P0I0tM_PGrzKc6tGd8"/>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Superpowers Section -->
+<section class="py-20 px-6 bg-white" data-purpose="features">
+<div class="max-w-7xl mx-auto text-center mb-16">
+<h2 class="font-display text-4xl md:text-5xl mb-4">Your New Superpowers 🚀</h2>
+<p class="text-xl text-slate-500">We've turned boring toy sorting into a walk in the park.</p>
+</div>
+<div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Feature 1 -->
+<div class="bg-softBeige p-8 rounded-3xl border-b-8 border-toyRed/20 hover:-translate-y-2 transition-transform">
+<div class="w-14 h-14 bg-toyRed/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🧸</div>
+<h3 class="font-display text-xl mb-3">No More Oopsies</h3>
+<p class="text-slate-600 leading-relaxed">We pick up every block on time. Never step on a Lego again!</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-softBeige p-8 rounded-3xl border-b-8 border-toyBlue/20 hover:-translate-y-2 transition-transform">
+<div class="w-14 h-14 bg-toyBlue/10 rounded-2xl flex items-center justify-center text-3xl mb-6">💎</div>
+<h3 class="font-display text-xl mb-3">Find Every Coin</h3>
+<p class="text-slate-600 leading-relaxed">We find hidden toy treasures that most people miss in the couch.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-softBeige p-8 rounded-3xl border-b-8 border-toyYellow/20 hover:-translate-y-2 transition-transform">
+<div class="w-14 h-14 bg-toyYellow/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🤖</div>
+<h3 class="font-display text-xl mb-3">Real Toy Pals</h3>
+<p class="text-slate-600 leading-relaxed">Actual toy experts check your playtime. No robots making silly mistakes.</p>
+</div>
+<!-- Feature 4 -->
+<div class="bg-softBeige p-8 rounded-3xl border-b-8 border-toyPurple/20 hover:-translate-y-2 transition-transform">
+<div class="w-14 h-14 bg-toyPurple/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🎯</div>
+<h3 class="font-display text-xl mb-3">Easy Matching</h3>
+<p class="text-slate-600 leading-relaxed">We make sure your socks match up with what the washer sees.</p>
+</div>
+</div>
+</section>
+<!-- END: Superpowers Section -->
+<!-- BEGIN: Simple 4-Step Playtime Plan -->
+<section class="py-24 px-6 relative" data-purpose="process">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+<!-- Sticky Left Box -->
+<div class="w-full lg:w-1/3 bg-toyYellow/10 border-4 border-dashed border-toyYellow rounded-4xl p-10">
+<h2 class="font-display text-4xl mb-4 leading-tight">The 4 Simple <br/><span class="text-toyRed">Playtime Steps</span></h2>
+<p class="text-slate-600 mb-8">You do the fun stuff, we do the cleanup stuff. It's that easy!</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 bg-white p-4 rounded-2xl shadow-sm">
+<span class="w-6 h-6 bg-toyRed text-white flex items-center justify-center rounded-full text-xs">✓</span>
+<span class="font-bold">Simple for humans</span>
+</li>
+<li class="flex items-center gap-3 bg-white p-4 rounded-2xl shadow-sm">
+<span class="w-6 h-6 bg-toyBlue text-white flex items-center justify-center rounded-full text-xs">✓</span>
+<span class="font-bold">Safe like a toy chest</span>
+</li>
+</ul>
+</div>
+<!-- Right Side Grid -->
+<div class="w-full lg:w-2/3 grid sm:grid-cols-2 gap-6">
+<div class="bg-toyBlue/10 p-8 rounded-3xl relative group overflow-hidden">
+<span class="absolute right-4 top-4 text-6xl font-display opacity-10">1</span>
+<div class="text-3xl mb-4">🧺</div>
+<h4 class="font-display text-xl mb-2">Drop Your Toys</h4>
+<p class="text-slate-600 text-sm">Just toss them in the box. Snap a photo—we aren't picky!</p>
+</div>
+<div class="bg-toyRed/10 p-8 rounded-3xl relative group overflow-hidden">
+<span class="absolute right-4 top-4 text-6xl font-display opacity-10">2</span>
+<div class="text-3xl mb-4">📋</div>
+<h4 class="font-display text-xl mb-2">Expert Sorting</h4>
+<p class="text-slate-600 text-sm">Our friendly toy pros give your bin a high-five and organize it.</p>
+</div>
+<div class="bg-toyYellow/10 p-8 rounded-3xl relative group overflow-hidden">
+<span class="absolute right-4 top-4 text-6xl font-display opacity-10">3</span>
+<div class="text-3xl mb-4">✈️</div>
+<h4 class="font-display text-xl mb-2">Away It Goes!</h4>
+<p class="text-slate-600 text-sm">We click the magic buttons and send the boredom away for you.</p>
+</div>
+<div class="bg-toyPurple/10 p-8 rounded-3xl relative group overflow-hidden">
+<span class="absolute right-4 top-4 text-6xl font-display opacity-10">4</span>
+<div class="text-3xl mb-4">🎉</div>
+<h4 class="font-display text-xl mb-2">Party Time!</h4>
+<p class="text-slate-600 text-sm">Get a nice little sticker in the inbox. You're officially 100% fun!</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Simple 4-Step Playtime Plan -->
+<!-- BEGIN: Pricing Section -->
+<section class="py-24 px-6 bg-white" data-purpose="pricing">
+<div class="max-w-7xl mx-auto text-center mb-16">
+<h2 class="font-display text-4xl md:text-5xl mb-4">Playful Pricing 🍬</h2>
+<p class="text-xl text-slate-500">No hidden fees, no spooky surprises. Just pure fun.</p>
+</div>
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 items-end">
+<!-- Tier 1 -->
+<div class="bg-white border-2 border-slate-100 p-8 rounded-4xl shadow-xl flex flex-col h-full">
+<span class="self-start bg-toyBlue/10 text-toyBlue text-xs font-bold uppercase px-3 py-1 rounded-full mb-6">Tiny Tots</span>
+<h3 class="font-display text-3xl mb-2">Tiny Biz</h3>
+<div class="mb-8">
+<span class="text-4xl font-display">$19</span><span class="text-slate-400">/month</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-slate-600"><span class="text-toyBlue">✔</span> 50 Play Blocks</li>
+<li class="flex items-center gap-3 text-slate-600"><span class="text-toyBlue">✔</span> Monthly Sorting</li>
+<li class="flex items-center gap-3 text-slate-600"><span class="text-toyBlue">✔</span> Email Support</li>
+</ul>
+<button class="w-full py-4 border-2 border-toyBlue text-toyBlue font-bold rounded-2xl hover:bg-toyBlue hover:text-white transition-colors">Pick Me!</button>
+</div>
+<!-- Tier 2 (Featured) -->
+<div class="bg-white border-4 border-toyYellow p-8 rounded-4xl shadow-2xl scale-105 relative flex flex-col h-full">
+<div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-toyRed text-white text-xs font-bold uppercase px-6 py-2 rounded-full whitespace-nowrap">Most Popular ✨</div>
+<span class="self-start bg-toyRed/10 text-toyRed text-xs font-bold uppercase px-3 py-1 rounded-full mb-6">Growing Fast</span>
+<h3 class="font-display text-3xl mb-2">Super Play</h3>
+<div class="mb-8">
+<span class="text-4xl font-display">$49</span><span class="text-slate-400">/month</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-slate-600 font-bold"><span class="text-toyRed">✔</span> Infinite Toys!</li>
+<li class="flex items-center gap-3 text-slate-600 font-bold"><span class="text-toyRed">✔</span> Rare Item Search</li>
+<li class="flex items-center gap-3 text-slate-600 font-bold"><span class="text-toyRed">✔</span> Private Toy Buddy</li>
+</ul>
+<button class="w-full py-4 bg-toyRed text-white font-bold rounded-2xl bubble-button shadow-lg shadow-toyRed/30">Let's Go!</button>
+</div>
+<!-- Tier 3 -->
+<div class="bg-white border-2 border-slate-100 p-8 rounded-4xl shadow-xl flex flex-col h-full">
+<span class="self-start bg-toyPurple/10 text-toyPurple text-xs font-bold uppercase px-3 py-1 rounded-full mb-6">Big Dreams</span>
+<h3 class="font-display text-3xl mb-2">Mega Fun</h3>
+<div class="mb-8">
+<span class="text-4xl font-display">Custom</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-slate-600"><span class="text-toyPurple">✔</span> Multi-Box Setup</li>
+<li class="flex items-center gap-3 text-slate-600"><span class="text-toyPurple">✔</span> Full Toy Audits</li>
+<li class="flex items-center gap-3 text-slate-600"><span class="text-toyPurple">✔</span> 24/7 Toyline</li>
+</ul>
+<button class="w-full py-4 border-2 border-slate-800 text-slate-800 font-bold rounded-2xl hover:bg-slate-800 hover:text-white transition-colors">Chat With Us</button>
+</div>
+</div>
+</section>
+<!-- END: Pricing Section -->
+<!-- BEGIN: FAQ Section -->
+<section class="py-24 px-6" data-purpose="faq">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-display text-4xl mb-4">Curious Minds Want to Know? 🤔</h2>
+</div>
+<div class="space-y-4">
+<div class="bg-toyBlue/5 p-6 rounded-2xl border-2 border-transparent hover:border-toyBlue/20 transition-all cursor-pointer">
+<div class="flex items-center justify-between font-bold">
+<span>What stuff do I need to send you?</span>
+<span class="text-toyBlue">▼</span>
+</div>
+</div>
+<div class="bg-toyRed/5 p-6 rounded-2xl border-2 border-transparent hover:border-toyRed/20 transition-all cursor-pointer">
+<div class="flex items-center justify-between font-bold">
+<span>Will you keep my secrets safe?</span>
+<span class="text-toyRed">▼</span>
+</div>
+</div>
+<div class="bg-toyYellow/5 p-6 rounded-2xl border-2 border-transparent hover:border-toyYellow/20 transition-all cursor-pointer">
+<div class="flex items-center justify-between font-bold">
+<span>How do I get my toy money back?</span>
+<span class="text-toyYellow">▼</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: FAQ Section -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-slate-900 text-white pt-20 pb-10 px-6 mt-20">
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="w-8 h-8 bg-toyRed rounded-lg flex items-center justify-center">
+<span class="text-white text-lg">✨</span>
+</div>
+<span class="font-display text-xl text-toyRed">ToyWizard</span>
+</div>
+<p class="text-slate-400 text-sm mb-6 italic">"The most fun you'll ever have organizing toys... well, ever!"</p>
+<div class="flex gap-4">
+<div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center hover:bg-toyRed transition-colors cursor-pointer text-xs">⭐</div>
+<div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center hover:bg-toyRed transition-colors cursor-pointer text-xs">🚀</div>
+<div class="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center hover:bg-toyRed transition-colors cursor-pointer text-xs">🎈</div>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-toyYellow uppercase tracking-wider text-xs">Magic Tricks</h4>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li><a class="hover:text-white" href="#">Toy Filing</a></li>
+<li><a class="hover:text-white" href="#">Company Birth</a></li>
+<li><a class="hover:text-white" href="#">Money Advice</a></li>
+<li><a class="hover:text-white" href="#">Legal Shield</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-toyBlue uppercase tracking-wider text-xs">Hugs &amp; Help</h4>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li><a class="hover:text-white" href="#">Say Hello</a></li>
+<li><a class="hover:text-white" href="#">Learning Zone</a></li>
+<li><a class="hover:text-white" href="#">Secret Policy</a></li>
+<li><a class="hover:text-white" href="#">Pinky Swear</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-toyRed uppercase tracking-wider text-xs">Good Vibes Daily</h4>
+<p class="text-slate-400 text-sm mb-4">Get fun toy tips and happy news in your inbox!</p>
+<div class="flex flex-col gap-3">
+<input class="bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-toyBlue py-3" placeholder="yourname@cool.com" type="email"/>
+<button class="bg-toyBlue text-slate-900 font-bold py-3 rounded-xl bubble-button">Join the Club</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-500 font-bold uppercase tracking-widest gap-4">
+<p>© 2024 ToyWizard Magic Services. Made with ✨ for Little Heroes.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Safety</a>
+<a class="hover:text-white" href="#">Legals</a>
+<a class="hover:text-white" href="#">Map</a>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>
+
+<!-- GST Filing Service Page -->
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Tax Diary | Your Scrapbook for Compliance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&amp;family=Lora:ital,wght@0,400;0,500;1,400&amp;family=Gochi+Hand&amp;family=Caveat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "scrapbook-bg": "#FDF9F0",
+                        "vintage-yellow": "#F2E8CF",
+                        "vintage-green": "#A7C957",
+                        "dusty-pink": "#F2CC8F",
+                        "earthy-brown": "#6D597A",
+                        "muted-teal": "#81B29A",
+                        "old-paper": "#FCF6BD",
+                    },
+                    fontFamily: {
+                        "handwritten": ["'Architects Daughter'", "cursive"],
+                        "accent": ["'Gochi Hand'", "cursive"],
+                        "serif": ["'Lora'", "serif"],
+                        "doodle": ["'Caveat'", "cursive"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                color: #292524;
+                font-family: 'Lora', serif;
+                background-color: #FDF9F0;
+                background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            }
+            h1, h2, h3, h4 {
+                font-family: 'Architects Daughter', cursive;
+            }
+        }
+        .polaroid {
+            background-color: white;
+            padding: 1rem;
+            padding-bottom: 3rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e7e5e4;
+            transform: rotate(-2deg);
+        }
+        .sticky-note {
+            position: relative;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.05) 100%);
+        }
+        .pin {
+            position: absolute;
+            top: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.18);
+            background: radial-gradient(circle at 30% 30%, #ff4d4d, #b30000);
+        }
+        .clipping {
+            border: 2px dashed #a8a29e;
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.5);
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+        }
+        .tape {
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            z-index: 10;
+            height: 2.5rem;
+            width: 6rem;
+            transform: translateX(-50%) rotate(1deg);
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            border-left: 2px dashed rgba(0,0,0,0.1);
+            border-right: 2px dashed rgba(0,0,0,0.1);
+        }
+        .scribble {
+            font-family: 'Caveat', cursive;
+            color: #A7C957;
+        }
+        .blur-lifestyle {
+            filter: blur(1px) sepia(0.2);
+        }
+    </style>
+</head>
+<body class="selection:bg-vintage-green/30">
+<div class="relative overflow-hidden">
+<header class="relative z-50 flex items-center justify-between px-6 py-8 lg:px-20">
+<div class="relative group">
+<div class="tape opacity-60"></div>
+<div class="flex items-center gap-2 px-4 py-2 bg-old-paper shadow-sm rotate-1">
+<span class="material-symbols-outlined text-stone-600">book_5</span>
+<h1 class="text-3xl font-bold text-stone-700 tracking-tight">TaxDiary.</h1>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-10 font-handwritten text-xl">
+<a class="hover:underline decoration-vintage-green decoration-2 underline-offset-4" href="#">Our Notes</a>
+<a class="hover:underline decoration-dusty-pink decoration-2 underline-offset-4" href="#">Paper Trail</a>
+<a class="hover:underline decoration-muted-teal decoration-2 underline-offset-4" href="#">Say Hello</a>
+<button class="bg-vintage-green text-white px-8 py-3 rotate-1 shadow-lg font-handwritten hover:rotate-0 transition-transform">Start Journaling</button>
+</nav>
+</header>
+<main class="relative px-6 lg:px-20 max-w-7xl mx-auto py-12">
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-32">
+<div class="lg:col-span-7 relative">
+<div class="clipping rotate-1 relative mb-8">
+<span class="absolute -top-6 -left-4 font-doodle text-4xl text-dusty-pink -rotate-12">Dear Friend...</span>
+<h2 class="text-5xl md:text-7xl font-bold mb-6 leading-[1.1] text-stone-800">
+                            Is your tax filing a <span class="scribble underline decoration-wavy">messy drawer?</span>
+</h2>
+<p class="text-xl md:text-2xl text-stone-600 leading-relaxed italic">
+                            Remember when you started your shop? It was about the joy of creating, not the mountain of receipts. We're here to help you paste everything in place.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-6 items-center">
+<button class="px-10 py-4 bg-earthy-brown text-white font-handwritten text-2xl shadow-xl hover:-translate-y-1 transition-transform -rotate-1">
+                            Help me sort it!
+                        </button>
+<span class="font-doodle text-2xl text-stone-400 rotate-6">Starting from ₹1,999</span>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="polaroid rotate-3 relative z-20 overflow-hidden">
+<img alt="Life" class="w-full aspect-square object-cover blur-lifestyle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6scmRKq9tYZ9ts5DAcMhsEh3xyeZUU3VaEEHARuKRawRmCPqNq5lnaCMC0Dr0z3Tz9bGMUIaOdgqU1TKcSmm33lTrIsaaS4b06_0iLrR1ANg5KXS0OKfY3qlQ99TBGQzAJTDRPzpmQDXRLvio-70QuWVcA7jgKEMs7CjG_P6nG3CTRl6vaYkA9f3lhA4JWLG38ROejNlMTuPUh6a1gcsY8zub4tu9NbVH_dAVzudJ0t_8ZGVwZ4za4Is9vIyybohBOEj9jzlbcqw"/>
+<p class="font-doodle text-center text-3xl mt-6 text-stone-500">Business in bloom</p>
+</div>
+<div class="absolute -top-12 -right-8 w-32 h-32 bg-vintage-yellow rounded-full flex items-center justify-center p-4 border-2 border-dashed border-stone-300 -rotate-12 z-10">
+<p class="text-center font-accent text-lg leading-tight">100% Peace of Mind</p>
+</div>
+<div class="absolute -bottom-8 -left-12 w-48 h-20 bg-dusty-pink/80 sticky-note -rotate-6 z-30 flex items-center justify-center">
+<div class="pin"></div>
+<p class="font-handwritten text-lg font-bold">No Late Fees!</p>
+</div>
+</div>
+</section>
+<section class="mb-32">
+<div class="text-center mb-16 relative">
+<h2 class="text-4xl md:text-5xl mb-4">Our Collaborative Canvas</h2>
+<p class="text-xl italic text-stone-500">How we turn "Tax Monsters" into "Paper Butterflies"</p>
+<div class="absolute -top-8 right-1/4 scribble text-4xl opacity-40">✨ doodle time</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="sticky-note bg-old-paper rotate-1 hover:rotate-0 transition-all duration-500 group">
+<div class="pin bg-blue-500 shadow-none"></div>
+<span class="material-symbols-outlined text-4xl mb-4 text-stone-400">event_note</span>
+<h3 class="text-2xl font-bold mb-2">The Timely Tale</h3>
+<p class="text-lg italic font-serif opacity-80">We file everything on time, so you can keep dreaming about your next big idea.</p>
+<div class="mt-4 scribble text-2xl group-hover:scale-110 transition-transform">✓ Sorted!</div>
+</div>
+<div class="sticky-note bg-vintage-yellow -rotate-2 hover:rotate-0 transition-all duration-500 group">
+<div class="pin bg-green-500 shadow-none"></div>
+<span class="material-symbols-outlined text-4xl mb-4 text-stone-400">savings</span>
+<h3 class="text-2xl font-bold mb-2">Hidden Treasures</h3>
+<p class="text-lg italic font-serif opacity-80">Our experts find those tax credits hiding in plain sight. It's your money, kept safe.</p>
+<div class="mt-4 scribble text-2xl group-hover:scale-110 transition-transform">$$$ for you</div>
+</div>
+<div class="sticky-note bg-dusty-pink/20 rotate-3 hover:rotate-0 transition-all duration-500 group">
+<div class="pin bg-yellow-500 shadow-none"></div>
+<span class="material-symbols-outlined text-4xl mb-4 text-stone-400">face</span>
+<h3 class="text-2xl font-bold mb-2">Human Hands</h3>
+<p class="text-lg italic font-serif opacity-80">No cold bots here. Just friendly tax enthusiasts who actually care about your store.</p>
+<div class="mt-4 scribble text-2xl group-hover:scale-110 transition-transform">Warm hugs</div>
+</div>
+<div class="sticky-note bg-muted-teal/10 -rotate-1 hover:rotate-0 transition-all duration-500 group">
+<div class="pin bg-purple-500 shadow-none"></div>
+<span class="material-symbols-outlined text-4xl mb-4 text-stone-400">auto_awesome</span>
+<h3 class="text-2xl font-bold mb-2">Magic Match</h3>
+<p class="text-lg italic font-serif opacity-80">Matching bills to government records shouldn't be your headache. We've got the puzzle sorted.</p>
+<div class="mt-4 scribble text-2xl group-hover:scale-110 transition-transform">Easy peasy!</div>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+<div class="relative order-2 lg:order-1">
+<div class="clipping rotate-2 border-stone-300 shadow-lg bg-white p-8">
+<h3 class="text-4xl mb-8 border-b-2 border-stone-100 pb-4">A simple paper trail...</h3>
+<div class="space-y-8">
+<div class="flex gap-4 items-start">
+<span class="font-accent text-3xl text-vintage-green">01.</span>
+<div>
+<h4 class="text-xl font-bold">The Great Gathering</h4>
+<p class="text-stone-500 italic">Snap photos of your bills or send a digital folder. We accept all scrapbooks!</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="font-accent text-3xl text-dusty-pink">02.</span>
+<div>
+<h4 class="text-xl font-bold">The Quiet Checkup</h4>
+<p class="text-stone-500 italic">We review every line with a fine-tipped pen to ensure everything is perfect.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="font-accent text-3xl text-muted-teal">03.</span>
+<div>
+<h4 class="text-xl font-bold">The Post Box</h4>
+<p class="text-stone-500 italic">We send your returns to the government portal. Consider the stamps handled.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-old-paper rotate-12 shadow-lg flex items-center justify-center p-4">
+<p class="text-center font-doodle text-xl">"I can finally sleep again!"<br/>- Happy Client</p>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="text-5xl md:text-6xl mb-8">Four steps to <span class="text-vintage-green italic">freedom.</span></h2>
+<p class="text-2xl italic leading-relaxed text-stone-600 mb-8">
+                        Think of us as the extra pair of hands that tidies up your office every night while you're away dreaming.
+                    </p>
+<div class="scribble text-3xl text-dusty-pink rotate-3">The paper magic is real →</div>
+</div>
+</section>
+<section class="mb-32">
+<div class="text-center mb-16">
+<h2 class="text-5xl mb-4">Simple Fees, No Surprises</h2>
+<p class="text-xl italic text-stone-500">Pick the envelope that fits your story.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-10 border border-stone-200 shadow-lg relative -rotate-1 hover:rotate-0 transition-transform flex flex-col items-center text-center">
+<div class="tape w-20 bg-stone-100"></div>
+<span class="font-accent text-stone-400 text-lg uppercase tracking-widest mb-4">The Budding Shop</span>
+<h3 class="text-3xl font-bold mb-2">Tiny Biz</h3>
+<div class="text-5xl font-handwritten text-stone-800 mb-8">₹1,999<span class="text-xl font-serif text-stone-400 italic">/mo</span></div>
+<ul class="space-y-4 mb-10 text-stone-600 font-serif italic text-lg w-full text-left border-t border-dashed border-stone-100 pt-6">
+<li>• Up to 50 Monthly Invoices</li>
+<li>• GST Return Filing</li>
+<li>• Email Support</li>
+</ul>
+<button class="w-full py-4 border-2 border-stone-800 font-handwritten text-xl hover:bg-stone-800 hover:text-white transition-colors">Select this</button>
+</div>
+<div class="bg-old-paper p-10 border border-stone-300 shadow-2xl relative rotate-1 hover:rotate-0 transition-transform z-10 flex flex-col items-center text-center">
+<div class="tape w-24 bg-vintage-green/30"></div>
+<div class="absolute -top-6 -right-6 bg-earthy-brown text-white p-4 rotate-12 shadow-lg font-accent text-xl">Most Loved!</div>
+<span class="font-accent text-vintage-green text-lg uppercase tracking-widest mb-4">Growing Fast</span>
+<h3 class="text-3xl font-bold mb-2">Super Store</h3>
+<div class="text-5xl font-handwritten text-stone-800 mb-8">₹4,999<span class="text-xl font-serif text-stone-400 italic">/mo</span></div>
+<ul class="space-y-4 mb-10 text-stone-800 font-serif italic text-lg w-full text-left border-t border-dashed border-stone-300 pt-6">
+<li>• Unlimited Monthly Bills</li>
+<li>• Premium ITC Reconciliation</li>
+<li>• Dedicated Tax Buddy</li>
+</ul>
+<button class="w-full py-4 bg-earthy-brown text-white font-handwritten text-xl shadow-lg hover:shadow-xl transition-all">Start Now</button>
+</div>
+<div class="bg-white p-10 border border-stone-200 shadow-lg relative -rotate-2 hover:rotate-0 transition-transform flex flex-col items-center text-center">
+<div class="tape w-20 bg-stone-100"></div>
+<span class="font-accent text-stone-400 text-lg uppercase tracking-widest mb-4">Big Dreams</span>
+<h3 class="text-3xl font-bold mb-2">Mega Corp</h3>
+<div class="text-5xl font-handwritten text-stone-800 mb-8">Custom</div>
+<ul class="space-y-4 mb-10 text-stone-600 font-serif italic text-lg w-full text-left border-t border-dashed border-stone-100 pt-6">
+<li>• Multi-state Presence</li>
+<li>• Annual Audit Support</li>
+<li>• Priority Hotline</li>
+</ul>
+<button class="w-full py-4 border-2 border-stone-800 font-handwritten text-xl hover:bg-stone-800 hover:text-white transition-colors">Let's Talk</button>
+</div>
+</div>
+</section>
+<section class="max-w-3xl mx-auto mb-32">
+<div class="relative mb-12">
+<h2 class="text-4xl text-center">Your Curiosities...</h2>
+<div class="absolute -top-4 -left-12 scribble text-5xl opacity-30">?</div>
+</div>
+<div class="space-y-8">
+<div class="clipping rotate-1">
+<h4 class="text-2xl font-bold mb-3">What materials do I need to prepare?</h4>
+<p class="text-stone-600 italic font-serif leading-relaxed">Just your sales invoices, purchase receipts, and your bank statement. We'll give you a lovely checklist to make sure nothing goes missing from your story.</p>
+</div>
+<div class="clipping -rotate-1 bg-vintage-yellow/20">
+<h4 class="text-2xl font-bold mb-3">Is my journal kept safe?</h4>
+<p class="text-stone-600 italic font-serif leading-relaxed">Absolutely. We use bank-grade digital safes to keep your business records private. Cross our hearts, your data is for your eyes (and the taxman's eyes) only.</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-stone-100 border-t border-stone-200 pt-20 pb-12 px-6 lg:px-20 overflow-hidden">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative">
+<div class="col-span-1 md:col-span-1">
+<div class="relative inline-block mb-6">
+<div class="tape opacity-40"></div>
+<h2 class="text-3xl font-bold text-stone-700 bg-white px-4 py-1 rotate-1 shadow-sm">TaxDiary.</h2>
+</div>
+<p class="italic text-stone-500 mb-8">"Making business compliance feel like a pleasant Sunday afternoon."</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-white shadow-sm border border-stone-200 rotate-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-400">favorite</span>
+</div>
+<div class="w-10 h-10 bg-white shadow-sm border border-stone-200 -rotate-3 flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-400">share</span>
+</div>
+</div>
+</div>
+<div class="font-handwritten text-lg space-y-4">
+<h4 class="font-bold text-vintage-green underline decoration-dashed underline-offset-4">Collections</h4>
+<ul class="space-y-2 opacity-70">
+<li><a class="hover:text-vintage-green" href="#">Filing Logs</a></li>
+<li><a class="hover:text-vintage-green" href="#">Company Creation</a></li>
+<li><a class="hover:text-vintage-green" href="#">Consultation Room</a></li>
+</ul>
+</div>
+<div class="font-handwritten text-lg space-y-4">
+<h4 class="font-bold text-dusty-pink underline decoration-dashed underline-offset-4">Warm Help</h4>
+<ul class="space-y-2 opacity-70">
+<li><a class="hover:text-dusty-pink" href="#">Send a Letter</a></li>
+<li><a class="hover:text-dusty-pink" href="#">Learning Journal</a></li>
+<li><a class="hover:text-dusty-pink" href="#">Our Promises</a></li>
+</ul>
+</div>
+<div class="relative">
+<div class="clipping rotate-2 bg-white p-6 shadow-md">
+<h4 class="font-handwritten font-bold mb-4">Join our Postbox</h4>
+<p class="font-serif italic text-sm text-stone-500 mb-4">Gentle reminders and small business tips, once a week.</p>
+<div class="flex flex-col gap-3">
+<input class="border-b-2 border-stone-200 focus:border-vintage-green outline-none bg-transparent font-serif py-2" placeholder="your@email.com" type="text"/>
+<button class="bg-stone-800 text-white font-handwritten py-2 px-4 shadow-md">Subscribe</button>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-stone-400 italic">
+<p>© 2024 The Tax Diary Co. Hand-crafted for Indian entrepreneurs.</p>
+<div class="flex gap-8 underline decoration-stone-200">
+<a href="#">Privacy</a>
+<a href="#">Terms</a>
+<a href="#">Safety Room</a>
+</div>
+</div>
+</footer>
+<div class="absolute top-1/4 -left-20 scribble text-9xl opacity-5 pointer-events-none rotate-90">NOTES</div>
+<div class="absolute bottom-1/3 -right-20 scribble text-9xl opacity-5 pointer-events-none -rotate-12">PAPER</div>
+</div>
+
+</body></html>

@@ -151,12 +151,12 @@ export function ServiceCategoryPage() {
         jsonLd={[faqJsonLd, breadcrumbJsonLd, collectionJsonLd, itemListJsonLd]}
       />
       <CategoryHero category={category} content={content} />
+      <ServiceList categoryId={category.id} services={category.services} />
       <ConsultationSection category={category} content={content} />
       <AboutSection content={content.about} />
-      <ServiceList categoryId={category.id} services={category.services} categoryName={category.name} />
-      <TargetUsersSection content={content.targetUsers} />
       <BenefitsSection content={content.benefits} />
       <ProcessSection content={content.process} />
+      <TargetUsersSection content={content.targetUsers} />
       <FAQSection faqs={content.faqs} />
       <CategoryCTA categoryName={category.name} content={content} />
     </>

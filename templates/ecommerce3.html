@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Voltage Archive | Streetwear Drop Commerce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #090a0d;
+    --panel: #101217;
+    --text: #f3f5f8;
+    --muted: rgba(243, 245, 248, 0.62);
+    --lime: #d2ff35;
+    --ice: #7ce0ff;
+    --line: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    background:
+      radial-gradient(circle at top right, rgba(124,224,255,0.14), transparent 30%),
+      radial-gradient(circle at top left, rgba(210,255,53,0.1), transparent 22%),
+      var(--bg);
+    color: var(--text);
+  }
+  a { color: inherit; text-decoration: none; }
+  .shell { width: min(1200px, calc(100vw - 32px)); margin: 0 auto; }
+  .marquee {
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 36px;
+    padding: 12px 0;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(243,245,248,0.72);
+  }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(20px);
+    background: rgba(9, 10, 13, 0.76);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 0;
+  }
+  .brand {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .brand span { color: var(--lime); }
+  .nav {
+    display: flex;
+    gap: 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .button {
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--lime);
+    color: #050608;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .hero {
+    padding: 34px 0 56px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 22px;
+    align-items: stretch;
+  }
+  .hero-copy {
+    padding: 30px 0;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid rgba(210,255,53,0.24);
+    border-radius: 999px;
+    background: rgba(210,255,53,0.08);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--lime);
+  }
+  .hero-copy h1 {
+    margin: 16px 0 16px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(52px, 8vw, 110px);
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+  .hero-copy h1 .accent { color: var(--lime); }
+  .hero-copy p {
+    max-width: 520px;
+    margin: 0 0 24px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-actions a {
+    padding: 14px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .hero-actions .primary {
+    background: var(--lime);
+    border-color: var(--lime);
+    color: #050608;
+  }
+  .hero-side {
+    display: grid;
+    gap: 16px;
+  }
+  .panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  }
+  .drop-main {
+    min-height: 540px;
+    padding: 24px;
+  }
+  .drop-main::before {
+    content: '';
+    position: absolute;
+    inset: 22px;
+    border-radius: 24px;
+    background:
+      linear-gradient(135deg, rgba(124,224,255,0.18), transparent 28%),
+      linear-gradient(315deg, rgba(210,255,53,0.14), transparent 35%),
+      #13161d;
+  }
+  .silhouette {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: 260px;
+    height: 360px;
+    transform: translate(-50%, -50%);
+    border-radius: 120px 120px 48px 48px;
+    background:
+      linear-gradient(180deg, #20252f 0%, #0e1118 100%);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.34);
+  }
+  .silhouette::before,
+  .silhouette::after {
+    content: '';
+    position: absolute;
+    background: #171b22;
+  }
+  .silhouette::before {
+    left: -22px;
+    right: -22px;
+    top: 74px;
+    height: 56px;
+    border-radius: 999px;
+  }
+  .silhouette::after {
+    left: 58px;
+    right: 58px;
+    bottom: -40px;
+    height: 56px;
+    border-radius: 20px;
+    box-shadow: -92px 0 0 #171b22, 92px 0 0 #171b22;
+  }
+  .drop-label {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    z-index: 1;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+  .drop-title {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    z-index: 1;
+  }
+  .drop-title strong {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 34px;
+    line-height: 0.98;
+    text-transform: uppercase;
+  }
+  .drop-title span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .micro-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .micro {
+    min-height: 170px;
+    padding: 18px;
+  }
+  .micro strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .micro h3 {
+    margin: 0 0 8px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 24px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .micro p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .micro .chip {
+    display: inline-flex;
+    margin-top: 18px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(124,224,255,0.12);
+    color: var(--ice);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .section {
+    padding: 0 0 34px;
+  }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 18px;
+  }
+  .section-head h2 {
+    margin: 0;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .section-head p {
+    max-width: 420px;
+    margin: 0;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .drops {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .drop-card {
+    padding: 18px;
+    border-radius: 26px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03);
+  }
+  .drop-card .poster {
+    height: 280px;
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at top left, rgba(210,255,53,0.28), transparent 28%),
+      linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01)),
+      #161b22;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .drop-card h3 {
+    margin: 14px 0 6px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 26px;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .drop-card p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 18px;
+  }
+  .manifesto,
+  .fitlab {
+    min-height: 300px;
+    padding: 26px;
+    border-radius: 28px;
+    border: 1px solid var(--line);
+  }
+  .manifesto {
+    background: linear-gradient(180deg, rgba(210,255,53,0.12) 0%, rgba(255,255,255,0.03) 100%);
+  }
+  .manifesto h3,
+  .fitlab h3 {
+    margin: 0 0 12px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 34px;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .manifesto p,
+  .fitlab p {
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .fitlab {
+    background: rgba(255,255,255,0.03);
+  }
+  .fit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .fit-item {
+    padding: 16px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--line);
+  }
+  .fit-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ice);
+  }
+  .fit-item span { color: var(--muted); font-size: 14px; line-height: 1.6; }
+  @media (max-width: 980px) {
+    .hero-grid,
+    .drops,
+    .split { grid-template-columns: 1fr; }
+    .nav { display: none; }
+  }
+  @media (max-width: 640px) {
+    .shell { width: min(100vw - 24px, 1200px); }
+    .micro-grid,
+    .fit-grid { grid-template-columns: 1fr; }
+    .hero-copy h1 { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+<div class="marquee">
+  <div class="shell marquee-track">
+    <span>Drop 09 live now</span>
+    <span>Zero-discount design</span>
+    <span>Members first access</span>
+    <span>Capsules over catalogs</span>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="#">Voltage <span>Archive</span></a>
+    <nav class="nav">
+      <a href="#drops">Drops</a>
+      <a href="#fitlab">Fit Lab</a>
+      <a href="#archive">Archive</a>
+    </nav>
+    <a class="button" href="#drops">Enter drop</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Streetwear commerce system</span>
+        <h1>Designed for <span class="accent">drop culture</span>, not generic carts.</h1>
+        <p>This template treats product launches like events. Sharp typography, darker surfaces, and modular drop panels create the feeling of a live release instead of a standard storefront.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#drops">Shop drop 09</a>
+          <a href="#fitlab">See fit lab</a>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <article class="panel drop-main">
+          <span class="drop-label">Drop 09 / Shell system</span>
+          <div class="silhouette"></div>
+          <div class="drop-title">
+            <strong>Afterlight shell</strong>
+            <span>Carbon / Ice / Signal lime</span>
+          </div>
+        </article>
+
+        <div class="micro-grid">
+          <article class="panel micro">
+            <strong>Members gate</strong>
+            <h3>48 hour priority window</h3>
+            <p>Early access and staged inventory unlocks keep the launch feeling exclusive.</p>
+            <span class="chip">Priority access</span>
+          </article>
+          <article class="panel micro">
+            <strong>Merch rule</strong>
+            <h3>One hero, two support items</h3>
+            <p>Less clutter. Stronger focus. Each release reads as a visual story.</p>
+            <span class="chip">Curated edit</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell" id="drops">
+    <div class="section-head">
+      <h2>Current drops</h2>
+      <p>Use launch-style cards, not crowded catalog listings. Every product grouping should feel like a capsule release.</p>
+    </div>
+    <div class="drops">
+      <article class="drop-card">
+        <div class="poster"></div>
+        <h3>Night circuit</h3>
+        <p>Oversized shell and technical short set for late-hour city movement.</p>
+      </article>
+      <article class="drop-card">
+        <div class="poster" style="background:radial-gradient(circle at top left, rgba(124,224,255,0.34), transparent 28%),linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01)),#161b22;"></div>
+        <h3>Static line</h3>
+        <p>Monochrome jersey, utility trouser, and tonal layering kit.</p>
+      </article>
+      <article class="drop-card">
+        <div class="poster" style="background:radial-gradient(circle at top right, rgba(210,255,53,0.28), transparent 30%),linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01)),#11141a;"></div>
+        <h3>Signal set</h3>
+        <p>Accent color capsule pushed through trims, hems, and outer shell details.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section shell" id="fitlab">
+    <div class="split">
+      <article class="manifesto">
+        <span class="eyebrow">Brand posture</span>
+        <h3>Capsules first. Discounts last.</h3>
+        <p>A stronger ecommerce template for apparel lets brand direction lead. Releases, silhouettes, and mood carry the page instead of coupon clutter and endless product repetition.</p>
+      </article>
+      <article class="fitlab">
+        <h3>Fit lab</h3>
+        <p>Turn sizing into its own designed surface. That makes the storefront feel intentional and lowers friction without falling back to long FAQ blocks.</p>
+        <div class="fit-grid">
+          <div class="fit-item">
+            <strong>Box fit</strong>
+            <span>Square shoulder, dropped armhole, wider body.</span>
+          </div>
+          <div class="fit-item">
+            <strong>Taper fit</strong>
+            <span>Structured waist, cleaner line, narrower hem.</span>
+          </div>
+          <div class="fit-item">
+            <strong>Layer fit</strong>
+            <span>Built for shells, vests, and stacked outerwear.</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section shell" id="archive">
+    <div class="section-head">
+      <h2>Archive club</h2>
+      <p>Use the final section to gate access, collect demand, and build drop anticipation for the next release.</p>
+    </div>
+    <article class="panel" style="padding:26px;display:flex;align-items:center;justify-content:space-between;gap:18px;">
+      <div>
+        <span class="eyebrow">Private list</span>
+        <h3 style="margin:14px 0 10px;font-family:'Archivo Black',sans-serif;font-size:38px;line-height:0.95;text-transform:uppercase;">Get the next unlock before public launch.</h3>
+        <p style="margin:0;color:var(--muted);line-height:1.75;max-width:520px;">Collect emails through membership framing, not generic newsletter framing. It matches the culture of limited releases and premium drops.</p>
+      </div>
+      <a class="button" href="#">Join archive</a>
+    </article>
+  </section>
+</main>
+</body>
+</html>

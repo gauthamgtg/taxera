@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>House of Strand | Hair Salon Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #181314;
+    --paper: #fbf4ee;
+    --rose: #dd8f88;
+    --peach: #f0c7af;
+    --plum: #4f2631;
+    --muted: rgba(24, 19, 20, 0.62);
+    --line: rgba(24, 19, 20, 0.1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at top left, rgba(221,143,136,0.2), transparent 28%),
+      linear-gradient(180deg, #fff8f4 0%, var(--paper) 42%, #f8ede5 100%);
+  }
+  a { color: inherit; text-decoration: none; }
+  .shell { width: min(1180px, calc(100vw - 32px)); margin: 0 auto; }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(18px);
+    background: rgba(251,244,238,0.78);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 0;
+  }
+  .brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    letter-spacing: 0.08em;
+  }
+  .nav {
+    display: flex;
+    gap: 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .button {
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--plum);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .hero {
+    padding: 40px 0 34px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 0.98fr 1.02fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .eyebrow {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(79,38,49,0.14);
+    background: rgba(255,255,255,0.65);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--plum);
+  }
+  .hero-copy {
+    padding: 24px 0 12px;
+  }
+  .hero-copy h1 {
+    margin: 14px 0 16px;
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 0.94;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+  }
+  .hero-copy p {
+    max-width: 520px;
+    margin: 0 0 24px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-actions a {
+    padding: 14px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .hero-actions .primary {
+    background: white;
+  }
+  .collage {
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+    gap: 16px;
+    min-height: 620px;
+  }
+  .portrait,
+  .stack,
+  .stat,
+  .bookbox,
+  .service-card,
+  .atelier,
+  .schedule {
+    overflow: hidden;
+    border-radius: 30px;
+    border: 1px solid rgba(24,19,20,0.08);
+  }
+  .portrait {
+    position: relative;
+    padding: 24px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08)),
+      linear-gradient(135deg, rgba(240,199,175,0.44), rgba(221,143,136,0.26));
+  }
+  .portrait::before {
+    content: '';
+    position: absolute;
+    inset: 26px;
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at top left, rgba(255,255,255,0.6), transparent 36%),
+      linear-gradient(180deg, #f3d6c5 0%, #c87d7d 100%);
+  }
+  .head {
+    position: absolute;
+    left: 50%;
+    top: 54%;
+    width: 240px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    border-radius: 130px 130px 90px 90px;
+    background: linear-gradient(180deg, #211719 0%, #4f2631 54%, #7a4653 100%);
+    box-shadow: inset 0 -90px 90px rgba(255,255,255,0.14);
+  }
+  .head::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 72px;
+    bottom: 20px;
+    border-radius: 90px 90px 70px 70px;
+    background: linear-gradient(180deg, #f1c0ae 0%, #d38f83 100%);
+  }
+  .head::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: -20px;
+    height: 160px;
+    border-radius: 120px 120px 40px 40px;
+    background: linear-gradient(180deg, #211719 0%, #44212b 100%);
+  }
+  .portrait-copy {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    z-index: 1;
+  }
+  .portrait-copy strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .portrait-copy span {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    line-height: 0.98;
+  }
+  .stack {
+    display: grid;
+    gap: 16px;
+    border: 0;
+  }
+  .stat,
+  .bookbox {
+    padding: 22px;
+    background: rgba(255,255,255,0.65);
+  }
+  .stat strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stat span {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    line-height: 1;
+  }
+  .bookbox h3 {
+    margin: 0 0 12px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    line-height: 0.98;
+  }
+  .bookbox p {
+    margin: 0 0 14px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .bookbox a {
+    display: inline-flex;
+    padding: 12px 14px;
+    border-radius: 999px;
+    background: var(--plum);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .section {
+    padding: 30px 0 0;
+  }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 18px;
+  }
+  .section-head h2 {
+    margin: 0;
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 0.95;
+    font-weight: 400;
+  }
+  .section-head p {
+    max-width: 430px;
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .service-card {
+    padding: 24px;
+    background: rgba(255,255,255,0.64);
+  }
+  .service-card strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--plum);
+  }
+  .service-card h3 {
+    margin: 0 0 10px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    line-height: 0.98;
+    font-weight: 400;
+  }
+  .service-card p {
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .atelier-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+  .atelier {
+    padding: 26px;
+    background: linear-gradient(180deg, rgba(221,143,136,0.18) 0%, rgba(255,255,255,0.56) 100%);
+  }
+  .atelier h3,
+  .schedule h3 {
+    margin: 0 0 12px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 0.98;
+  }
+  .atelier p,
+  .schedule p {
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .schedule {
+    padding: 26px;
+    background: rgba(255,255,255,0.64);
+  }
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .schedule-item {
+    padding: 18px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(24,19,20,0.08);
+  }
+  .schedule-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--plum);
+  }
+  .schedule-item span {
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  @media (max-width: 980px) {
+    .hero-grid,
+    .collage,
+    .services,
+    .atelier-grid,
+    .schedule-grid {
+      grid-template-columns: 1fr;
+    }
+    .nav { display: none; }
+    .collage { min-height: auto; }
+  }
+  @media (max-width: 640px) {
+    .shell { width: min(100vw - 24px, 1180px); }
+    .hero-copy h1 { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="#">House of Strand</a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#atelier">Atelier</a>
+      <a href="#book">Book</a>
+    </nav>
+    <a class="button" href="#book">Reserve chair</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Editorial salon template</span>
+        <h1>Hair design with shape, polish, and ceremony.</h1>
+        <p>This salon template is built like a fashion editorial: one strong portrait plane, one scheduling surface, and crisp service blocks that make booking feel elevated instead of transactional.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#book">Book a session</a>
+          <a href="#services">See services</a>
+        </div>
+      </div>
+
+      <div class="collage">
+        <article class="portrait">
+          <div class="head"></div>
+          <div class="portrait-copy">
+            <strong>Seasonal direction</strong>
+            <span>Soft contour layers with glass-finish movement.</span>
+          </div>
+        </article>
+        <div class="stack">
+          <article class="stat">
+            <strong>Lead stylist waitlist</strong>
+            <span>12 days</span>
+          </article>
+          <article class="bookbox" id="book">
+            <h3>Color consultation, cut, finish.</h3>
+            <p>Three-part signature appointments structured for transformation, not rushed chair turnover.</p>
+            <a href="#">Secure a consultation</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell" id="services">
+    <div class="section-head">
+      <h2>Service edits</h2>
+      <p>Show fewer, stronger services. This keeps the brand premium and helps the salon focus on signature offers rather than a long menu wall.</p>
+    </div>
+    <div class="services">
+      <article class="service-card">
+        <strong>Cut + shape</strong>
+        <h3>Contour cut</h3>
+        <p>Face-framing structure with softness built into the final silhouette and grow-out plan.</p>
+      </article>
+      <article class="service-card">
+        <strong>Color + tone</strong>
+        <h3>Glass color</h3>
+        <p>Gloss-led dimensional tone designed to read rich in daylight and studio lighting.</p>
+      </article>
+      <article class="service-card">
+        <strong>Event finish</strong>
+        <h3>Editorial blowout</h3>
+        <p>Volume placement, controlled movement, and long-wear finish for campaign or occasion styling.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section shell" id="atelier">
+    <div class="atelier-grid">
+      <article class="atelier">
+        <span class="eyebrow">Salon posture</span>
+        <h3>Designed around the mirror moment.</h3>
+        <p>The template gives the reveal real space. It feels premium because the page is paced like a studio consultation rather than a standard beauty landing page.</p>
+      </article>
+      <article class="schedule">
+        <h3>Weekly chair map</h3>
+        <p>Use a visual schedule surface for stylists, color specialists, or event hair teams. It makes availability feel curated and high-touch.</p>
+        <div class="schedule-grid">
+          <div class="schedule-item">
+            <strong>Rhea</strong>
+            <span>Cut direction, shape reset, editorial finish.</span>
+          </div>
+          <div class="schedule-item">
+            <strong>Amara</strong>
+            <span>Dimensional blonding, gloss layers, luxury tone work.</span>
+          </div>
+          <div class="schedule-item">
+            <strong>Kai</strong>
+            <span>Campaign styling, event hair, texture and prep.</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

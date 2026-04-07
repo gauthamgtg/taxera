@@ -1,6 +1,7 @@
 import {
   ArrowRight,
   CalendarDays,
+  CircleCheck,
   MessageCircle,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -26,53 +27,55 @@ export function ServiceList({ categoryId, services }) {
   const consultationLink = BRAND.consultationLink('the right service for my business');
 
   return (
-    <section className="relative px-4 py-20 md:px-8 lg:px-16">
-      <div className="absolute inset-x-0 top-12 mx-auto h-80 max-w-5xl rounded-full bg-blue-200/30 blur-3xl" />
+    <section id="services-list" className="relative px-4 py-20 md:px-8 lg:px-16">
+      <div className="absolute inset-x-0 top-8 mx-auto h-[22rem] max-w-6xl rounded-full bg-blue-300/25 blur-[90px]" />
 
       <div className="mx-auto max-w-7xl">
         <span className="section-label mb-3 block text-xs font-semibold uppercase">Services</span>
-        <h3 className="mb-3 text-2xl font-bold tracking-tight text-blue-950 md:text-4xl">
-          Curated service options in this category
-        </h3>
-        <p className="mb-8 max-w-3xl text-base leading-relaxed text-blue-900/65">
-          Choose the exact service you need and move directly into consultation or WhatsApp.
+        <h3 className="mb-3 text-2xl font-bold tracking-tight text-blue-950 md:text-4xl">Pick the exact service route you need</h3>
+        <p className="mb-8 max-w-3xl text-base leading-relaxed text-blue-900/68">
+          Every row below is a direct path. Review scope quickly, then move into a dedicated detail page or instant consultation.
         </p>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+        <div className="space-y-4">
           {services.map((svc, i) => {
             const msg = `Hi Taxera! I'm interested in "${svc.name}". Please share details, timeline, and required documents.`;
 
             return (
-              <div
+              <article
                 key={svc.name}
-                className="glass-panel group relative overflow-hidden rounded-[1.75rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-200/60"
+                className="group relative overflow-hidden rounded-[1.7rem] border border-blue-100/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(242,248,255,0.88))] p-5 shadow-[0_22px_44px_rgba(16,50,124,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300/70 hover:shadow-[0_30px_60px_rgba(16,50,124,0.14)] md:p-6"
               >
-                <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-[1.75rem] bg-gradient-to-bl from-blue-300/30 to-transparent" />
-                <div className="relative">
-                  <div className="mb-5 flex items-start justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-700 text-[11px] font-semibold text-white shadow-lg shadow-blue-700/15">
-                        {`${i + 1}`.padStart(2, '0')}
-                      </div>
-                      <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-700/45">Service item</p>
-                        <h4 className="mt-1 text-base font-bold text-blue-950">{svc.name}</h4>
-                      </div>
+                <div className="absolute inset-y-0 left-0 w-1 bg-[linear-gradient(180deg,#2f6dff,#16b4ff)]" />
+                <div className="relative grid gap-6 lg:grid-cols-[auto_1fr_auto] lg:items-center">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-700 text-xs font-semibold text-white shadow-lg shadow-blue-700/20">
+                      {String(i + 1).padStart(2, '0')}
                     </div>
-                    <span className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] ${getTypeStyles(svc.type)}`}>
-                      {svc.type}
-                    </span>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-700/55">Service item</p>
+                      <span className={`mt-1 inline-flex rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] ${getTypeStyles(svc.type)}`}>
+                        {svc.type}
+                      </span>
+                    </div>
                   </div>
 
-                  <p className="min-h-[84px] text-sm leading-relaxed text-blue-900/70">{svc.desc}</p>
+                  <div>
+                    <h4 className="text-lg font-bold text-blue-950">{svc.name}</h4>
+                    <p className="mt-2 max-w-3xl text-sm leading-relaxed text-blue-900/72">{svc.desc}</p>
+                    <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-700/70">
+                      <CircleCheck className="h-3.5 w-3.5" />
+                      Structured scope and clear delivery route
+                    </p>
+                  </div>
 
-                  <div className="mt-6 flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2.5 lg:max-w-[270px] lg:justify-end">
                     <Link
                       to={`/services/${categoryId}/${svc.slug}`}
                       className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-blue-900 transition-colors hover:border-blue-300 hover:text-blue-700"
                     >
-                      <ArrowRight className="h-3.5 w-3.5" />
                       View Complete Page
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
                     <a
                       href={BRAND.whatsappLink(msg)}
@@ -81,7 +84,7 @@ export function ServiceList({ categoryId, services }) {
                       className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#1da851]"
                     >
                       <MessageCircle className="h-3.5 w-3.5" />
-                      Connect on WhatsApp
+                      WhatsApp
                     </a>
                     <a
                       href={consultationLink}
@@ -90,22 +93,26 @@ export function ServiceList({ categoryId, services }) {
                       className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-blue-900 transition-colors hover:border-blue-300 hover:text-blue-700"
                     >
                       <CalendarDays className="h-3.5 w-3.5" />
-                      Book Consultation
+                      Consultation
                     </a>
                   </div>
-
-                  <div className="mt-5 flex items-center justify-between border-t border-blue-100 pt-4 text-xs text-blue-700/60">
-                    <span>Tailored support available</span>
-                    <span className="inline-flex items-center gap-1 font-semibold text-blue-700">
-                      Explore fit <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
                 </div>
-              </div>
+              </article>
             );
           })}
+        </div>
+
+        <div className="mt-8 rounded-[1.5rem] border border-blue-100 bg-white/88 px-5 py-4 text-sm text-blue-900/74">
+          <p className="inline-flex items-center gap-2 font-semibold text-blue-900">
+            <CircleCheck className="h-4 w-4 text-blue-600" />
+            Not sure which option fits best?
+          </p>
+          <p className="mt-1">
+            Send your context on WhatsApp and get a direct recommendation instead of choosing blindly.
+          </p>
         </div>
       </div>
     </section>
   );
 }
+

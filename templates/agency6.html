@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "forest": "#0a1a12",
+              "moss": "#1a2e23",
+              "charcoal": "#121212",
+              "earth-orange": "#d97706",
+              "clay": "#c2410c",
+              "sand": "#f5f5f4",
+              "on-background": "#e5e7eb",
+            },
+            fontFamily: {
+              "headline": ["'Playfair Display'", "serif"],
+              "body": ["'Plus Jakarta Sans'", "sans-serif"],
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            background-color: #0a1a12;
+            color: #f5f5f4;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        .editorial-overlay {
+            background: linear-gradient(to bottom, rgba(10, 26, 18, 0.4) 0%, rgba(10, 26, 18, 0.95) 100%);
+        }
+        .serif-italic {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        .text-justified {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .letter-spacing-wide {
+            letter-spacing: 0.15em;
+        }
+        .nav-link {
+            position: relative;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #d97706;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="selection:bg-earth-orange selection:text-white">
+<nav class="fixed top-0 w-full z-50 bg-forest/80 backdrop-blur-md border-b border-white/5">
+<div class="flex justify-between items-center px-6 md:px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-widest text-sand uppercase font-headline">
+            Architect <span class="text-earth-orange italic">.</span>
+</div>
+<div class="hidden lg:flex items-center space-x-10">
+<a class="nav-link" href="#">Journal</a>
+<a class="nav-link" href="#">Vision</a>
+<a class="nav-link" href="#">Compliance</a>
+<a class="nav-link" href="#">Foundations</a>
+</div>
+<div class="flex items-center gap-8">
+<button class="text-sm font-bold uppercase tracking-widest border border-white/20 px-6 py-2 hover:bg-white hover:text-forest transition-all">
+                The Collective
+            </button>
+</div>
+</div>
+</nav>
+<main>
+<section class="relative min-h-screen flex items-end">
+<div class="absolute inset-0 z-0">
+<img alt="Diverse team collaborating in a futuristic, warm-lit architectural space" class="w-full h-full object-cover grayscale-[20%] brightness-[60%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Y97azjbQpTi7ZpXfY287fN8WGtH8fi_NG3zql_DojUgSlZl4KjOc85T4TAvZZKCWt2r-aOB5T7gXHMLwZBtDTL9sOvKvb4ruOZFQeBZjyCwpWOjGuhk_3CIju9yKJrZSKr0IcStZFqrguAXOOErU6zY81Wwte3Z7HeXUvsjdeZ2zJIvsbaO0UAVl3oJWjUVeTS9SrbPwl-PmWC2u65-xpiC_twKRLsPv-OB_egE0TP74j9aaVekScW-gq7RYPCWNEBLg39FyXJrS"/>
+<div class="absolute inset-0 editorial-overlay"></div>
+</div>
+<div class="container mx-auto px-6 md:px-12 pb-24 relative z-10">
+<div class="max-w-6xl">
+<div class="mb-8 flex items-center gap-4">
+<div class="h-px w-12 bg-earth-orange"></div>
+<span class="text-xs uppercase tracking-[0.5em] text-earth-orange font-bold">Volume I: The Foundation</span>
+</div>
+<h1 class="text-6xl md:text-9xl font-black leading-tight font-headline text-white mb-8">
+                    Crafting Futures: <br/>
+<span class="serif-italic font-normal text-sand">Visionary Growth</span> &amp; <br/>
+<span class="text-earth-orange underline decoration-1 underline-offset-8">Foundational Integrity.</span>
+</h1>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+<div class="md:col-span-6">
+<p class="text-lg md:text-xl text-sand/80 font-body leading-relaxed max-w-xl text-justified">
+                            We believe that exponential scale should never come at the cost of structural permanence. In the modern business landscape, digital velocity and regulatory precision are two sides of the same coin.
+                        </p>
+</div>
+<div class="md:col-span-6 flex flex-col md:items-end gap-6">
+<button class="group flex items-center gap-4 text-sand hover:text-earth-orange transition-colors">
+<span class="text-xs uppercase tracking-[0.4em] font-bold">Start the Narrative</span>
+<div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-earth-orange group-hover:border-earth-orange transition-all">
+<span class="material-symbols-outlined">north_east</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-forest py-32 border-t border-white/5">
+<div class="container mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-12">
+<div class="inline-block">
+<span class="text-xs font-bold uppercase tracking-widest text-earth-orange">01 / Digital Architecture</span>
+</div>
+<h2 class="text-5xl md:text-7xl font-headline leading-tight">Engineering the <br/><span class="serif-italic">Invisible.</span></h2>
+<p class="text-lg text-sand/70 leading-loose max-w-lg">
+                        Every masterpiece begins with an unseen blueprint. Our digital growth strategies aren't just about traffic; they are about building high-performance ecosystems that scale with grace. From enterprise-grade React architectures to decentralized Web3 nodes, we provide the skeletal structure for your digital ambition.
+                    </p>
+<div class="flex flex-col gap-6 pt-4 border-l border-earth-orange/30 pl-8">
+<div>
+<h4 class="font-bold text-white mb-1">Scale without Friction</h4>
+<p class="text-sm text-sand/60">Cloud-native systems built for tomorrow's traffic.</p>
+</div>
+<div>
+<h4 class="font-bold text-white mb-1">Human-Centric UX</h4>
+<p class="text-sm text-sand/60">Where logic meets emotional resonance.</p>
+</div>
+</div>
+</div>
+<div class="relative group">
+<img alt="Detail of modern minimalist architecture" class="w-full aspect-[4/5] object-cover rounded-sm grayscale group-hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbonX47JHJuC2irsrAOECzeUtQOac2NQXiul3uTR-hGBzPhr9Ak41VNa_fjgGgnFbUj1Bby4tUqRfJVsoiM6_LfJRovQ8YBbcYUVeDRRm59EZh2D3MP24w7sLnpL9dsxQRWAkQTDpWLanqL-MALVj6TVnn8Rmtc0wnIC2coxk02ZZ_bNBoFNaZ9iliyueIEqQxQAgLqr_KtvJ7n8I6hvqvxu0Wt2MTAUiYuvqENxMQ-sFCht0lbor5e2pBHWP_809N6yRSkG0OyxwD"/>
+<div class="absolute -bottom-8 -left-8 bg-moss p-8 border border-white/10 max-w-xs hidden md:block">
+<p class="text-xs italic text-sand/50 leading-relaxed">"The detail is not the detail. The detail is the design." — We obsess over the micro-interactions that define your brand.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-charcoal py-32 overflow-hidden">
+<div class="container mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="grid grid-cols-2 gap-4">
+<img alt="Corporate documentation texture" class="w-full aspect-square object-cover rounded-sm opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0dKMb1hzEOPX-AciaJFVWdjzTcLHQcHTz7KVysLt3t-7-BbPHQNE8VMk16sohYgYY2bh_0VcgbHnMqsrIOeywXoEu8j6oo86cr5-5LvjHdR5qA73vnRk3gMDsVLKD4nvU05Q9x1haanzbz3vERfjuFzqmaLN7hJmibSojwomVXBOQ9qjyuwWYuo1IpCsqCygSsUUoAEWx9Zu7VUOBrDvEnZjyGah4aQrZKG-RObcBZ0qjF7Ap33A64nyh7tQy6QJ9o1WLMwK4QPWN"/>
+<img alt="Team in professional setting" class="w-full aspect-square object-cover rounded-sm mt-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVXNNP5jbdmRQPs678heA7GIwSOqo7OayxZ5ZuZRW1U39s1h_eS_XX2dWxOIiV4tbmz7JwEaAuntJPOeOQPcOagKC6a8JNQ24K9OAnt_tzYjgMK7oY6_6UwGpn8-PWp9b-XvQlLQr7c8bMnRRGUB36jyx4aFEhex5FPGauRUumv_Fved-4gm9hdgMJIYfqsoPCLFyjwGuB5wwGV8uSAl0GlAliHkulRid_ayX40TvXs89EkaD_I4NJyS32JtMwnyx5W3EFa6Ihfp0y"/>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-earth-orange/20 rounded-full flex items-center justify-center backdrop-blur-sm bg-forest/30">
+<span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-orange">Compliance</span>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-12">
+<div class="inline-block">
+<span class="text-xs font-bold uppercase tracking-widest text-earth-orange">02 / Regulatory Grace</span>
+</div>
+<h2 class="text-5xl md:text-7xl font-headline leading-tight">The Armor of <br/><span class="serif-italic">Compliance.</span></h2>
+<p class="text-lg text-sand/70 leading-loose">
+                        Foundational integrity is your greatest competitive advantage. We manage the complex tapestry of GST registrations, financial audits, and corporate legalities with the same precision we apply to code. We don't just protect your business; we fortify its reputation.
+                    </p>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="text-earth-orange font-headline text-2xl italic">I.</span>
+<div>
+<h4 class="font-bold text-white">Tax Architecture</h4>
+<p class="text-sm text-sand/60">Strategic GST and fiscal planning for global reach.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="text-earth-orange font-headline text-2xl italic">II.</span>
+<div>
+<h4 class="font-bold text-white">Governance &amp; Audit</h4>
+<p class="text-sm text-sand/60">Rigorous internal controls that satisfy enterprise standards.</p>
+</div>
+</li>
+</ul>
+<a class="inline-flex items-center gap-2 group text-sm font-bold uppercase tracking-widest py-4" href="#">
+                        Explore the Matrix
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-40 bg-forest relative flex items-center justify-center">
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+<span class="text-[40rem] font-headline absolute -top-40 -left-20">"</span>
+</div>
+<div class="max-w-4xl text-center px-6 relative z-10">
+<blockquote class="text-4xl md:text-6xl font-headline leading-tight text-white italic">
+                "True innovation is the synthesis of unbridled <span class="text-earth-orange">vision</span> and uncompromising <span class="text-earth-orange">integrity</span>."
+            </blockquote>
+<cite class="block mt-12 text-xs uppercase tracking-[0.5em] text-sand/40 font-bold">— The Architect Ethos</cite>
+</div>
+</section>
+</main>
+<footer class="bg-charcoal border-t border-white/5 py-24">
+<div class="container mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8">
+<div class="md:col-span-5 space-y-8">
+<div class="text-3xl font-headline font-black uppercase tracking-tighter text-white">
+                    Architect<span class="text-earth-orange">.</span>
+</div>
+<p class="text-sand/50 max-w-xs text-sm leading-loose">
+                    An editorial agency at the intersection of high-fidelity digital design and complex corporate compliance. Building the monuments of tomorrow.
+                </p>
+<div class="flex gap-6">
+<a class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-earth-orange transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+<a class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-earth-orange transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">language</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-2 space-y-6">
+<h4 class="text-xs uppercase tracking-widest font-bold text-white">The Narrative</h4>
+<ul class="space-y-4 text-sm text-sand/50 font-medium">
+<li><a class="hover:text-earth-orange transition-colors" href="#">Digital Growth</a></li>
+<li><a class="hover:text-earth-orange transition-colors" href="#">Compliance</a></li>
+<li><a class="hover:text-earth-orange transition-colors" href="#">Journal</a></li>
+</ul>
+</div>
+<div class="md:col-span-2 space-y-6">
+<h4 class="text-xs uppercase tracking-widest font-bold text-white">The Foundation</h4>
+<ul class="space-y-4 text-sm text-sand/50 font-medium">
+<li><a class="hover:text-earth-orange transition-colors" href="#">Audit Systems</a></li>
+<li><a class="hover:text-earth-orange transition-colors" href="#">Data Privacy</a></li>
+<li><a class="hover:text-earth-orange transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+<div class="md:col-span-3 space-y-6">
+<h4 class="text-xs uppercase tracking-widest font-bold text-white">Inquiries</h4>
+<p class="text-sm text-sand/50 leading-relaxed">
+                    1244 Visionary Way, Suite 100<br/>
+                    San Francisco, CA 94103
+                </p>
+<div class="pt-4">
+<a class="text-white font-bold border-b border-earth-orange/50 pb-1" href="mailto:hello@architect.agency">hello@architect.agency</a>
+</div>
+</div>
+</div>
+<div class="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.3em] font-bold text-sand/30">
+<div>© 2024 Architectural Collective. All rights reserved.</div>
+<div class="flex gap-8">
+<a href="#">Privacy</a>
+<a href="#">Compliance</a>
+<a href="#">Security</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

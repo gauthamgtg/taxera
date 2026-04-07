@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Elysium Sanctuary | Ultra-Luxury Wellness</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Montserrat:wght@200;300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    :root {
+      --emerald-deep: #062c26;
+      --sapphire-deep: #0a192f;
+      --gold-accent: #c5a059;
+      --gold-light: #e2c08d;
+      --ivory: #f9f7f2;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--emerald-deep);
+      color: var(--ivory);
+    }
+    h1, h2, h3, .font-serif {
+      font-family: 'Cinzel', serif;
+    }
+    .text-gold {
+      color: var(--gold-accent);
+    }
+    .bg-gold {
+      background-color: var(--gold-accent);
+    }
+    .border-gold {
+      border-color: var(--gold-accent);
+    }
+    .hero-gradient {
+      background: linear-gradient(to right, rgba(6, 44, 38, 0.9) 0%, rgba(6, 44, 38, 0.4) 50%, transparent 100%);
+    }
+    .card-overlay {
+      background: linear-gradient(to top, rgba(6, 44, 38, 0.95) 0%, transparent 100%);
+    }
+    .decorative-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+    }
+    input, select, textarea {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid var(--gold-accent) !important;
+      color: var(--ivory) !important;
+      font-family: 'Montserrat', sans-serif;
+    }
+    input::placeholder {
+      color: rgba(249, 247, 242, 0.4);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[var(--gold-accent)] selection:text-white">
+<div class="fixed top-0 z-50 w-full px-4 py-5 md:px-8">
+<div class="mx-auto flex max-w-7xl items-center justify-between border border-gold/20 bg-[rgba(6,44,38,0.72)] px-6 py-4 backdrop-blur-md">
+<a class="font-serif text-lg font-semibold uppercase tracking-[0.35em] text-gold" href="#">Elysium</a>
+<nav class="hidden items-center gap-10 text-[11px] font-semibold uppercase tracking-[0.36em] text-white/70 md:flex">
+<a class="transition hover:text-gold" href="#rituals">Rituals</a>
+<a class="transition hover:text-gold" href="#heritage">Heritage</a>
+<a class="transition hover:text-gold" href="#reserve">Reserve</a>
+</nav>
+<a class="border border-gold px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-gold transition hover:bg-gold hover:text-[var(--emerald-deep)]" href="#reserve">Request Access</a>
+</div>
+</div>
+<header class="relative flex min-h-[800px] h-screen items-center overflow-hidden border-b border-[var(--gold-accent)]/30 pt-28">
+<div class="absolute inset-0 z-0">
+<img alt="Opulent Spa Interior" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb-p0tkdEhptNkxrAbJHJRsnBhn2A8ZQSfAhy4Mu4fbbhg38ekGT0lAgPfo9gWurEq_DymoFBzvj-2oo4RvorpUvkp3ZODKoGkuLWTXmv_YnngxJ93SflThCgoAqLusDs6-OYySXkJShwf6aJYJCTVN3r7MdZRwFTNwojxLT3BSwErI1kVSUzFCl3xBoT7I2ajDJnb6u71ieHYSDG-E5BP1gPH3T5WRwLCSNRNFDRrRugrmvLYp9peXBiT_vwx38trIXHUd_pjlg0i"/>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYwzZCkkdeddlRYbhVxHtTmkIu0WwelWkkk4I3C7L52Jo6d_1wbR9RTQvZhDlXGNOVENNBWdg6wMyMjSnEPujEyt7hAb5maoi2vC42frW4KJwpdMm-uu-2vfZlHxMaFqAgIE5alGjXtx6d5Ai3-AJPidXh7jMZ940AEeG5m_Az0ZCuFdt5vzrTZvAp0JViV4XcNO_pzVW2vGYAqUW3nEpOHh0he9n3e0t6Ye43zHkTzzRLYgm_0xNHnZv9hJQfXtZQnHVDs44Jzvux');"></div>
+</div>
+<div class="relative z-10 container mx-auto px-6 md:px-12 lg:px-24">
+<div class="max-w-4xl">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-[1px] bg-gold"></div>
+<span class="tracking-[0.4em] text-gold text-sm uppercase font-semibold">The Pinnacle of Wellness</span>
+</div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8 drop-shadow-2xl">
+        The Elysium <br/><span class="text-gold">Sanctuary</span>
+</h1>
+<p class="text-xl md:text-2xl font-light mb-12 tracking-wide text-gray-200 max-w-2xl border-l-2 border-gold pl-8">
+        Bespoke curative experiences and ultra-luxury rituals designed for the discerning individual.
+      </p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-gold hover:bg-[var(--gold-light)] text-[var(--emerald-deep)] py-5 px-12 text-sm uppercase tracking-widest font-bold transition-all duration-300">
+          Reserve Excellence
+        </button>
+<button class="border border-gold text-gold hover:bg-gold hover:text-[var(--emerald-deep)] py-5 px-12 text-sm uppercase tracking-widest font-bold transition-all duration-300">
+          The Collections
+        </button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-50">
+<span class="text-[10px] uppercase tracking-[0.3em] font-semibold">Ascend</span>
+<div class="w-[1px] h-16 bg-gold"></div>
+</div>
+</header>
+<section class="py-32 px-6 bg-[var(--sapphire-deep)]" id="rituals">
+<div class="container mx-auto">
+<div class="text-center mb-24">
+<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">Bespoke Rituals</h2>
+<div class="decorative-line w-48 mx-auto mb-8"></div>
+<p class="text-gray-400 max-w-2xl mx-auto font-light tracking-widest uppercase text-xs">A curation of our most prestigious healing methodologies</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="relative group h-[600px] overflow-hidden border border-white/10">
+<img alt="Opulent Body Therapy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRmL_XGYt63Vduui7yS4JkfVpYfW-hhsWkScsCLepIUgwpY4Uq2imH0Wl2U9gI4TmuR3D2TfNjlQfNDKBJHJTZAAeJQAhE6rcDzE5NRXUuZll4yZxOOFGVUvgE1T-M8-Obds4v4ndlVIQgOVWlKE-vPC3cf5LafUsJm-umHaqA2Q1aZTESxB-bPnemBJGdenSeIKkvflHy5s0kvnyQC3KgCs51niJqnk2scz2VU9Q-FXvyBAgaA7AGk7_u52O3BjQozO0BS94TEcUl"/>
+<div class="absolute inset-0 card-overlay flex flex-col justify-end p-10">
+<span class="text-gold text-xs tracking-[0.4em] uppercase mb-4">Metabolic Balance</span>
+<h3 class="text-3xl font-bold mb-4 tracking-wider">Imperial Body Therapy</h3>
+<p class="text-gray-300 font-light mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+            A restorative orchestration of rhythmic pressure and rare oils designed to re-align your biological essence.
+          </p>
+<div class="border-t border-gold/30 pt-4 flex justify-between items-center">
+<span class="text-gold text-sm font-semibold tracking-widest">90 MINS</span>
+<span class="material-symbols-outlined text-gold">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="relative group h-[600px] overflow-hidden border border-white/10 md:mt-12">
+<img alt="Botanical Stress Relief" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO93VDW9Hd9icVrRiC7epiMcm-9FxCBFCht_qqjBTbBgX7cdNqqQ8qTh4bsQuID4YHECpQV0Ynm2JBtHJPHj7sqIZwQ8_kYXbMJ7RkSvxVTKDIoMdOZho4GwJZuX8BH24pVmjeVjE86wi8hqgIFNszFy85o3eHPsmVTVMduess-DsqJEhrWRoB6m3_U49n4gte4X5fYjbKJLJP7IEnwttm0bN_iJzpaoW4iZCbQEOP-6rSDOFt1EnJgyiGUmhud9IPqS0RObXWOFm0"/>
+<div class="absolute inset-0 card-overlay flex flex-col justify-end p-10">
+<span class="text-gold text-xs tracking-[0.4em] uppercase mb-4">Sensory Haven</span>
+<h3 class="text-3xl font-bold mb-4 tracking-wider">Botanical Transcendence</h3>
+<p class="text-gray-300 font-light mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+            Using hand-pressed essences from the peaks of the Himalayas to dissolve modern complexities.
+          </p>
+<div class="border-t border-gold/30 pt-4 flex justify-between items-center">
+<span class="text-gold text-sm font-semibold tracking-widest">120 MINS</span>
+<span class="material-symbols-outlined text-gold">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="relative group h-[600px] overflow-hidden border border-white/10">
+<img alt="Deep Tissue Therapy" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaUPaQURQMm9x9klDq6ODNMF4gxJ_Ls8Zm2OktZRZvtac4e0R82r9A2xxlPviaPMjHOFakCc_zoHRzUc6duvb2bN5YGczLORvdXlbbfSmvMDU_lkBcX0JDg9AWwpOuWRKEpYI4Yhhd7s3r4v4l-S86_Grd6zgRhXi1iMLIsyrK1Zdez-UpijpRSVZkX-Dyc0EoNAU2evpnI-Pj9aNQU09V1mrqnmSb-aTH97XII3Rg9IJALnt1ztb43Txkxtw6WE_nXY_fOe1QNEzG"/>
+<div class="absolute inset-0 card-overlay flex flex-col justify-end p-10">
+<span class="text-gold text-xs tracking-[0.4em] uppercase mb-4">Precision Mastery</span>
+<h3 class="text-3xl font-bold mb-4 tracking-wider">The Elysium Core</h3>
+<p class="text-gray-300 font-light mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+            A master-level deep tissue engagement focused on architectural muscle restoration.
+          </p>
+<div class="border-t border-gold/30 pt-4 flex justify-between items-center">
+<span class="text-gold text-sm font-semibold tracking-widest">75 MINS</span>
+<span class="material-symbols-outlined text-gold">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-[var(--emerald-deep)] border-y border-gold/20 overflow-hidden" id="heritage">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-10 order-2 lg:order-1">
+<div class="inline-block px-4 py-2 border border-gold/30 text-gold text-[10px] tracking-[0.5em] uppercase font-bold">The Heritage</div>
+<h2 class="text-5xl md:text-6xl font-bold leading-tight">
+          Architects of <br/><span class="text-gold">Internal Equilibrium</span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+<div>
+<h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">Philosophy</h4>
+<p class="text-gray-400 font-light leading-relaxed">
+              We transcend the traditional spa model. Every treatment is a bespoke dialogue between therapist and guest, utilizing ancient wisdom augmented by modern anatomical precision.
+            </p>
+</div>
+<div>
+<h4 class="text-gold font-bold uppercase tracking-widest text-sm mb-4">Atmosphere</h4>
+<p class="text-gray-400 font-light leading-relaxed">
+              Designed as a sanctuary of absolute privacy, our spaces utilize rich textures and scents to immediately transport the spirit to a state of total stillness.
+            </p>
+</div>
+</div>
+<div class="pt-8">
+<button class="group flex items-center gap-4 text-gold tracking-[0.3em] uppercase text-xs font-bold hover:gap-6 transition-all duration-300">
+            Explore the lineage <span class="material-symbols-outlined text-sm">trending_flat</span>
+</button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2">
+<div class="absolute -top-10 -left-10 w-40 h-40 border-l border-t border-gold/40"></div>
+<div class="relative rounded-sm overflow-hidden shadow-2xl">
+<img alt="The Elysium Concierge" class="w-full aspect-[4/5] object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClrIo0HIa8l1WUFkXxkgXMOjL5B_NT8iiysUDsY1CD26yCAnDGqnHgkZQBO8JbCB1TMJAoIXvD4ysVnhEoLacs6saQzXJWUeT94QDA5kIQATTN34rUoirbKW9TAx1WqKRnToxlDPtLVUmKhDvHOi04kIQRHZK4avjYZT49vXfn5N3S6rp0o0VnbYMWdy0BzB-t7O8benrKbDvlcsXE6WK6xSOT2uBxjN7b4MmS8CnHT27h8Dq6tBJPvjdTuKBgFrarOXsdTOuOZc7t"/>
+</div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 border-r border-b border-gold/40"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="h-[716px] relative">
+<img alt="Luxury Relaxation Room" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK9ILjw7ZEc9J6FoA9-EYB9btf_gPSWeegXtUFZN3Y6U_75QCE2Iqzzlew08Zc1o6HqWtIduzkMYNCVAnlHhudtdYxyKLNlYeuC5_okFsZMkhDhZxK877v9xSRBO48IXDLsLP9rSi_Fh8L2SVxrBzUbYgFRibJUFWrpK8Mql0qpI1GQlLKo54mtygh9u-Hgz979TJrRgGmVpj6l-c4ugNI-ukgebbTcHrhKX-b9BJwcUryQ3i_Cmh5WpL8C-8dqnlBqNVfbqjpmg0C"/>
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+<div class="absolute inset-0 flex items-center justify-center text-center">
+<div class="px-6">
+<p class="text-gold tracking-[0.8em] uppercase text-sm mb-8 font-semibold">The Environment</p>
+<h3 class="text-4xl md:text-7xl font-bold max-w-4xl leading-tight">Silence is the <span class="italic font-serif">Ultimate</span> Luxury</h3>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 bg-[var(--sapphire-deep)]" id="reserve">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+<div class="lg:col-span-5 space-y-12">
+<div>
+<h2 class="text-4xl md:text-5xl font-bold mb-8">Secure Your <span class="text-gold italic">Sanctuary</span></h2>
+<p class="text-gray-400 font-light text-lg leading-relaxed">
+            Due to the bespoke nature of our treatments, we recommend securing your preferred time at least 48 hours in advance. Our concierge will contact you to finalize your tailored ritual preferences.
+          </p>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-gold">local_hotel</span>
+<div>
+<p class="text-xs uppercase tracking-widest font-bold text-gold">VIP Privacy</p>
+<p class="text-white font-light">Exclusive male-to-male sessions in total seclusion.</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-gold">verified_user</span>
+<div>
+<p class="text-xs uppercase tracking-widest font-bold text-gold">Master Therapists</p>
+<p class="text-white font-light">Certified experts with minimum 10 years experience.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 bg-[var(--emerald-deep)] p-12 border border-gold/20 shadow-2xl">
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="group">
+<label class="block text-[10px] font-bold text-gold uppercase tracking-[0.2em] mb-3" for="fullName">Legacy Name</label>
+<input class="w-full p-4 focus:ring-0 focus:outline-none transition-all duration-300" id="fullName" placeholder="Enter Full Name" type="text"/>
+</div>
+<div class="group">
+<label class="block text-[10px] font-bold text-gold uppercase tracking-[0.2em] mb-3" for="phone">Direct Line</label>
+<input class="w-full p-4 focus:ring-0 focus:outline-none transition-all duration-300" id="phone" placeholder="+1 (000) 000-0000" type="tel"/>
+</div>
+<div class="group">
+<label class="block text-[10px] font-bold text-gold uppercase tracking-[0.2em] mb-3" for="service">Desired Ritual</label>
+<select class="w-full p-4 focus:ring-0 focus:outline-none transition-all duration-300" id="service">
+<option class="bg-[var(--emerald-deep)]">Select Selection</option>
+<option class="bg-[var(--emerald-deep)]">Imperial Body Therapy</option>
+<option class="bg-[var(--emerald-deep)]">Botanical Transcendence</option>
+<option class="bg-[var(--emerald-deep)]">The Elysium Core</option>
+</select>
+</div>
+<div class="group">
+<label class="block text-[10px] font-bold text-gold uppercase tracking-[0.2em] mb-3" for="datetime">Preferred Window</label>
+<input class="w-full p-4 focus:ring-0 focus:outline-none transition-all duration-300" id="datetime" type="datetime-local"/>
+</div>
+</div>
+<button class="w-full bg-gold hover:bg-[var(--gold-light)] text-[var(--emerald-deep)] py-6 text-sm uppercase tracking-[0.4em] font-bold transition-all duration-300">
+            Request Access
+          </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-[#041a17] py-24 px-6 border-t border-gold/10">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-20 mb-20">
+<div class="space-y-8">
+<h3 class="text-3xl font-bold tracking-widest text-gold uppercase">Elysium</h3>
+<p class="text-gray-500 font-light leading-relaxed text-sm">
+          A definitive destination for world-class wellness, offering unparalleled treatments within an environment of absolute sophistication.
+        </p>
+<div class="flex space-x-6">
+<a class="text-gold/50 hover:text-gold transition-colors" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg></a>
+<a class="text-gold/50 hover:text-gold transition-colors" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path></svg></a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h4 class="text-xs uppercase tracking-[0.3em] font-bold text-gold mb-8">Navigation</h4>
+<ul class="space-y-4 text-sm font-light text-gray-400">
+<li><a class="hover:text-gold transition-colors" href="#">The Sanctuary</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Ritual Menu</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">The Concierge</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Exclusivity</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs uppercase tracking-[0.3em] font-bold text-gold mb-8">Legal</h4>
+<ul class="space-y-4 text-sm font-light text-gray-400">
+<li><a class="hover:text-gold transition-colors" href="#">Privacy Accord</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Terms of Presence</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Membership</a></li>
+</ul>
+</div>
+</div>
+<div class="space-y-8">
+<h4 class="text-xs uppercase tracking-[0.3em] font-bold text-gold mb-8">Global Concierge</h4>
+<div class="flex border-b border-gold/30 pb-4">
+<input class="bg-transparent border-none w-full !border-0 !p-0 placeholder:text-gray-600 italic font-serif" placeholder="Register for invitations" type="email"/>
+<button class="text-gold uppercase text-[10px] tracking-widest font-bold">Apply</button>
+</div>
+<p class="text-[10px] text-gray-600 uppercase tracking-widest">Entry by invitation or vetted reservation only.</p>
+</div>
+</div>
+<div class="pt-12 border-t border-gold/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-[10px] tracking-[0.2em] text-gray-600 uppercase">© 2024 THE ELYSIUM SANCTUARY. ALL RIGHTS RESERVED.</p>
+<p class="text-[10px] tracking-[0.2em] text-gray-600 uppercase">ESTABLISHED IN EXCELLENCE</p>
+</div>
+</div>
+</footer>
+
+</body></html>

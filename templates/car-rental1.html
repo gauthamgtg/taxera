@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Velociti Reserve | Premium Car Rental Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --night: #0a0d12;
+    --panel: #11161d;
+    --line: rgba(255,255,255,0.08);
+    --text: #edf2f7;
+    --muted: rgba(237,242,247,0.68);
+    --red: #ff6144;
+    --silver: #c7d0da;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Sora', sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(255,97,68,0.14), transparent 28%),
+      radial-gradient(circle at bottom right, rgba(199,208,218,0.08), transparent 24%),
+      var(--night);
+    color: var(--text);
+  }
+  a { color: inherit; text-decoration: none; }
+  .shell { width: min(1180px, calc(100vw - 32px)); margin: 0 auto; }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(20px);
+    background: rgba(10,13,18,0.78);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 0;
+  }
+  .brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .brand span { color: var(--red); }
+  .nav {
+    display: flex;
+    gap: 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .button {
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: var(--red);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .hero {
+    padding: 42px 0 28px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.96fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .eyebrow {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,97,68,0.22);
+    background: rgba(255,97,68,0.08);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .hero-copy {
+    padding: 26px 0 14px;
+  }
+  .hero-copy h1 {
+    margin: 14px 0 16px;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 0.92;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+  .hero-copy p {
+    max-width: 540px;
+    margin: 0 0 24px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-actions a {
+    padding: 14px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .hero-actions .primary {
+    background: white;
+    color: var(--night);
+  }
+  .stage {
+    position: relative;
+    min-height: 620px;
+    overflow: hidden;
+    border-radius: 34px;
+    border: 1px solid var(--line);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+      linear-gradient(135deg, rgba(255,97,68,0.08), transparent 34%);
+  }
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.88), transparent 92%);
+  }
+  .spec-badge {
+    position: absolute;
+    padding: 12px 14px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+  }
+  .spec-badge strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .spec-badge span {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .spec-a { top: 28px; left: 24px; }
+  .spec-b { right: 24px; top: 68px; }
+  .spec-c { left: 42px; bottom: 44px; }
+  .car-wrap {
+    position: absolute;
+    left: 50%;
+    top: 54%;
+    width: min(560px, 88%);
+    transform: translate(-50%, -50%);
+  }
+  .car-svg { width: 100%; height: auto; display: block; }
+  .reservation {
+    position: absolute;
+    right: 26px;
+    bottom: 26px;
+    width: min(320px, calc(100% - 52px));
+    padding: 18px;
+    border-radius: 26px;
+    border: 1px solid var(--line);
+    background: rgba(8, 10, 14, 0.84);
+    backdrop-filter: blur(14px);
+  }
+  .reservation h3 {
+    margin: 0 0 12px;
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .reservation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .field {
+    padding: 12px 14px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .field strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .field span { font-size: 14px; }
+  .reserve-button {
+    margin-top: 12px;
+    display: block;
+    padding: 14px 16px;
+    border-radius: 999px;
+    background: var(--red);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .section {
+    padding: 28px 0 0;
+  }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 18px;
+  }
+  .section-head h2 {
+    margin: 0;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+  .section-head p {
+    max-width: 430px;
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .fleet {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .fleet-card {
+    overflow: hidden;
+    border-radius: 28px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.03);
+  }
+  .fleet-visual {
+    height: 200px;
+    padding: 22px;
+    background:
+      radial-gradient(circle at top right, rgba(255,97,68,0.16), transparent 26%),
+      linear-gradient(180deg, rgba(255,255,255,0.03), transparent),
+      #0f141b;
+  }
+  .fleet-copy {
+    padding: 18px;
+  }
+  .fleet-copy h3 {
+    margin: 0 0 8px;
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .fleet-copy p {
+    margin: 0 0 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .statline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .statline span {
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .experience {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+  .experience-main,
+  .experience-panel {
+    border-radius: 28px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .experience-main {
+    padding: 26px;
+    background: linear-gradient(180deg, rgba(255,97,68,0.18) 0%, rgba(255,255,255,0.03) 100%);
+  }
+  .experience-main h3,
+  .experience-panel h3 {
+    margin: 0 0 12px;
+    font-family: 'Syne', sans-serif;
+    font-size: 34px;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .experience-main p,
+  .experience-panel p {
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .experience-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: rgba(255,255,255,0.03);
+  }
+  .experience-item {
+    padding: 26px 22px;
+    border-left: 1px solid var(--line);
+  }
+  .experience-item:first-child { border-left: 0; }
+  .experience-item strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 980px) {
+    .hero-grid,
+    .fleet,
+    .experience,
+    .experience-panel {
+      grid-template-columns: 1fr;
+    }
+    .nav { display: none; }
+  }
+  @media (max-width: 640px) {
+    .shell { width: min(100vw - 24px, 1180px); }
+    .hero-copy h1 { font-size: 56px; }
+    .reservation-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="#">Velociti <span>Reserve</span></a>
+    <nav class="nav">
+      <a href="#fleet">Fleet</a>
+      <a href="#experience">Experience</a>
+      <a href="#reserve">Reserve</a>
+    </nav>
+    <a class="button" href="#reserve">Book now</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Premium rental template</span>
+        <h1>Move like arrival <br/>is part of the plan.</h1>
+        <p>Built for car rental brands that want more than a booking form. The layout feels fast, polished, and premium while keeping availability, specs, and reservation flow in clear view.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#reserve">Reserve a drive</a>
+          <a href="#fleet">View fleet</a>
+        </div>
+      </div>
+
+      <div class="stage" id="reserve">
+        <div class="grid-lines"></div>
+        <div class="spec-badge spec-a">
+          <strong>0-100</strong>
+          <span>4.1s</span>
+        </div>
+        <div class="spec-badge spec-b">
+          <strong>Per day</strong>
+          <span>14,900</span>
+        </div>
+        <div class="spec-badge spec-c">
+          <strong>Auto pickup</strong>
+          <span>24/7</span>
+        </div>
+
+        <div class="car-wrap">
+          <svg class="car-svg" viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M119 224C150 179 216 124 310 118H525C585 119 651 144 712 200L772 207V243H731C720 278 692 298 650 298C609 298 577 278 567 243H313C303 278 271 298 229 298C188 298 156 278 146 243H97V228L119 224Z" fill="#d6dde6"/>
+            <path d="M271 129L334 93H518C585 93 643 118 676 169L533 171L271 129Z" fill="#f2f5f8"/>
+            <path d="M292 138H530C581 138 626 149 663 171H418L292 138Z" fill="#8b98a6"/>
+            <circle cx="229" cy="244" r="47" fill="#0e1218"/>
+            <circle cx="229" cy="244" r="22" fill="#c7d0da"/>
+            <circle cx="650" cy="244" r="47" fill="#0e1218"/>
+            <circle cx="650" cy="244" r="22" fill="#c7d0da"/>
+            <rect x="690" y="194" width="66" height="14" rx="7" fill="#ff6144"/>
+            <rect x="132" y="198" width="48" height="10" rx="5" fill="#c7d0da"/>
+          </svg>
+        </div>
+
+        <div class="reservation">
+          <h3>Reserve</h3>
+          <div class="reservation-grid">
+            <div class="field">
+              <strong>Pickup</strong>
+              <span>Airport Terminal</span>
+            </div>
+            <div class="field">
+              <strong>Date</strong>
+              <span>12 Apr</span>
+            </div>
+            <div class="field">
+              <strong>Return</strong>
+              <span>15 Apr</span>
+            </div>
+            <div class="field">
+              <strong>Class</strong>
+              <span>Performance</span>
+            </div>
+          </div>
+          <a class="reserve-button" href="#">Confirm availability</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell" id="fleet">
+    <div class="section-head">
+      <h2>Fleet highlights</h2>
+      <p>Use a strong spec-led grid so customers can compare categories quickly without digging through generic cards.</p>
+    </div>
+    <div class="fleet">
+      <article class="fleet-card">
+        <div class="fleet-visual"></div>
+        <div class="fleet-copy">
+          <h3>GT Coupe</h3>
+          <p>Fast, low-slung, and ideal for city arrivals with a cinematic edge.</p>
+          <div class="statline">
+            <span>2 seats</span>
+            <span>Performance</span>
+            <span>Auto</span>
+          </div>
+        </div>
+      </article>
+      <article class="fleet-card">
+        <div class="fleet-visual" style="background:radial-gradient(circle at top right, rgba(199,208,218,0.18), transparent 28%),linear-gradient(180deg, rgba(255,255,255,0.03), transparent),#0f141b;"></div>
+        <div class="fleet-copy">
+          <h3>Executive SUV</h3>
+          <p>Built for airport transfers, team arrivals, and high-comfort intercity runs.</p>
+          <div class="statline">
+            <span>6 seats</span>
+            <span>Luxury</span>
+            <span>Chauffeur option</span>
+          </div>
+        </div>
+      </article>
+      <article class="fleet-card">
+        <div class="fleet-visual" style="background:radial-gradient(circle at top left, rgba(255,97,68,0.12), transparent 24%),linear-gradient(180deg, rgba(255,255,255,0.03), transparent),#11161d;"></div>
+        <div class="fleet-copy">
+          <h3>Weekend Roadster</h3>
+          <p>Open-air format for destination rentals, resort drives, and event weekends.</p>
+          <div class="statline">
+            <span>2 seats</span>
+            <span>Convertible</span>
+            <span>Premium audio</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section shell" id="experience">
+    <div class="experience">
+      <article class="experience-main">
+        <span class="eyebrow">Service posture</span>
+        <h3>Luxury without booking friction.</h3>
+        <p>The template combines strong motion-inspired visuals with direct rental actions, so the experience feels premium without hiding what matters most: timing, pickup logic, and car class availability.</p>
+      </article>
+      <article class="experience-panel">
+        <div class="experience-item">
+          <strong>Doorstep delivery</strong>
+          <p>Vehicle handoff at airport, residence, hotel, or event venue.</p>
+        </div>
+        <div class="experience-item">
+          <strong>Concierge handover</strong>
+          <p>White-glove walkthrough, damage scan, and route briefing.</p>
+        </div>
+        <div class="experience-item">
+          <strong>Always-on support</strong>
+          <p>Live assistance for swaps, extensions, and late-night requests.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pure Plus Spa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'spa-green': '#1e4c3a',
+            'spa-light-green': '#e8ede8',
+            'spa-gold': '#a8815a',
+            'spa-tan': '#c8a983',
+            'spa-dark-gray': '#5a5a5a',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'],
+            'serif': ['Merriweather', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Merriweather:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="base-styles">
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Merriweather', serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+<!-- BEGIN: MainHeader -->
+<header class="bg-spa-green text-white fixed w-full z-50">
+<div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<div class="text-xl font-serif tracking-wider">
+        Pure Plus Spa
+      </div>
+<nav class="hidden md:flex space-x-6 items-center text-sm font-light">
+<a class="hover:text-spa-tan transition" href="#services">Services</a>
+<a class="hover:text-spa-tan transition" href="#about">About Us</a>
+<a class="hover:text-spa-tan transition" href="#gallery">Gallery</a>
+<a class="hover:text-spa-tan transition" href="#booking">Booking</a>
+<a class="hover:text-spa-tan transition" href="#contact">Contact</a>
+<a class="bg-spa-gold hover:bg-spa-tan text-white px-5 py-2 rounded transition" href="#booking">Book Now</a>
+</nav>
+<!-- Mobile menu button (placeholder) -->
+<button class="md:hidden text-white focus:outline-none">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="relative h-screen min-h-[600px] flex items-center justify-center pt-20">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Spa Room" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnXd3T2-B5sCbN98D4ZFHJGjfiDBkuTHoDQoe-3-n5QaqbW-Ka0C3t4f0gQGVT8oopHQEBFDfKFFslHw0jTQFJfidOMYCL6qb4t-eaphpfIHOFUnqvVg7jqXucSeNeLXWAR-qtJOy7cx87s8X1ZpSMk0oCOu7Lc9FC3GvK6qLazunI1BIJ3ggJ15D_eOqSLK5sCplFQFnWYXYo9nEff1cnrFJ1dWgIc0efCh4ay7kAT1011eHy_lK7r1KUJHc5UIDWYeX-25W8yTJ1"/>
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="relative z-10 text-center text-white px-4">
+<h1 class="text-4xl md:text-6xl font-serif mb-4 tracking-widest uppercase">Pure Plus Spa</h1>
+<p class="text-lg md:text-xl font-light mb-8 max-w-2xl mx-auto">Exclusive Male-to-Male Wellness in Bengaluru, Reclaim Your Balance.</p>
+<a class="inline-block bg-spa-gold hover:bg-spa-tan text-white font-medium px-8 py-3 rounded uppercase tracking-wide transition" href="#booking">Book Your Session Now</a>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ServicesSection -->
+<section class="bg-spa-green text-white py-20" id="services">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-serif mb-12 uppercase tracking-wider">Our Exclusive Services</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Service 1 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 mb-4 flex items-center justify-center">
+<!-- Placeholder icon -->
+<svg class="w-12 h-12 text-spa-tan" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-xl font-medium mb-3 uppercase tracking-wide">Body Therapy</h3>
+<p class="text-sm font-light leading-relaxed max-w-xs text-gray-200">Exclusive professional treatments focused on full body therapy.</p>
+</div>
+<!-- Service 2 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 mb-4 flex items-center justify-center">
+<!-- Placeholder icon -->
+<svg class="w-12 h-12 text-spa-tan" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-xl font-medium mb-3 uppercase tracking-wide">Stress Relief</h3>
+<p class="text-sm font-light leading-relaxed max-w-xs text-gray-200">Extensive male to male communication-oriented treatments.</p>
+</div>
+<!-- Service 3 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 mb-4 flex items-center justify-center">
+<!-- Placeholder icon -->
+<svg class="w-12 h-12 text-spa-tan" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-xl font-medium mb-3 uppercase tracking-wide">Deep Tissue</h3>
+<p class="text-sm font-light leading-relaxed max-w-xs text-gray-200">Deep tissue experience focused on muscle recovery and state balance.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ServicesSection -->
+<!-- BEGIN: AboutSection -->
+<section class="bg-spa-light-green py-20" id="about">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
+<div class="w-full md:w-1/2">
+<img alt="Professional Therapist" class="w-full h-auto rounded shadow-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgOf66Els7bLS7wVvqVs2vpReSEiPq4NSmR1T5RicLOOpH9myAgKOXeR-m5UtPAc3NxAun2dAZfUHrQXLU69rA9iaVNwVnehbkj9iRach61nMwNhQ2wJOecatCK7xSmyWvd-_ucTlAQSugX43mIZJWaps2G4Z5wsfi8HgLyZZSOTOtKbp3bTcSzA89slwwlSzr6R0dC3H7BNJ7HVNOvjpNVtWhfnbELdVha9Xk4pXNaYam-SUtVQMjTC6ODrHtgjJpzscJil_Cdvz8"/>
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="text-3xl font-serif mb-4 uppercase tracking-wider text-spa-green">About Us</h2>
+<h3 class="text-xl font-medium mb-4 text-gray-800">Dedicated to professional male-to-male treatments for restoration and peak performance.</h3>
+<p class="text-gray-600 mb-6 font-light leading-relaxed">
+            Dedicated to professional male-to-male wellness, providing specialized restoration on peak performance. Our trained therapists ensure a comfortable and rejuvenating experience tailored to your needs.
+          </p>
+<a class="inline-block bg-spa-gold hover:bg-spa-tan text-white font-medium px-6 py-2 rounded transition uppercase text-sm" href="#contact">Contact Now</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- BEGIN: GallerySection -->
+<section class="bg-spa-green py-20" id="gallery">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-serif mb-12 text-white uppercase tracking-wider">Photo Gallery</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+<img alt="Spa Room 1" class="w-full h-48 object-cover rounded shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuIn66NVqliNI2ZsRnPBR0gDYpHFyWVGAhGUJ_Yzz0esvKd7Z6lnov498gsc_enGRorEJ8N_1FNrrLzuuUjs9_huKrhmy6l8hfIdVizMcdrUz_3tTX-fBz0gXVR7WDxM8b4-G7FFQ9tJZFRUg39ncM4f8SS5hJLuPD_gjj7t5z-u5WEfcsGKPh5DbQ-umZVZazHr58b5-qZuThriRbYBRUfY8tw9rcaOvI04MzmemfTLI5jtoS5yNmH3UEN7kjTAtkXLinBIl1E-mG"/>
+<img alt="Spa Room 2" class="w-full h-48 object-cover rounded shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0GY7q9eiMwEnsv-ENk-fqGYohE1R5gnLg35RDvn1yx5vvCl9JfJGgEM2P8O9u8SQLi1gT0mHZm-wZk1wOfXI6UJThPeUVLFmzcylI8FSZlAf3HUPrus-OBYrwEPIHuoS7_x5nZ8WjME7lM2Tf-wLkKYZiP2GpTrRIQFtnDQBjXtnOosBtodOxxa5YxJwoerMqvHnLA9qnlQ3cFxQxnZBJxC1OTIHlngJzeyKDp8jIQMJOQ0YqbGiVMmQTNs_9qySs8DwT0g2wxfSf"/>
+<img alt="Spa Room 3" class="w-full h-48 object-cover rounded shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC19Btru0_n5UogMriVINHyX4NcuWvILq8NNW2OOa5bOr0Anc3ZMeD-qMKSlfSYyR8a3yvCZApe4C8Hwjfy7sbwRZps-M-4T1p1r7hI4PntJIsWIVat4fY-61EumNyVNayR5VUqDD9j75csKK81mG1d1vTKAdz_NalUcXNGsixo6Tzudj9ZbBzf9fR74KVf32uFkh2HGpkN5juKDiBxwSm6VT4T0qM0jTCdXE7-KLwQKeQEMbYdT-Yb0-6o_04HodVwu7MFPgqxM2Yz"/>
+<img alt="Spa Room 4" class="w-full h-48 object-cover rounded shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOwSXJxxzoOjv6yB4wxqiEVFixLIZgX9OCGl2biPkUHJJNy26SQc_-uHRPWfvdHbNFGNoHGmiRUNLv87iGmFIpsqhqFUnjzyIb9ScDkpFaWWWZgIJapCAHyG-aB4N0pZ5ekG7ABzP4RyuANIwa2XiDGib7Pu35K-e2o-XxWDfGbgYapo5YLSAjH3HZL-bvjfqIGVz-iomZk0_OI1H7WiYn3fqj7isnGvmV2hMjKf4Kua-YCyd1CByudGDAQCQYfHJ1EdWueZfMCSEN"/>
+<img alt="Spa Room 5" class="w-full h-48 object-cover rounded shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPE41X0qHSbNzG3rdE4uNdR66QgYSZX2pkffkoPBEGoHK9k0akE-XS0wS7B1bwlaqS0ZZe6YpyNJ-0-oIj9orhZcvjVpTBZLVSWchrAXpk0-nV1hlkPRk4CEBUlqcX53Tgj8ffpAKfWH-KJeBMhjn-NvjP5hQTn62a3_hGKxAWiPljifrlrtQc_93Eud6pB9enU1sGTwnR0v1X4rRL0IebhWpPTZPujeV6-m-2ceMveiWIFq2T3DKEHcWNO670gWeGw0zLbNMajRl1"/>
+<img alt="Spa Room 6" class="w-full h-48 object-cover rounded shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Xa9P40IAzH3DWprejPKeFc8mUJNgqGkrryA_1AVP6j5pyG0JdUCqDM6uSyYFuTHFbX0qEVP21XLJLxVu5LVUPz_KboQJjyvAKy7mfDF-IQ2ux4CeTyn1eKYQGwb6ixMQE3gtI7XZKrdHk6X6BeiO3rPvh_0oE1-zBr5poUEcUzL59S9fx0uXvkhfQ0iW63OuIAxZoOIwi6-sOC1k9mxw4Kx0Vh4XfsvnnfcT5ioc8KtJpJ_rxNyHOVgpI5T2ICld4wR9TrD5309L"/>
+<img alt="Spa Room 7" class="w-full h-48 object-cover rounded shadow-md hidden lg:block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiZ2P3NuHkfdGloW1F21r9uDVhTc8LuWDQ4OwkxpIFUMdn1pcy323-Zg3xicxWigd8PKEkbsMrKnqz2C6bk6oTVdV2xX0M5y4KkvqkfscYft4pPkRIjtOVrN0Z3HxUp08BSD6NntdhEZ8rxJRy9Zp5S6eU0sZQLNPX_dOiqEr1o2AD_pSD3oAxjktAgteVJGPR7_BkaNRmHdQ5KbyodTBVa0VgVDpcFe-UFmuitEnUrbwrGIuiDwHEEBHsI3faBxqB70gFs0VH64pG"/>
+<img alt="Spa Room 8" class="w-full h-48 object-cover rounded shadow-md hidden lg:block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx3Tlw5_bWRqp2JYtaY1ukdT21RxTwX_6jtA1Ja6ymSA2RBCbOIZmL9SKUWEpaFtA8jOnCOOxLeQdvp_WWd1ZLWq_9G8o5rZgvu57iRRq0_bIrouxQBpafaWBGPakZT-1dzIWiJT9nQAYzpqw9z_q-XBXgT4RE19psZV1UmaXTmAp88csPpb8wBd7qlM_gAYB7D4a32bjYOT48_xZQZAbAgJ-hf24t1bgppXktXAqJENaKNtXzg5PzIdiF1phOMqofMjOvQNTlRysK"/>
+<img alt="Spa Room 9" class="w-full h-48 object-cover rounded shadow-md hidden lg:block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt21SnjoMfHMJ3f4ec2Uxvgj8YaKZUhofXo-cbsu8nLekDPq4dlFti9aYMFphESe6ZuaQPLgbEyLt5_Jz6mwsFn2rWi_hFQCs59wXWL8gI2mOlVuwyI3ydbnyiQZzm3GB_GXiRxnel9xMMzZ4staqiU-WxbzqnrLkMcfKZ2A-P4nLcPb0EF2xqJ1czNZu4q_VA_a_ntr-tAQIGOjfl8xuku1l8EgPNaAocS8RgWVPPUsDp6uzzfElYceTvOJGqc3Gu2GtINOy_P9Lt"/>
+</div>
+</div>
+</section>
+<!-- END: GallerySection -->
+<!-- BEGIN: BookingSection -->
+<section class="bg-spa-tan py-20 text-white" id="booking">
+<div class="container mx-auto px-4 max-w-2xl text-center">
+<h2 class="text-3xl font-serif mb-10 uppercase tracking-wider">Book Your Session</h2>
+<form class="space-y-6 text-left">
+<div>
+<label class="block text-sm font-medium mb-1" for="fullName">Full Name</label>
+<input class="w-full bg-transparent border border-white/50 rounded px-4 py-2 text-white placeholder-white/70 focus:outline-none focus:border-white focus:ring-1 focus:ring-white" id="fullName" placeholder="Full Name" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1" for="phoneNumber">Phone Number</label>
+<input class="w-full bg-transparent border border-white/50 rounded px-4 py-2 text-white placeholder-white/70 focus:outline-none focus:border-white focus:ring-1 focus:ring-white" id="phoneNumber" placeholder="Phone Number" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1" for="service">Select Service</label>
+<select class="w-full bg-transparent border border-white/50 rounded px-4 py-2 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white appearance-none" id="service">
+<option class="text-gray-800" disabled="" selected="" value="">Select Service</option>
+<option class="text-gray-800" value="body-therapy">Body Therapy</option>
+<option class="text-gray-800" value="stress-relief">Stress Relief</option>
+<option class="text-gray-800" value="deep-tissue">Deep Tissue</option>
+</select>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium mb-1" for="date">Preferred Date</label>
+<input class="w-full bg-transparent border border-white/50 rounded px-4 py-2 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white" id="date" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1" for="time">Time</label>
+<input class="w-full bg-transparent border border-white/50 rounded px-4 py-2 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white" id="time" type="time"/>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-spa-green hover:bg-opacity-90 text-white font-medium py-3 rounded uppercase tracking-wide transition" type="submit">Submit Booking</button>
+</div>
+</form>
+</div>
+</section>
+<!-- END: BookingSection -->
+<!-- BEGIN: Footer/Contact Section -->
+<footer class="bg-spa-dark-gray text-white py-16" id="contact">
+<div class="container mx-auto px-4 max-w-6xl">
+<h2 class="text-2xl font-serif mb-12 text-center uppercase tracking-wider">Location &amp; Contact</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Map -->
+<div>
+<img alt="Map Location" class="w-full h-auto rounded shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnGhMkWKWBXPK684UgBvTAYXlLdlouK4gqvqnKFaYk2oahadOX9mS9lOyYFF34kSACN0rVWShtNdPBjm1AYk-WATlwpu1yP3rmLOyj4ITidUqtBBejn9hJaYr41tB6qCgK738w0jBo1pQ-UjJoriH7k_tJLI42A_EfgMtXZJ5uQ_4D6PkI_L9G9lXRnMYQwLDLf689zN5A-0D1uCwdNLscQ54zsHiwdmSAshyfkxg7HYcSO_JRBhfIhP-aOunYRt1uALDdpVsdJsak"/>
+</div>
+<!-- Contact Info -->
+<div class="flex flex-col justify-center space-y-6">
+<div>
+<h4 class="font-bold text-lg mb-1">Address:</h4>
+<p class="font-light text-gray-300">BTM Layout, Bengaluru,<br/>Karnataka</p>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Phone:</h4>
+<p class="font-light text-gray-300">+91 7956609475</p>
+</div>
+</div>
+<!-- Contact Form -->
+<div>
+<form class="space-y-4">
+<input class="w-full bg-transparent border border-gray-400 rounded px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-white" placeholder="Name" type="text"/>
+<input class="w-full bg-transparent border border-gray-400 rounded px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-white" placeholder="Email" type="email"/>
+<textarea class="w-full bg-transparent border border-gray-400 rounded px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-white" placeholder="Your Message" rows="4"></textarea>
+<button class="w-full bg-spa-gold hover:bg-spa-tan text-white py-2 rounded transition" type="submit">Send</button>
+</form>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="mt-16 pt-8 border-t border-gray-600 flex flex-col md:flex-row justify-between items-center text-sm font-light text-gray-400">
+<p>© Copyright 2022 Pure Plus Spa. Ltd.</p>
+<div class="flex space-x-4 mt-4 md:mt-0">
+<a class="hover:text-white transition" href="#">Instagram</a>
+<a class="hover:text-white transition" href="#">Facebook</a>
+<a class="hover:text-white transition" href="#">YouTube</a>
+<a class="hover:text-white transition" href="#">TikTok</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Footer/Contact Section -->
+</body></html>

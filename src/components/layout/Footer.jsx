@@ -68,6 +68,7 @@ export function Footer() {
                 <div className="grid gap-1.5">
                   <Link to="/" className="text-sm text-blue-100/78 transition-colors hover:text-white">Home</Link>
                   <Link to="/tools" className="text-sm text-blue-100/78 transition-colors hover:text-white">Tools</Link>
+                  <Link to="/templates" className="text-sm text-blue-100/78 transition-colors hover:text-white">Templates</Link>
                   <Link to="/#how-it-works" className="text-sm text-blue-100/78 transition-colors hover:text-white">How It Works</Link>
                   <Link to="/#categories" className="text-sm text-blue-100/78 transition-colors hover:text-white">Explore Services</Link>
                 </div>

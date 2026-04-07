@@ -6,13 +6,14 @@ export function CategoryCTA({ categoryName, content }) {
 
   return (
     <section className="relative overflow-hidden px-4 py-20 md:px-8 lg:px-16">
-      <div className="surface-strong mx-auto max-w-6xl overflow-hidden rounded-[2rem] px-6 py-10 md:px-10">
+      <div className="surface-strong mx-auto max-w-7xl overflow-hidden rounded-[2.2rem] px-6 py-10 md:px-10">
         <div className="absolute left-[10%] top-[18%] h-44 w-44 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="absolute right-[12%] top-[16%] h-48 w-48 rounded-full bg-cyan-200/20 blur-3xl" />
-        <div className="relative z-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div className="relative z-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="text-white">
-            <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-4xl">{content.ctaTitle}</h2>
-            <p className="mb-8 max-w-2xl text-base leading-relaxed text-blue-100/75">{content.ctaDescription}</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-100/65">Final Action</p>
+            <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-5xl">{content.ctaTitle}</h2>
+            <p className="mb-8 max-w-2xl text-base leading-relaxed text-blue-100/78">{content.ctaDescription}</p>
             <div className="flex flex-wrap gap-3">
               <a
                 href={bookingLink}
@@ -34,10 +35,13 @@ export function CategoryCTA({ categoryName, content }) {
               </a>
             </div>
           </div>
-          <div className="glass-panel rounded-[1.75rem] p-6 text-blue-950">
-            <p className="text-xs uppercase tracking-[0.24em] text-blue-700/60">Quick connect message</p>
-            <p className="mt-4 rounded-[1.5rem] border border-blue-100 bg-white px-5 py-5 text-sm leading-relaxed text-blue-900/72">
+          <div className="rounded-[1.8rem] border border-blue-100/20 bg-white/12 p-6 text-blue-50 backdrop-blur-xl">
+            <p className="text-xs uppercase tracking-[0.24em] text-blue-100/65">Quick connect message</p>
+            <p className="mt-4 rounded-[1.5rem] border border-blue-100/20 bg-white/12 px-5 py-5 text-sm leading-relaxed text-blue-100/90">
               &ldquo;{content.ctaWhatsAppMessage}&rdquo;
+            </p>
+            <p className="mt-4 text-xs leading-relaxed text-blue-100/70">
+              Share this exact message and we will route you to the right specialist in this category.
             </p>
           </div>
         </div>

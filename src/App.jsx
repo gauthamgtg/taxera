@@ -14,8 +14,14 @@ const ServiceDetailPage = lazy(() =>
 const ToolsHubPage = lazy(() =>
   import('./pages/ToolsHubPage').then((module) => ({ default: module.ToolsHubPage }))
 );
+const TemplatesPage = lazy(() =>
+  import('./pages/TemplatesPage').then((module) => ({ default: module.TemplatesPage }))
+);
 const ToolDetailPage = lazy(() =>
   import('./pages/ToolDetailPage').then((module) => ({ default: module.ToolDetailPage }))
+);
+const ProblemLandingPage = lazy(() =>
+  import('./pages/ProblemLandingPage').then((module) => ({ default: module.ProblemLandingPage }))
 );
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage').then((module) => ({ default: module.NotFoundPage }))
@@ -70,10 +76,26 @@ export default function App() {
           }
         />
         <Route
+          path="/templates"
+          element={
+            <Suspense fallback={<RouteFallback />}>
+              <TemplatesPage />
+            </Suspense>
+          }
+        />
+        <Route
           path="/tools/:toolSlug"
           element={
             <Suspense fallback={<RouteFallback />}>
               <ToolDetailPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:problemSlug"
+          element={
+            <Suspense fallback={<RouteFallback />}>
+              <ProblemLandingPage />
             </Suspense>
           }
         />

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pure Plus Spa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="typography">
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #e8ede5; /* Light sage green */
+      color: #333;
+    }
+    h1, h2, h3, .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+    .bg-beige {
+      background-color: #f2ebe1;
+    }
+    .text-sage-dark {
+      color: #2c3e2d;
+    }
+    .btn-primary {
+      background-color: #dcb88e; /* Sand/Beige button color */
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #c9a379;
+    }
+  </style>
+</head>
+<body class="antialiased">
+<div class="fixed top-0 z-50 w-full px-4 py-4 md:px-8">
+<div class="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/30 bg-[#f8f3ea]/78 px-5 py-3 shadow-lg backdrop-blur-md">
+<a class="font-serif text-lg font-semibold tracking-[0.18em] text-sage-dark uppercase" href="#">Pure Plus</a>
+<nav class="hidden items-center gap-8 text-xs font-semibold uppercase tracking-[0.24em] text-sage-dark/75 md:flex">
+<a class="transition hover:text-[#dcb88e]" href="#rituals">Rituals</a>
+<a class="transition hover:text-[#dcb88e]" href="#about">About</a>
+<a class="transition hover:text-[#dcb88e]" href="#reserve">Reserve</a>
+</nav>
+<a class="rounded-full bg-[#dcb88e] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#c9a379]" href="#reserve">Book</a>
+</div>
+</div>
+<!-- BEGIN: HeroSection -->
+<header class="relative flex min-h-[600px] h-screen items-center justify-start overflow-hidden pt-24">
+<!-- Hero Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Luxurious Spa Pool" class="w-full h-full object-cover object-center opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb-p0tkdEhptNkxrAbJHJRsnBhn2A8ZQSfAhy4Mu4fbbhg38ekGT0lAgPfo9gWurEq_DymoFBzvj-2oo4RvorpUvkp3ZODKoGkuLWTXmv_YnngxJ93SflThCgoAqLusDs6-OYySXkJShwf6aJYJCTVN3r7MdZRwFTNwojxLT3BSwErI1kVSUzFCl3xBoT7I2ajDJnb6u71ieHYSDG-E5BP1gPH3T5WRwLCSNRNFDRrRugrmvLYp9peXBiT_vwx38trIXHUd_pjlg0i"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 container mx-auto px-6 md:px-12 lg:px-24">
+<div class="max-w-2xl text-white">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-4 drop-shadow-md">
+          Pure Plus Spa: Mindful Sanctuary. Rediscover Inner Harmony in Bengaluru's Premier Wellness Haven.
+        </h1>
+<p class="text-lg md:text-xl font-light mb-8 drop-shadow-sm">
+          Exclusive Male-to-Male Wellness.
+        </p>
+<button class="btn-primary py-3 px-8 rounded-full text-lg font-medium shadow-lg hover:shadow-xl transition-shadow">
+          Begin Your Journey
+        </button>
+</div>
+</div>
+</header>
+<!-- END: HeroSection -->
+<!-- BEGIN: PathToHarmony Section -->
+<section class="py-20 px-6 container mx-auto" id="rituals">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-serif font-semibold text-sage-dark mb-4">Our Path to Harmony</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Service 1 -->
+<div class="flex flex-col items-center text-center group cursor-pointer">
+<div class="w-full h-64 mb-6 overflow-hidden rounded-lg shadow-md">
+<img alt="Body Therapy Rocks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRmL_XGYt63Vduui7yS4JkfVpYfW-hhsWkScsCLepIUgwpY4Uq2imH0Wl2U9gI4TmuR3D2TfNjlQfNDKBJHJTZAAeJQAhE6rcDzE5NRXUuZll4yZxOOFGVUvgE1T-M8-Obds4v4ndlVIQgOVWlKE-vPC3cf5LafUsJm-umHaqA2Q1aZTESxB-bPnemBJGdenSeIKkvflHy5s0kvnyQC3KgCs51niJqnk2scz2VU9Q-FXvyBAgaA7AGk7_u52O3BjQozO0BS94TEcUl"/>
+</div>
+<h3 class="text-xl font-serif font-semibold mb-3 text-sage-dark">BODY THERAPY</h3>
+<p class="text-gray-600 font-light leading-relaxed">
+          Mindful meditative paces, relax body, and heal your inner self.
+        </p>
+</div>
+<!-- Service 2 -->
+<div class="flex flex-col items-center text-center group cursor-pointer">
+<div class="w-full h-64 mb-6 overflow-hidden rounded-lg shadow-md">
+<img alt="Stress Relief Herbs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO93VDW9Hd9icVrRiC7epiMcm-9FxCBFCht_qqjBTbBgX7cdNqqQ8qTh4bsQuID4YHECpQV0Ynm2JBtHJPHj7sqIZwQ8_kYXbMJ7RkSvxVTKDIoMdOZho4GwJZuX8BH24pVmjeVjE86wi8hqgIFNszFy85o3eHPsmVTVMduess-DsqJEhrWRoB6m3_U49n4gte4X5fYjbKJLJP7IEnwttm0bN_iJzpaoW4iZCbQEOP-6rSDOFt1EnJgyiGUmhud9IPqS0RObXWOFm0"/>
+</div>
+<h3 class="text-xl font-serif font-semibold mb-3 text-sage-dark">STRESS RELIEF</h3>
+<p class="text-gray-600 font-light leading-relaxed">
+          Tension release with calming essential oils and soothing movements.
+        </p>
+</div>
+<!-- Service 3 -->
+<div class="flex flex-col items-center text-center group cursor-pointer">
+<div class="w-full h-64 mb-6 overflow-hidden rounded-lg shadow-md">
+<img alt="Deep Tissue Massage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaUPaQURQMm9x9klDq6ODNMF4gxJ_Ls8Zm2OktZRZvtac4e0R82r9A2xxlPviaPMjHOFakCc_zoHRzUc6duvb2bN5YGczLORvdXlbbfSmvMDU_lkBcX0JDg9AWwpOuWRKEpYI4Yhhd7s3r4v4l-S86_Grd6zgRhXi1iMLIsyrK1Zdez-UpijpRSVZkX-Dyc0EoNAU2evpnI-Pj9aNQU09V1mrqnmSb-aTH97XII3Rg9IJALnt1ztb43Txkxtw6WE_nXY_fOe1QNEzG"/>
+</div>
+<h3 class="text-xl font-serif font-semibold mb-3 text-sage-dark">DEEP TISSUE</h3>
+<p class="text-gray-600 font-light leading-relaxed">
+          Targeted massage movements addressing deep muscle layers and knots.
+        </p>
+</div>
+</div>
+</section>
+<!-- END: PathToHarmony Section -->
+<!-- BEGIN: AboutUs Section -->
+<section class="py-20 bg-beige px-6" id="about">
+<div class="container mx-auto">
+<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+<!-- Image Container -->
+<div class="w-full lg:w-1/2">
+<div class="rounded-2xl overflow-hidden shadow-xl">
+<img alt="Spa Therapist" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClrIo0HIa8l1WUFkXxkgXMOjL5B_NT8iiysUDsY1CD26yCAnDGqnHgkZQBO8JbCB1TMJAoIXvD4ysVnhEoLacs6saQzXJWUeT94QDA5kIQATTN34rUoirbKW9TAx1WqKRnToxlDPtLVUmKhDvHOi04kIQRHZK4avjYZT49vXfn5N3S6rp0o0VnbYMWdy0BzB-t7O8benrKbDvlcsXE6WK6xSOT2uBxjN7b4MmS8CnHT27h8Dq6tBJPvjdTuKBgFrarOXsdTOuOZc7t"/>
+</div>
+</div>
+<!-- Text Container -->
+<div class="w-full lg:w-1/2">
+<h2 class="text-3xl md:text-5xl font-serif font-semibold text-sage-dark mb-6 leading-tight">
+            About Us:<br/>Crafting Your<br/>Inner Sanctuary
+          </h2>
+<p class="text-gray-700 font-light text-lg mb-8 leading-relaxed">
+            Our commitment to mindful, restorative male treatments. Male-to-male treatments oriented towards genuine care, and we believe in our treatments and holistic methods to central therapies to achieve your true balance.
+          </p>
+<button class="btn-primary py-3 px-8 rounded-full font-medium shadow-md hover:shadow-lg transition-shadow">
+            Learn More
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutUs Section -->
+<!-- BEGIN: LargeSpa Image Section -->
+<section class="py-10">
+<div class="container mx-auto px-6">
+<div class="rounded-xl overflow-hidden shadow-2xl">
+<img alt="Beautiful Spa Interior Room" class="w-full h-auto object-cover max-h-[600px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK9ILjw7ZEc9J6FoA9-EYB9btf_gPSWeegXtUFZN3Y6U_75QCE2Iqzzlew08Zc1o6HqWtIduzkMYNCVAnlHhudtdYxyKLNlYeuC5_okFsZMkhDhZxK877v9xSRBO48IXDLsLP9rSi_Fh8L2SVxrBzUbYgFRibJUFWrpK8Mql0qpI1GQlLKo54mtygh9u-Hgz979TJrRgGmVpj6l-c4ugNI-ukgebbTcHrhKX-b9BJwcUryQ3i_Cmh5WpL8C-8dqnlBqNVfbqjpmg0C"/>
+</div>
+</div>
+</section>
+<!-- END: LargeSpa Image Section -->
+<!-- BEGIN: Reservation Section -->
+<section class="py-20 px-6 bg-beige" id="reserve">
+<div class="container mx-auto max-w-4xl">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-serif font-semibold text-sage-dark mb-4">Reserve Your Moment of Peace</h2>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Full Name -->
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1" for="fullName">Full Name</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sage-dark focus:ring-sage-dark bg-white py-2 px-3 sm:text-sm" id="fullName" name="fullName" placeholder="John Doe" type="text"/>
+</div>
+<!-- Phone Number -->
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1" for="phone">Phone Number</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sage-dark focus:ring-sage-dark bg-white py-2 px-3 sm:text-sm" id="phone" name="phone" placeholder="+91 00000 00000" type="tel"/>
+</div>
+<!-- Select Service -->
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1" for="service">Select Service</label>
+<select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sage-dark focus:ring-sage-dark bg-white py-2 px-3 sm:text-sm" id="service" name="service">
+<option>Select Service</option>
+<option>Body Therapy</option>
+<option>Stress Relief</option>
+<option>Deep Tissue</option>
+</select>
+</div>
+<!-- Date & Time -->
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1" for="datetime">Preferred Date &amp; Time</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sage-dark focus:ring-sage-dark bg-white py-2 px-3 sm:text-sm" id="datetime" name="datetime" type="datetime-local"/>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full btn-primary py-3 px-4 border border-transparent rounded-full shadow-sm text-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-dark" type="submit">
+            Secure Your Session
+          </button>
+</div>
+</form>
+</div>
+</section>
+<!-- END: Reservation Section -->
+<!-- BEGIN: Footer Section -->
+<footer class="bg-[#dcdfd9] py-16 px-6 text-gray-800">
+<div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl">
+<!-- Left: Map -->
+<div>
+<h3 class="text-2xl font-serif font-semibold mb-6 text-sage-dark">Find Your Sanctuary</h3>
+<div class="w-full h-64 bg-gray-300 rounded-lg overflow-hidden shadow-inner relative">
+<!-- Placeholder for map -->
+<img alt="Location Map" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtViLI7hAqyrL2xsEjCnRJTfcHnG2XwXlMK0fLjw26UmmPqHQDWXYAJzUlPMuT3gbzlFY1r3juHZWYB2gIFL3VUYBIR0MLKnWHhsMkRNOZ5WXqllqEO85vJdPM1xWCNfqTBsTrYBZRajwm5OEElj_2HjeJ5c_NWF0jS8-8bdz-0b1GRRrjNcb0_cSSsez5LP3j5IGDGYLFWoQNugYGmg1Z-kv--0LRX1UyfsWYPGqovlijv_iN071d35SdfKaie4q_tJCg5bb2vsSO"/>
+<!-- Fake map pin -->
+<div class="absolute inset-0 flex items-center justify-center">
+<svg class="w-8 h-8 text-[#dcb88e]" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path></svg>
+</div>
+</div>
+</div>
+<!-- Right: Contact Form -->
+<div>
+<h3 class="text-2xl font-serif font-semibold mb-6 text-sage-dark">Connect With Us</h3>
+<form class="space-y-4">
+<div>
+<input class="w-full rounded-md border-gray-300 shadow-sm focus:border-sage-dark focus:ring-sage-dark bg-white py-2 px-3" name="contactName" placeholder="Name" type="text"/>
+</div>
+<div>
+<input class="w-full rounded-md border-gray-300 shadow-sm focus:border-sage-dark focus:ring-sage-dark bg-white py-2 px-3" name="contactEmail" placeholder="Email" type="email"/>
+</div>
+<div>
+<textarea class="w-full rounded-md border-gray-300 shadow-sm focus:border-sage-dark focus:ring-sage-dark bg-white py-2 px-3" name="contactMessage" placeholder="Your Message" rows="3"></textarea>
+</div>
+<button class="btn-primary w-full py-2 px-4 rounded-md shadow-sm font-medium" type="submit">
+            Send
+          </button>
+</form>
+</div>
+</div>
+<!-- Copyright & Socials -->
+<div class="container mx-auto mt-12 pt-8 border-t border-gray-400/30 flex flex-col items-center">
+<!-- Social Icons Placeholder -->
+<div class="flex space-x-4 mb-4 text-gray-500">
+<a class="hover:text-sage-dark" href="#"><svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg></a>
+<a class="hover:text-sage-dark" href="#"><svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" fill-rule="evenodd"></path></svg></a>
+</div>
+<p class="text-sm font-light text-gray-500">© 2024 Pure Plus Spa. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- END: Footer Section -->
+</body></html>
